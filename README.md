@@ -7,21 +7,6 @@
   <img src="https://img.shields.io/badge/Chainlit-1.0+-purple.svg" alt="Chainlit">
 </p>
 
-## 🏛️ Overview
-
-RAG v3 is a **production-grade** Retrieval-Augmented Generation system for querying Vietnam Labor Law 2019. It features an **agentic architecture** with semantic routing, conversational memory, and hybrid search capabilities.
-
-### Key Features
-
-| Feature | Description |
-|---------|-------------|
-| 🎯 **Semantic Router** | LLM-based intent classification (CHAT vs LAW) |
-| 💬 **Conversational Memory** | CondensePlusContextChatEngine with query rewriting |
-| 🔍 **Hybrid Search** | Vector (Qdrant) + BM25 + Reciprocal Rank Fusion |
-| 🎯 **BGE Reranker** | BAAI/bge-reranker-v2-m3 for result refinement |
-| 📊 **Observability** | Arize Phoenix tracing integration |
-| ⚡ **Streaming** | Full async streaming from backend to frontend |
-
 ## 📁 Project Structure
 
 ```
@@ -63,9 +48,9 @@ RAG_v3/
 
 ### 1. Prerequisites
 
-- Python 3.10+
-- Qdrant Cloud account (or local Qdrant)
-- Google Gemini API key (or OpenAI)
+- Python 3.11 (conda env)
+- Qdrant Cloud account 
+- Groq API key 
 
 ### 2. Installation
 
@@ -74,14 +59,13 @@ RAG_v3/
 cd RAG_v3
 
 # Create virtual environment
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# or: venv\Scripts\activate  # Windows
+conda create -n RAG python=3.11
+conda activate RAG
 
 # Install dependencies
 pip install -r requirements.txt
 ```
-
+Lưu ý phần cài thư viện có  thể sẽ chia ra làm 2 phần để cài cho đỡ xung đột
 ### 3. Configuration
 
 ```bash
@@ -101,10 +85,10 @@ QDRANT_API_KEY=your-qdrant-api-key
 
 ### 4. Ingest Data
 
-Place your PDF in `data/VIETNAM_LABOR_LAW.pdf`, then run:
+Place your docx `data/..docx`, then run:
 
 ```bash
-python scripts/ingest.py --pdf data/VIETNAM_LABOR_LAW.pdf
+python scripts/ingest.py --pdf data/...docx
 ```
 
 ### 5. Start Backend Server
@@ -131,46 +115,6 @@ chainlit run app.py --port 8501
 ```
 
 Visit http://localhost:8501 to start chatting!
-
-## 🔌 API Endpoints
-
-### POST /chat
-Main chat endpoint with semantic routing.
-
-```json
-{
-  "message": "Thời gian làm việc tối đa trong một tuần?",
-  "session_id": "optional-session-id",
-  "stream": false,
-  "skip_routing": false
-}
-```
-
-Response:
-```json
-{
-  "answer": "Theo Điều 105, Khoản 1...",
-  "intent": "LAW",
-  "source_nodes": [...],
-  "session_id": "..."
-}
-```
-
-### POST /query
-Simple query (backward compatible with v2).
-
-```json
-{
-  "question": "Quyền của người lao động?",
-  "top_k": 5
-}
-```
-
-### POST /reset-memory
-Reset conversation history.
-
-### GET /health
-Health check endpoint.
 
 ## 🏗️ Architecture
 
@@ -231,24 +175,10 @@ ENABLE_TRACING=true
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `LLM_PROVIDER` | `gemini` | LLM provider (gemini/openai) |
-| `LLM_MODEL_GEMINI` | `models/gemini-1.5-flash` | Gemini model |
-| `LLM_MODEL_OPENAI` | `gpt-4o-mini` | OpenAI model |
+| `LLM_PROVIDER` | `groq` | LLM provider (gemini/openai/groq) |
 | `EMBEDDING_MODEL` | `bkai-foundation-models/vietnamese-bi-encoder` | Vietnamese embedding |
 | `RERANKER_MODEL` | `BAAI/bge-reranker-v2-m3` | Reranker model |
 | `VECTOR_TOP_K` | `20` | Vector search results |
 | `BM25_TOP_K` | `20` | BM25 search results |
 | `RERANKER_TOP_N` | `5` | Final reranked results |
 | `RRF_K` | `60` | RRF fusion constant |
-
-## 📝 License
-
-MIT License - See LICENSE file for details.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
