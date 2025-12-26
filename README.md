@@ -79,6 +79,7 @@ nano .env  # or use your preferred editor
 Required environment variables:
 ```env
 GEMINI_API_KEY=your-gemini-api-key
+GROQ_API_KEY=your-groq-api-key
 QDRANT_URL=https://your-cluster.qdrant.io
 QDRANT_API_KEY=your-qdrant-api-key
 ```
