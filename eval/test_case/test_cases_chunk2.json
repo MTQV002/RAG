@@ -1,0 +1,58 @@
+[
+    {
+        "id": "TC006",
+        "category": "factual",
+        "question": "Thời gian làm thêm giờ tối đa trong ngày là bao nhiêu?",
+        "keywords": [
+            "4 giờ",
+            "50%"
+        ],
+        "expected_article": "Điều 107",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC007",
+        "category": "factual",
+        "question": "Tuổi nghỉ hưu của nam giới hiện tại là bao nhiêu?",
+        "keywords": [
+            "60 tuổi",
+            "62 tuổi"
+        ],
+        "expected_article": "Điều 169",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC008",
+        "category": "factual",
+        "question": "Tuổi nghỉ hưu của nữ giới hiện tại là bao nhiêu?",
+        "keywords": [
+            "55 tuổi",
+            "60 tuổi"
+        ],
+        "expected_article": "Điều 169",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC009",
+        "category": "factual",
+        "question": "Lương thử việc tối thiểu bằng bao nhiêu phần trăm lương chính thức?",
+        "keywords": [
+            "85%",
+            "85 phần trăm"
+        ],
+        "expected_article": "Điều 26",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC010",
+        "category": "factual",
+        "question": "Người lao động phải báo trước bao nhiêu ngày khi nghỉ việc?",
+        "keywords": [
+            "30 ngày",
+            "45 ngày",
+            "3 ngày"
+        ],
+        "expected_article": "Điều 35",
+        "expected_doc": "BLLĐ"
+    }
+]

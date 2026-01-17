@@ -1,12 +1,3 @@
-"""
-RAG v3 - Chat Engine with Semantic Router
-==========================================
-Production-grade chat engine featuring:
-- Semantic Intent Router (CHAT vs LAW)
-- CondensePlusContextChatEngine for conversational RAG
-- Query Rewriting for follow-up questions
-- Full streaming support
-"""
 from typing import List, Optional, AsyncGenerator, Tuple
 from enum import Enum
 from dataclasses import dataclass
@@ -16,113 +7,101 @@ from llama_index.core.chat_engine import CondensePlusContextChatEngine
 from llama_index.core.memory import ChatMemoryBuffer
 from llama_index.core.llms import ChatMessage, MessageRole
 from llama_index.core.schema import TextNode, NodeWithScore
-from llama_index.core.base.response.schema import StreamingResponse
 
 from src.config import settings
 from src.engine.components import get_llm, get_embed_model, get_reranker, get_vector_store
-from src.engine.retriever import HybridRetriever, HybridRetrieverFactory
+from src.engine.retriever import HybridRetrieverFactory
 
+
+# =============================================================================
+# INTENT TYPES
+# =============================================================================
 
 class IntentType(str, Enum):
-    """Intent types for semantic routing"""
-    CHAT = "CHAT"   # General conversation
-    LAW = "LAW"     # Legal questions requiring RAG
+    CHAT = "CHAT"  # Chào hỏi, hỏi chung
+    LAW = "LAW"    # Câu hỏi pháp luật 
 
 
 @dataclass
 class RouterResult:
-    """Result from semantic router"""
     intent: IntentType
     confidence: float
     reasoning: str
 
 
-# ============================================================================
+# =============================================================================
 # PROMPTS
-# ============================================================================
+# =============================================================================
 
-ROUTER_PROMPT = """Bạn là bộ phân loại ý định (intent classifier). Nhiệm vụ của bạn là xác định xem câu hỏi của người dùng thuộc loại nào.
+# Prompt phân loại intent
+ROUTER_PROMPT = """Bạn là bộ phân loại ý định. Xác định câu hỏi thuộc loại nào:
+1. **LAW**: Câu hỏi về pháp luật lao động Việt Nam
+2. **CHAT**: Chào hỏi, câu hỏi chung không liên quan đến luật
 
-Có 2 loại ý định:
-1. **LAW**: Câu hỏi về pháp luật lao động Việt Nam, quyền và nghĩa vụ người lao động, hợp đồng lao động, tiền lương, thời gian làm việc, sa thải, bảo hiểm xã hội, v.v.
-2. **CHAT**: Chào hỏi, hỏi thăm, câu hỏi chung không liên quan đến luật lao động, hoặc yêu cầu giải thích về hệ thống.
+QUAN TRỌNG: Nếu có lịch sử về pháp luật và câu hỏi hiện tại là follow-up, phân loại là LAW.
 
-Trả lời CHÍNH XÁC theo định dạng:
-INTENT: [LAW hoặc CHAT]
-CONFIDENCE: [0.0-1.0]
-REASONING: [Giải thích ngắn gọn tại sao]
-
+Lịch sử: {chat_history}
 Câu hỏi: {query}
 
-Phân loại:"""
+Trả lời:
+INTENT: [LAW hoặc CHAT]
+CONFIDENCE: [0.0-1.0]
+REASONING: [Giải thích ngắn]"""
 
-CONDENSE_PROMPT = """Cho lịch sử hội thoại và câu hỏi tiếp theo của người dùng, hãy viết lại câu hỏi thành một câu hỏi độc lập, đầy đủ ngữ cảnh.
+# Prompt rewrite câu hỏi follow-up thành câu độc lập
+CONDENSE_PROMPT = """Cho lịch sử và câu hỏi tiếp theo, viết lại thành câu hỏi độc lập.
 
-Lịch sử hội thoại:
-{chat_history}
+QUY TẮC QUAN TRỌNG:
+1. PHẢI GIỮ NGUYÊN các từ khóa pháp lý: sáp nhập, tái cơ cấu, mang thai, thai sản, nghỉ hưu, sa thải, độc hại, BHTN, BHXH, trợ cấp, hợp đồng
+2. PHẢI GIỮ NGUYÊN các con số: số năm làm việc, số tiền lương, tuổi, thời gian đóng bảo hiểm
+3. PHẢI GIỮ NGUYÊN lý do nghỉ việc nếu có đề cập
+4. Chỉ viết lại để câu hỏi rõ ràng hơn, KHÔNG THAY ĐỔI ý nghĩa
 
-Câu hỏi tiếp theo: {question}
-
-Nếu câu hỏi tiếp theo đã đầy đủ ngữ cảnh, hãy giữ nguyên.
-Nếu câu hỏi dùng đại từ (nó, họ, điều đó...) hoặc thiếu ngữ cảnh, hãy viết lại cho rõ ràng.
+Lịch sử: {chat_history}
+Câu hỏi: {question}
 
 Câu hỏi đã viết lại:"""
 
-CONTEXT_PROMPT = """Bạn là trợ lý AI chuyên gia về Luật Lao động Việt Nam 2019. Nhiệm vụ của bạn là trả lời câu hỏi dựa trên các điều khoản pháp luật được cung cấp.
+# Prompt hướng dẫn LLM trả lời dựa trên context pháp luật
+CONTEXT_PROMPT = """Bạn là trợ lý AI chuyên gia về Pháp luật Lao động Việt Nam.
+
+CƠ SỞ DỮ LIỆU: Bộ luật Lao động 2019, Luật ATVSLĐ 2015, Luật BHXH 2024, Luật Việc làm 2024, NĐ145/2020, NĐ12/2022, NĐ293/2025
 
 NGUYÊN TẮC TRẢ LỜI:
-1. Chỉ dựa vào các điều khoản được cung cấp bên dưới
-2. Trích dẫn chính xác số Điều, Khoản khi trả lời (ví dụ: "Theo Điều 5, Khoản 2...")
-3. Trả lời bằng tiếng Việt, rõ ràng, ngắn gọn và dễ hiểu
-4. Nếu không tìm thấy thông tin chính xác, hãy nói rõ điều đó
-5. Không bịa đặt hoặc suy luận ngoài nội dung được cung cấp
+1. Chỉ dựa vào điều khoản được cung cấp
+2. Trích dẫn tên văn bản, số Điều, Khoản
+3. Trả lời tiếng Việt, rõ ràng, ngắn gọn
+4. Nếu không có thông tin, trả lời 'Câu hỏi của bạn không nằm trong phạm vi của tôi.'
 
-CÁC ĐIỀU KHOẢN LIÊN QUAN:
-{context_str}
+QUY TẮC TÍNH TOÁN TRỢ CẤP (nếu hỏi về trợ cấp):
+- Trợ cấp THÔI VIỆC (Điều 46): 0.5 tháng lương × số năm = khi tự nghỉ, hết hạn HĐ
+- Trợ cấp MẤT VIỆC LÀM (Điều 47): 1 tháng lương × số năm, tối thiểu 2 tháng = khi sáp nhập, tái cơ cấu, cắt giảm
+- Thời gian tính = Tổng thời gian làm việc - Thời gian đóng BHTN
+- Làm tròn: dưới 6 tháng → 0.5 năm, từ 6 tháng → 1 năm
+- Trợ cấp thất nghiệp (Điều 50 Luật VL): 60% lương × số tháng (mỗi 12 tháng đóng = 3 tháng hưởng)
 
-Hãy trả lời câu hỏi một cách chính xác và hữu ích."""
+CÁC ĐIỀU KHOẢN:
+{context_str}"""
 
-CHAT_RESPONSE_PROMPT = """Bạn là trợ lý AI thân thiện về Luật Lao động Việt Nam. Hãy trả lời câu hỏi chung hoặc chào hỏi của người dùng một cách thân thiện và chuyên nghiệp.
+# Prompt cho CHAT intent (không cần RAG)
+CHAT_RESPONSE_PROMPT = """Bạn là trợ lý AI thân thiện về Pháp luật Lao động Việt Nam. Trả lời câu hỏi chung hoặc chào hỏi.
 
-Nếu người dùng hỏi về khả năng của bạn, hãy giải thích rằng bạn có thể:
-- Trả lời câu hỏi về Luật Lao động Việt Nam 2019
-- Tra cứu các điều khoản về quyền và nghĩa vụ người lao động
-- Giải thích về hợp đồng lao động, tiền lương, thời gian làm việc
-- Tư vấn về các quy định sa thải, bảo hiểm xã hội
+Nếu hỏi về khả năng, giải thích bạn có thể trả lời về Bộ luật Lao động, Luật BHXH, hợp đồng lao động, tiền lương, v.v.
 
+Lịch sử: {chat_history}
 Câu hỏi: {query}
+Trả lời:"""
 
-Trả lời (bằng tiếng Việt):"""
 
+# =============================================================================
+# SEMANTIC ROUTER - Phân loại intent LAW/CHAT
+# =============================================================================
 
 class SemanticRouter:
-    """
-    Semantic Router for intent classification.
-    
-    Uses LLM to classify user queries into:
-    - CHAT: General conversation (respond directly)
-    - LAW: Legal questions (trigger RAG pipeline)
-    """
-    
     def __init__(self, llm=None):
         self.llm = llm or get_llm()
     
-    def route(self, query: str) -> RouterResult:
-        """
-        Classify query intent.
-        
-        Args:
-            query: User's question
-            
-        Returns:
-            RouterResult with intent type, confidence, and reasoning
-        """
-        prompt = ROUTER_PROMPT.format(query=query)
-        
-        response = self.llm.complete(prompt)
-        response_text = str(response)
-        
-        # Parse response
+    def _parse_response(self, response_text: str) -> RouterResult:
         try:
             lines = response_text.strip().split('\n')
             intent_line = next((l for l in lines if l.startswith('INTENT:')), None)
@@ -131,74 +110,44 @@ class SemanticRouter:
             
             intent_str = intent_line.split(':')[1].strip().upper() if intent_line else "LAW"
             confidence = float(confidence_line.split(':')[1].strip()) if confidence_line else 0.8
-            reasoning = reasoning_line.split(':', 1)[1].strip() if reasoning_line else "Classified based on query content"
+            reasoning = reasoning_line.split(':', 1)[1].strip() if reasoning_line else ""
             
-            intent = IntentType.LAW if intent_str == "LAW" else IntentType.CHAT
-            
-        except Exception as e:
-            print(f"⚠️ Router parsing error: {e}, defaulting to LAW")
-            intent = IntentType.LAW
-            confidence = 0.5
-            reasoning = f"Parsing error, defaulting to LAW: {str(e)}"
-        
-        return RouterResult(intent=intent, confidence=confidence, reasoning=reasoning)
+            return RouterResult(
+                intent=IntentType.LAW if intent_str == "LAW" else IntentType.CHAT,
+                confidence=confidence,
+                reasoning=reasoning
+            )
+        except Exception:
+            return RouterResult(intent=IntentType.LAW, confidence=0.5, reasoning="Parse error")
     
-    async def aroute(self, query: str) -> RouterResult:
-        """Async version of route"""
-        prompt = ROUTER_PROMPT.format(query=query)
-        
+    def route(self, query: str, chat_history: str = "") -> RouterResult:
+        """Sync routing"""
+        prompt = ROUTER_PROMPT.format(query=query, chat_history=chat_history or "(Chưa có)")
+        response = self.llm.complete(prompt)
+        return self._parse_response(str(response))
+    
+    async def aroute(self, query: str, chat_history: str = "") -> RouterResult:
+        """Async routing"""
+        prompt = ROUTER_PROMPT.format(query=query, chat_history=chat_history or "(Chưa có)")
         response = await self.llm.acomplete(prompt)
-        response_text = str(response)
-        
-        # Parse response (same logic as sync)
-        try:
-            lines = response_text.strip().split('\n')
-            intent_line = next((l for l in lines if l.startswith('INTENT:')), None)
-            confidence_line = next((l for l in lines if l.startswith('CONFIDENCE:')), None)
-            reasoning_line = next((l for l in lines if l.startswith('REASONING:')), None)
-            
-            intent_str = intent_line.split(':')[1].strip().upper() if intent_line else "LAW"
-            confidence = float(confidence_line.split(':')[1].strip()) if confidence_line else 0.8
-            reasoning = reasoning_line.split(':', 1)[1].strip() if reasoning_line else "Classified based on query content"
-            
-            intent = IntentType.LAW if intent_str == "LAW" else IntentType.CHAT
-            
-        except Exception as e:
-            print(f"⚠️ Router parsing error: {e}, defaulting to LAW")
-            intent = IntentType.LAW
-            confidence = 0.5
-            reasoning = f"Parsing error, defaulting to LAW: {str(e)}"
-        
-        return RouterResult(intent=intent, confidence=confidence, reasoning=reasoning)
+        return self._parse_response(str(response))
 
+
+# =============================================================================
+# CHAT ENGINE MANAGER - Quản lý toàn bộ RAG pipeline
+# =============================================================================
 
 class ChatEngineManager:
     """
-    Main Chat Engine Manager for RAG v3.
-    
-    Features:
-    - Semantic routing (CHAT vs LAW intents)
-    - CondensePlusContextChatEngine for conversational RAG
-    - Hybrid retrieval (Vector + BM25)
-    - Reranking for result refinement
-    - Streaming support
+    Luồng xử lý:
+    1. Router phân loại intent (LAW/CHAT)
+    2. Nếu CHAT → LLM trả lời trực tiếp
+    3. Nếu LAW → Hybrid Search → Rerank → LLM generate với context
     """
     
-    def __init__(
-        self,
-        nodes: Optional[List[TextNode]] = None,
-        memory_token_limit: int = 4096
-    ):
-        """
-        Initialize ChatEngineManager.
-        
-        Args:
-            nodes: Document nodes for BM25 retriever
-            memory_token_limit: Max tokens for conversation memory
-        """
+    def __init__(self, nodes: Optional[List[TextNode]] = None):
         self.nodes = nodes or []
-        self.memory_token_limit = memory_token_limit
-        
+        self.memory_token_limit = settings.MEMORY_TOKEN_LIMIT        
         self.llm = None
         self.embed_model = None
         self.reranker = None
@@ -206,22 +155,17 @@ class ChatEngineManager:
         self.hybrid_retriever = None
         self.chat_engine = None
         self.memory = None
-        
+        self.vector_store = None
         self._initialized = False
     
     def initialize(self, nodes: Optional[List[TextNode]] = None):
-        """
-        Initialize all components.
-        
-        Args:
-            nodes: Optional document nodes (overrides constructor nodes)
-        """
+        """Khởi tạo tất cả components"""
         if nodes:
             self.nodes = nodes
         
         print("🚀 Initializing Chat Engine Manager...")
         
-        # 1. Initialize core components
+        # Load models
         print("[1/6] Loading LLM...")
         self.llm = get_llm()
         
@@ -231,36 +175,28 @@ class ChatEngineManager:
         print("[3/6] Loading reranker...")
         self.reranker = get_reranker()
         
-        # 2. Initialize router
+        # Router để phân loại intent
         print("[4/6] Initializing semantic router...")
         self.router = SemanticRouter(self.llm)
         
-        # 3. Create vector store index
+        # Vector store + Hybrid retriever
         print("[5/6] Creating vector index and hybrid retriever...")
-        vector_store = get_vector_store()
+        self.vector_store = get_vector_store()
         index = VectorStoreIndex.from_vector_store(
-            vector_store=vector_store,
+            vector_store=self.vector_store,
             embed_model=self.embed_model,
         )
         
-        # 4. Create hybrid retriever
         if self.nodes:
-            self.hybrid_retriever = HybridRetrieverFactory.create_from_index(
-                index=index,
-                nodes=self.nodes,
-            )
+            # Hybrid = Vector + BM25 + RRF fusion
+            self.hybrid_retriever = HybridRetrieverFactory.create_from_index(index=index, nodes=self.nodes)
         else:
-            # If no nodes provided, use vector-only retriever
             print("⚠️ No nodes provided, using vector-only retrieval")
-            self.hybrid_retriever = index.as_retriever(
-                similarity_top_k=settings.VECTOR_TOP_K
-            )
+            self.hybrid_retriever = index.as_retriever(similarity_top_k=settings.VECTOR_TOP_K)
         
-        # 5. Create chat engine with memory
+        # Chat engine với memory
         print("[6/6] Creating chat engine with memory...")
-        self.memory = ChatMemoryBuffer.from_defaults(
-            token_limit=self.memory_token_limit
-        )
+        self.memory = ChatMemoryBuffer.from_defaults(token_limit=self.memory_token_limit)
         
         self.chat_engine = CondensePlusContextChatEngine.from_defaults(
             retriever=self.hybrid_retriever,
@@ -276,180 +212,119 @@ class ChatEngineManager:
         print("✅ Chat Engine Manager initialized successfully!")
     
     def _ensure_initialized(self):
-        """Ensure engine is initialized"""
         if not self._initialized:
             raise RuntimeError("ChatEngineManager not initialized. Call initialize() first.")
     
-    def reset_memory(self):
+    def reset(self):
         """Reset conversation memory"""
         self._ensure_initialized()
         self.memory.reset()
-        print("🔄 Conversation memory reset")
     
-    def get_chat_history(self) -> List[ChatMessage]:
-        """Get current chat history"""
-        self._ensure_initialized()
-        return self.memory.get_all()
-    
-    def _handle_chat_intent(self, query: str) -> str:
-        """
-        Handle CHAT intent (general conversation).
-        
-        Args:
-            query: User's question
-            
-        Returns:
-            LLM response for general conversation
-        """
+    def _get_recent_history(self, max_turns: int = 3) -> str:
+        """Lấy lịch sử gần đây để router có context"""
         try:
-            prompt = CHAT_RESPONSE_PROMPT.format(query=query)
-            response = self.llm.complete(prompt)
-            # Extract text from response (handle both .text attribute and string conversion)
-            if hasattr(response, 'text'):
-                return response.text or ""
-            return str(response) if response else ""
-        except Exception as e:
-            print(f"❌ LLM Error in _handle_chat_intent: {e}")
-            return "Xin lỗi, tôi gặp lỗi khi kết nối với dịch vụ AI. Vui lòng thử lại sau."
+            messages = self.memory.get_all()
+            if not messages:
+                return ""
+            recent = messages[-(max_turns * 2):]
+            lines = []
+            for msg in recent:
+                role = "Người dùng" if msg.role == MessageRole.USER else "Trợ lý"
+                content = msg.content[:200] + "..." if len(msg.content) > 200 else msg.content
+                lines.append(f"{role}: {content}")
+            return "\n".join(lines)
+        except Exception:
+            return ""
     
-    async def _ahandle_chat_intent(self, query: str) -> str:
-        """Async version of _handle_chat_intent"""
-        try:
-            prompt = CHAT_RESPONSE_PROMPT.format(query=query)
-            response = await self.llm.acomplete(prompt)
-            # Extract text from response (handle both .text attribute and string conversion)
-            if hasattr(response, 'text'):
-                return response.text or ""
-            return str(response) if response else ""
-        except Exception as e:
-            print(f"❌ LLM Error in _ahandle_chat_intent: {e}")
-            return "Xin lỗi, tôi gặp lỗi khi kết nối với dịch vụ AI. Vui lòng thử lại sau."
+    def _handle_chat_intent(self, query: str, chat_history: str = "") -> str:
+        """Xử lý CHAT intent - không cần RAG"""
+        prompt = CHAT_RESPONSE_PROMPT.format(query=query, chat_history=chat_history or "(Chưa có)")
+        response = self.llm.complete(prompt)
+        return response.text if hasattr(response, 'text') else str(response)
     
-    def chat(
-        self,
-        query: str,
-        skip_routing: bool = False
-    ) -> Tuple[str, IntentType, List[NodeWithScore]]:
+    async def _ahandle_chat_intent(self, query: str, chat_history: str = "") -> str:
+        """Async version"""
+        prompt = CHAT_RESPONSE_PROMPT.format(query=query, chat_history=chat_history or "(Chưa có)")
+        response = await self.llm.acomplete(prompt)
+        return response.text if hasattr(response, 'text') else str(response)
+    
+    # =========================================================================
+    # MAIN CHAT METHODS
+    # =========================================================================
+    
+    def chat(self, query: str, skip_routing: bool = False) -> Tuple[str, IntentType, List[NodeWithScore]]:
         """
-        Process a chat message.
-        
-        Args:
-            query: User's question
-            skip_routing: If True, always use RAG pipeline
-            
-        Returns:
-            Tuple of (response_text, intent_type, source_nodes)
+        Sync chat method
+        Returns: (response_text, intent, source_nodes)
         """
         self._ensure_initialized()
-        
-        source_nodes = []
-        
-        # Step 1: Route intent (unless skipped)
-        if skip_routing:
-            intent = IntentType.LAW
-            print(f"⏭️ Routing skipped, using LAW intent")
-        else:
-            router_result = self.router.route(query)
-            intent = router_result.intent
-            print(f"🎯 Router: {intent.value} (confidence: {router_result.confidence:.2f})")
-        
-        # Step 2: Handle based on intent
-        if intent == IntentType.CHAT:
-            response_text = self._handle_chat_intent(query)
-            print(f"💬 CHAT response_text type: {type(response_text)}, value: {repr(response_text)}")
-            # Add to memory for context
-            self.memory.put(ChatMessage(role=MessageRole.USER, content=query))
-            self.memory.put(ChatMessage(role=MessageRole.ASSISTANT, content=response_text or ""))
-        else:
-            # Use RAG chat engine
-            response = self.chat_engine.chat(query)
-            response_text = str(response) if response else ""
-            print(f"⚖️ LAW response_text type: {type(response_text)}, value: {repr(response_text[:100] if response_text else 'None')}")
-            source_nodes = response.source_nodes if hasattr(response, 'source_nodes') else []
-        
-        # Ensure response_text is never None
-        response_text = response_text or "Xin lỗi, tôi không thể tạo câu trả lời lúc này."
-        print(f"✅ Final response_text type: {type(response_text)}, length: {len(response_text)}")
-        return response_text, intent, source_nodes
-    
-    async def achat(
-        self,
-        query: str,
-        skip_routing: bool = False
-    ) -> Tuple[str, IntentType, List[NodeWithScore]]:
-        """
-        Async version of chat.
-        
-        Args:
-            query: User's question
-            skip_routing: If True, always use RAG pipeline
-            
-        Returns:
-            Tuple of (response_text, intent_type, source_nodes)
-        """
-        self._ensure_initialized()
-        
         source_nodes = []
         
         # Step 1: Route intent
         if skip_routing:
             intent = IntentType.LAW
-            print(f"⏭️ Routing skipped, using LAW intent")
         else:
-            router_result = await self.router.aroute(query)
+            router_result = self.router.route(query, self._get_recent_history())
             intent = router_result.intent
             print(f"🎯 Router: {intent.value} (confidence: {router_result.confidence:.2f})")
         
         # Step 2: Handle based on intent
         if intent == IntentType.CHAT:
-            response_text = await self._ahandle_chat_intent(query)
-            print(f"💬 CHAT response_text type: {type(response_text)}, value: {repr(response_text)}")
+            response_text = self._handle_chat_intent(query, self._get_recent_history())
+            self.memory.put(ChatMessage(role=MessageRole.USER, content=query))
+            self.memory.put(ChatMessage(role=MessageRole.ASSISTANT, content=response_text or ""))
+        else:
+            # LAW intent → Use RAG chat engine
+            response = self.chat_engine.chat(query)
+            response_text = str(response) if response else ""
+            source_nodes = response.source_nodes if hasattr(response, 'source_nodes') else []
+        
+        return response_text or "Xin lỗi, tôi không thể tạo câu trả lời.", intent, source_nodes
+    
+    async def achat(self, query: str, skip_routing: bool = False) -> Tuple[str, IntentType, List[NodeWithScore]]:
+        """Async chat method"""
+        self._ensure_initialized()
+        source_nodes = []
+        
+        if skip_routing:
+            intent = IntentType.LAW
+        else:
+            router_result = await self.router.aroute(query, self._get_recent_history())
+            intent = router_result.intent
+            print(f"🎯 Router: {intent.value} (confidence: {router_result.confidence:.2f})")
+
+        if intent == IntentType.CHAT:
+            response_text = await self._ahandle_chat_intent(query, self._get_recent_history())
             self.memory.put(ChatMessage(role=MessageRole.USER, content=query))
             self.memory.put(ChatMessage(role=MessageRole.ASSISTANT, content=response_text or ""))
         else:
             response = await self.chat_engine.achat(query)
             response_text = str(response) if response else ""
-            print(f"⚖️ LAW response_text type: {type(response_text)}, value: {repr(response_text[:100] if response_text else 'None')}")
             source_nodes = response.source_nodes if hasattr(response, 'source_nodes') else []
         
-        # Ensure response_text is never None
-        response_text = response_text or "Xin lỗi, tôi không thể tạo câu trả lời lúc này."
-        print(f"✅ Final response_text type: {type(response_text)}, length: {len(response_text)}")
-        return response_text, intent, source_nodes
+        return response_text or "Xin lỗi, tôi không thể tạo câu trả lời.", intent, source_nodes
     
     async def astream_chat(
-        self,
-        query: str,
-        skip_routing: bool = False
+        self, query: str, skip_routing: bool = False
     ) -> AsyncGenerator[Tuple[str, Optional[IntentType], Optional[List[NodeWithScore]]], None]:
         """
-        Stream chat response asynchronously.
-        
-        Yields chunks of response text, then final metadata.
-        
-        Args:
-            query: User's question
-            skip_routing: If True, always use RAG pipeline
-            
-        Yields:
-            Tuple of (text_chunk, intent_type, source_nodes)
-            - During streaming: (chunk, None, None)
-            - Final yield: ("", intent, source_nodes)
+        Streaming chat - yield từng chunk text
+        Cuối cùng yield intent và source_nodes
         """
         self._ensure_initialized()
         
-        # Step 1: Route intent
+        # Route intent
         if skip_routing:
             intent = IntentType.LAW
         else:
-            router_result = await self.router.aroute(query)
+            router_result = await self.router.aroute(query, self._get_recent_history())
             intent = router_result.intent
             print(f"🎯 Router: {intent.value} (confidence: {router_result.confidence:.2f})")
         
-        # Step 2: Handle based on intent
         if intent == IntentType.CHAT:
-            # For CHAT, stream from LLM directly
-            prompt = CHAT_RESPONSE_PROMPT.format(query=query)
+            # Stream từ LLM trực tiếp
+            chat_history = self._get_recent_history() or "(Chưa có)"
+            prompt = CHAT_RESPONSE_PROMPT.format(query=query, chat_history=chat_history)
             full_response = ""
             
             async for chunk in await self.llm.astream_complete(prompt):
@@ -457,34 +332,30 @@ class ChatEngineManager:
                 full_response += chunk_text
                 yield chunk_text, None, None
             
-            # Add to memory
             self.memory.put(ChatMessage(role=MessageRole.USER, content=query))
             self.memory.put(ChatMessage(role=MessageRole.ASSISTANT, content=full_response))
-            
-            # Final yield with metadata
             yield "", intent, []
         else:
-            # Use RAG chat engine streaming
+            # Stream từ RAG chat engine
             streaming_response = await self.chat_engine.astream_chat(query)
             source_nodes = []
             
             async for chunk in streaming_response.async_response_gen():
                 yield chunk, None, None
             
-            # Get source nodes after streaming
             if hasattr(streaming_response, 'source_nodes'):
                 source_nodes = streaming_response.source_nodes
-            
-            # Final yield with metadata
             yield "", intent, source_nodes
 
 
-# Singleton instance for FastAPI lifespan
+# =============================================================================
+# SINGLETON PATTERN
+# =============================================================================
+
 _chat_engine_manager: Optional[ChatEngineManager] = None
 
 
 def get_chat_engine_manager() -> ChatEngineManager:
-    """Get or create ChatEngineManager singleton"""
     global _chat_engine_manager
     if _chat_engine_manager is None:
         _chat_engine_manager = ChatEngineManager()
@@ -492,6 +363,5 @@ def get_chat_engine_manager() -> ChatEngineManager:
 
 
 def set_chat_engine_manager(manager: ChatEngineManager):
-    """Set ChatEngineManager singleton"""
     global _chat_engine_manager
     _chat_engine_manager = manager

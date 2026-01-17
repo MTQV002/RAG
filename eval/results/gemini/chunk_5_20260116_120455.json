@@ -1,0 +1,120 @@
+{
+  "timestamp": "2026-01-16T12:04:55.540024",
+  "model": "gemini-2.5-flash",
+  "total_tests": 5,
+  "summary": {
+    "avg_rag_latency_ms": 13218.0,
+    "avg_gemini_latency_ms": 10577.0,
+    "avg_rag_words": 116.4,
+    "avg_gemini_words": 329.2,
+    "rag_citation_rate": 100.0,
+    "gemini_citation_rate": 100.0
+  },
+  "results": [
+    {
+      "test_id": "TC021",
+      "question": "So sánh thời gian nghỉ thai sản của lao động nữ thường và lao động nữ sinh đôi?",
+      "rag_answer": "Theo Điều 139 của Bộ luật Lao động, thời gian nghỉ thai sản của lao động nữ thường là 06 tháng. Trong khi đó, lao động nữ sinh đôi trở lên sẽ được nghỉ thêm 01 tháng cho mỗi con tính từ con thứ 2 trở đi. \n\nVí dụ, lao động nữ sinh đôi sẽ được nghỉ 07 tháng (06 tháng + 01 tháng cho con thứ 2), lao động nữ sinh ba sẽ được nghỉ 08 tháng (06 tháng + 01 tháng cho con thứ 2 + 01 tháng cho con thứ 3), và così tiếp theo.",
+      "gemini_answer": "Thời gian nghỉ thai sản của lao động nữ tại Việt Nam được quy định tại **Bộ luật Lao động 2019** và **Luật Bảo hiểm xã hội 2014**. Có sự khác biệt về thời gian nghỉ giữa trường hợp sinh một con và sinh đôi.\n\nDưới đây là so sánh cụ thể:\n\n### 1. Lao động nữ sinh một con (thường)\n\n*   **Thời gian nghỉ:** Lao động nữ được nghỉ thai sản trước và sau khi sinh tổng cộng **06 tháng**.\n*   **Cơ sở pháp lý:**\n    *   **Khoản 1 Điều 139 Bộ luật Lao động 2019:** \"Lao động nữ được hưởng chế độ thai sản theo quy định của pháp luật về bảo hiểm xã hội.\"\n    *   **Khoản 1 Điều 34 Luật Bảo hiểm xã hội 2014:** \"Lao động nữ sinh con được nghỉ việc hưởng chế độ thai sản trước và sau khi sinh con là 06 tháng.\"\n*   **Lưu ý:** Thời gian nghỉ trước khi sinh tối đa không quá 02 tháng.\n\n### 2. Lao động nữ sinh đôi\n\n*   **Thời gian nghỉ:** Lao động nữ sinh đôi được nghỉ thai sản tổng cộng **07 tháng**.\n*   **Cơ sở pháp lý:**\n    *   **Khoản 1 Điều 139 Bộ luật Lao động 2019:** \"Trường hợp lao động nữ sinh đôi trở lên thì tính từ con thứ hai trở đi, cứ mỗi con, người mẹ được nghỉ thêm 01 tháng.\"\n    *   **Khoản 1 Điều 34 Luật Bảo hiểm xã hội 2014:** \"Trường hợp lao động nữ sinh đôi trở lên thì tính từ con thứ hai trở đi, cứ mỗi con, người mẹ được nghỉ thêm 01 tháng.\"\n*   **Giải thích:** 06 tháng cho con thứ nhất và thêm 01 tháng cho con thứ hai, tổng cộng là 07 tháng.\n*   **Lưu ý:** Thời gian nghỉ trước khi sinh tối đa không quá 02 tháng.\n\n### Tóm tắt sự khác biệt chính:\n\n*   **Sinh một con:** Tổng thời gian nghỉ thai sản là **06 tháng**.\n*   **Sinh đôi:** Tổng thời gian nghỉ thai sản là **07 tháng** (thêm 01 tháng cho con thứ hai).\n\nTrong suốt thời gian nghỉ thai sản này, lao động nữ được hưởng chế độ thai sản theo quy định của pháp luật về bảo hiểm xã hội.",
+      "rag_sources": [
+        "139 BLLĐ",
+        "55 BHXH",
+        "53 BHXH",
+        "52 BHXH",
+        "54 BHXH",
+        "80 ND145",
+        "137 BLLĐ"
+      ],
+      "rag_latency_ms": 7990.249056951143,
+      "gemini_latency_ms": 9100.20619397983,
+      "rag_word_count": 98,
+      "gemini_word_count": 372,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC022",
+      "question": "Người lao động làm việc trong môi trường độc hại được hưởng chế độ gì?",
+      "rag_answer": "Người lao động làm việc trong môi trường độc hại được hưởng chế độ bồi dưỡng bằng hiện vật theo quy định tại Điều 24 của Luật An toàn, vệ sinh lao động.",
+      "gemini_answer": "Người lao động làm việc trong môi trường có yếu tố nặng nhọc, độc hại, nguy hiểm được hưởng các chế độ đặc biệt nhằm bảo vệ sức khỏe và quyền lợi của họ. Các chế độ này được quy định cụ thể trong Bộ luật Lao động 2019 và các văn bản hướng dẫn thi hành, bao gồm:\n\n1.  **Thời giờ làm việc được rút ngắn:**\n    *   Người lao động làm các công việc đặc biệt nặng nhọc, độc hại, nguy hiểm được rút ngắn thời giờ làm việc hằng ngày hoặc hằng tuần.\n    *   **Căn cứ:** Khoản 2 Điều 105 Bộ luật Lao động 2019.\n\n2.  **Chế độ tiền lương và phụ cấp:**\n    *   Người lao động làm công việc nặng nhọc, độc hại, nguy hiểm hoặc đặc biệt nặng nhọc, độc hại, nguy hiểm được hưởng tiền lương cao hơn và phụ cấp độc hại, nguy hiểm.\n    *   **Căn cứ:** Điều 103 Bộ luật Lao động 2019 và Điều 21 Nghị định 145/2020/NĐ-CP.\n\n3.  **Bồi dưỡng bằng hiện vật:**\n    *   Người lao động làm việc trong điều kiện có yếu tố nguy hiểm, độc hại được bồi dưỡng bằng hiện vật theo quy định.\n    *   **Căn cứ:** Thông tư 24/2022/TT-BLĐTBXH quy định về việc bồi dưỡng bằng hiện vật đối với người lao động làm việc trong điều kiện có yếu tố nguy hiểm, độc hại.\n\n4.  **Trang bị phương tiện bảo vệ cá nhân (PTTBVC):**\n    *   Người sử dụng lao động phải trang bị đầy đủ PTTBVC cho người lao động làm các công việc có yếu tố nguy hiểm, độc hại.\n    *   **Căn cứ:** Điều 163 Bộ luật Lao động 2019 và Điều 23 Nghị định 39/2016/NĐ-CP quy định chi tiết thi hành một số điều của Luật An toàn, vệ sinh lao động.\n\n5.  **Khám sức khỏe định kỳ và khám bệnh nghề nghiệp:**\n    *   Người lao động làm nghề, công việc nặng nhọc, độc hại, nguy hiểm hoặc tiếp xúc với các yếu tố nguy hiểm, độc hại phải được khám sức khỏe ít nhất 06 tháng một lần.\n    *   Được khám phát hiện bệnh nghề nghiệp, giám định mức suy giảm khả năng lao động khi bị bệnh nghề nghiệp.\n    *   **Căn cứ:** Điều 164 Bộ luật Lao động 2019 và Điều 21 Nghị định 39/2016/NĐ-CP.\n\n6.  **Huấn luyện an toàn, vệ sinh lao động:**\n    *   Người sử dụng lao động phải tổ chức huấn luyện an toàn, vệ sinh lao động cho người lao động làm các công việc có yêu cầu nghiêm ngặt về an toàn, vệ sinh lao động.\n    *   **Căn cứ:** Điều 162 Bộ luật Lao động 2019 và Điều 14 Nghị định 39/2016/NĐ-CP.\n\n7.  **Chế độ hưu trí sớm:**\n    *   Người lao động làm nghề, công việc nặng nhọc, độc hại, nguy hiểm hoặc đặc biệt nặng nhọc, độc hại, nguy hiểm có thể nghỉ hưu ở tuổi thấp hơn nhưng không quá 05 tuổi so với tuổi nghỉ hưu trong điều kiện lao động bình thường.\n    *   **Căn cứ:** Điều 55 Luật Bảo hiểm xã hội 2014 và Điều 5 Nghị định 135/2020/NĐ-CP quy định chi tiết về tuổi nghỉ hưu.\n\n**Lưu ý quan trọng:** Các chế độ trên áp dụng cho người lao động làm các nghề, công việc thuộc danh mục nghề, công việc nặng nhọc, độc hại, nguy hiểm và đặc biệt nặng nhọc, độc hại, nguy hiểm do Bộ Lao động - Thương binh và Xã hội ban hành.",
+      "rag_sources": [
+        "26 ATVSLĐ",
+        "22 ATVSLĐ",
+        "24 ATVSLĐ",
+        "149 BLLĐ",
+        "219 BLLĐ",
+        "21 ATVSLĐ",
+        "43 BHXH"
+      ],
+      "rag_latency_ms": 17570.9082930116,
+      "gemini_latency_ms": 19972.199224983342,
+      "rag_word_count": 33,
+      "gemini_word_count": 577,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC023",
+      "question": "Intern có được trả lương không theo luật Việt Nam?",
+      "rag_answer": "Theo Điều 26 của Bộ luật Lao động, người lao động trong thời gian thử việc có thể được trả lương thử việc, nhưng mức lương này phải ít nhất bằng 85% mức lương của công việc đó. Tuy nhiên, không có quy định cụ thể về việc trả lương cho thực tập sinh (intern) trong Bộ luật Lao động.\n\nTuy nhiên, tại Điều 28 của Nghị định 145/2020/NĐ-CP quy định chi tiết và hướng dẫn thi hành một số điều của Bộ luật Lao động về điều kiện lao động và quan hệ lao động, có quy định về việc trả lương cho người lao động trong thời gian thực tập, thử nghiệm, nếu thời gian này từ 01 tháng trở lên thì người lao động phải được trả lương.\n\nVì vậy, theo luật Việt Nam, intern có thể được trả lương nếu thời gian thực tập từ 01 tháng trở lên, nhưng mức lương và điều kiện cụ thể sẽ tùy thuộc vào thỏa thuận giữa người lao động và người sử dụng lao động.",
+      "gemini_answer": "Theo luật lao động Việt Nam, việc thực tập sinh (intern) có được trả lương hay không phụ thuộc vào bản chất của quá trình thực tập và mức độ tham gia vào hoạt động sản xuất, kinh doanh của doanh nghiệp.\n\nDưới đây là các trường hợp cụ thể:\n\n1.  **Trường hợp học nghề, tập nghề có tham gia hoặc trực tiếp làm ra sản phẩm, dịch vụ:**\n    *   **Quy định:** Theo **Điều 61 Khoản 2 Bộ luật Lao động 2019**, nếu người học nghề, tập nghề (bao gồm cả thực tập sinh trong nhiều trường hợp) trực tiếp hoặc tham gia làm ra sản phẩm hợp pháp, dịch vụ thì **phải được người sử dụng lao động trả lương** theo mức do hai bên thỏa thuận.\n    *   **Mức lương tối thiểu:** Mức lương này **không được thấp hơn mức lương tối thiểu vùng** do Chính phủ quy định.\n    *   **Giải thích:** Đây là trường hợp phổ biến khi thực tập sinh không chỉ học hỏi mà còn thực hiện các công việc cụ thể, đóng góp vào hoạt động của doanh nghiệp (ví dụ: viết code, thiết kế, hỗ trợ marketing, bán hàng...).\n\n2.  **Trường hợp học nghề, tập nghề thuần túy học tập, không tham gia sản xuất, kinh doanh:**\n    *   **Quy định:** Nếu quá trình thực tập chỉ mang tính chất học hỏi, quan sát, không trực tiếp tham gia làm ra sản phẩm, dịch vụ hoặc không đóng góp vào hoạt động sản xuất, kinh doanh của doanh nghiệp, thì pháp luật **không bắt buộc** người sử dụng lao động phải trả lương.\n    *   **Giải thích:** Trong trường hợp này, doanh nghiệp có thể hỗ trợ thực tập sinh các khoản phụ cấp, chi phí đi lại, ăn uống... nhưng đây là sự tự nguyện, không phải nghĩa vụ pháp lý.\n\n3.  **Trường hợp thực tập sinh được coi là thử việc:**\n    *   **Quy định:** Nếu thực tập sinh được tuyển dụng vào một vị trí công việc cụ thể và có thời gian thử việc, thì theo **Điều 26 Bộ luật Lao động 2019**, tiền lương của người lao động trong thời gian thử việc **do hai bên thỏa thuận nhưng ít nhất phải bằng 85% mức lương của công việc đó**.\n    *   **Giải thích:** Một số doanh nghiệp gọi giai đoạn đầu là \"thực tập\" nhưng thực chất là thử việc cho một vị trí chính thức. Khi đó, thực tập sinh sẽ được hưởng lương thử việc theo quy định.\n\n**Tóm lại:**\n\n*   Nếu thực tập sinh **có tham gia làm việc, đóng góp vào hoạt động của doanh nghiệp**, thì **phải được trả lương** không thấp hơn mức lương tối thiểu vùng.\n*   Nếu thực tập sinh **chỉ học hỏi, quan sát thuần túy**, thì **không bắt buộc** phải trả lương.\n\nĐể đảm bảo quyền lợi, thực tập sinh và doanh nghiệp nên có thỏa thuận rõ ràng bằng văn bản (hợp đồng đào tạo nghề, hợp đồng thử việc hoặc thỏa thuận thực tập) về các điều khoản liên quan đến công việc, thời gian, và chế độ thù lao (nếu có).",
+      "rag_sources": [
+        "95 BLLĐ",
+        "26 BLLĐ",
+        "94 BLLĐ",
+        "96 BLLĐ",
+        "24 BLLĐ",
+        "2 VL",
+        "2 BHXH"
+      ],
+      "rag_latency_ms": 5009.195104998071,
+      "gemini_latency_ms": 12197.822018992156,
+      "rag_word_count": 177,
+      "gemini_word_count": 522,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC024",
+      "question": "Thời gian tối đa tạm hoãn hợp đồng lao động do nghĩa vụ quân sự là bao lâu?",
+      "rag_answer": "Theo Điều 30 của Bộ luật Lao động, thời gian tối đa tạm hoãn hợp đồng lao động do nghĩa vụ quân sự là không quy định cụ thể. Tuy nhiên, tại điểm a khoản 1 Điều 30 của Bộ luật Lao động, người lao động thực hiện nghĩa vụ quân sự, nghĩa vụ tham gia Dân quân tự vệ là một trong các trường hợp tạm hoãn thực hiện hợp đồng lao động.\n\nThời gian tạm hoãn hợp đồng lao động trong trường hợp này sẽ tùy thuộc vào thời gian thực hiện nghĩa vụ quân sự, nghĩa vụ tham gia Dân quân tự vệ của người lao động.",
+      "gemini_answer": "Thời gian tối đa tạm hoãn hợp đồng lao động do nghĩa vụ quân sự phụ thuộc vào thời hạn thực hiện nghĩa vụ quân sự của người lao động.\n\nTheo **Điều 30, Khoản 1, Điểm a của Bộ luật Lao động 2019**, người lao động thực hiện nghĩa vụ quân sự là một trong các trường hợp được tạm hoãn thực hiện hợp đồng lao động.\n\nThời hạn phục vụ tại ngũ trong thời bình của hạ sĩ quan, binh sĩ là **24 tháng**, theo quy định tại **Điều 21, Khoản 1 của Luật Nghĩa vụ quân sự 2015**.\n\nDo đó, thời gian tối đa tạm hoãn hợp đồng lao động do nghĩa vụ quân sự thông thường là **24 tháng**.",
+      "rag_sources": [
+        "101 BLLĐ",
+        "30 BLLĐ",
+        "38 VL",
+        "31 BLLĐ",
+        "2 BHXH",
+        "37 VL",
+        "53 BLLĐ"
+      ],
+      "rag_latency_ms": 12808.229041984305,
+      "gemini_latency_ms": 7102.8999800328165,
+      "rag_word_count": 110,
+      "gemini_word_count": 122,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC025",
+      "question": "Mức hưởng ốm đau của người lao động là bao nhiêu phần trăm tiền lương?",
+      "rag_answer": "Theo Điều 45 của Luật Bảo hiểm xã hội 2024, mức hưởng ốm đau của người lao động như sau:\n\n- Người lao động quy định tại khoản 1 Điều 43 và Điều 44 của Luật này: 75% tiền lương làm căn cứ đóng bảo hiểm xã hội.\n- Người lao động quy định tại khoản 2 Điều 43 của Luật này:\n + Đã đóng bảo hiểm xã hội bắt buộc từ đủ 30 năm trở lên: 65% tiền lương làm căn cứ đóng bảo hiểm xã hội.\n + Đã đóng bảo hiểm xã hội bắt buộc từ đủ 15 năm đến dưới 30 năm: 55% tiền lương làm căn cứ đóng bảo hiểm xã hội.\n + Đã đóng bảo hiểm xã hội bắt buộc dưới 15 năm: 50% tiền lương làm căn cứ đóng bảo hiểm xã hội.\n- Người lao động quy định tại khoản 3 Điều 43 của Luật này: 100% tiền lương làm căn cứ đóng bảo hiểm xã hội.",
+      "gemini_answer": "Theo Điều 28 Luật Bảo hiểm xã hội số 58/2014/QH13, mức hưởng chế độ ốm đau của người lao động được quy định như sau:\n\nMức hưởng chế độ ốm đau tính theo tháng bằng **75%** mức tiền lương tháng đóng bảo hiểm xã hội của tháng liền kề trước khi nghỉ việc.",
+      "rag_sources": [
+        "45 BHXH",
+        "46 BHXH",
+        "49 ATVSLĐ",
+        "43 BHXH",
+        "48 ATVSLĐ",
+        "42 BHXH",
+        "39 VL"
+      ],
+      "rag_latency_ms": 22709.4070900348,
+      "gemini_latency_ms": 4512.406503024977,
+      "rag_word_count": 164,
+      "gemini_word_count": 53,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+[
+    {
+        "id": "TC026",
+        "category": "factual",
+        "question": "Thời gian nghỉ tang theo quy định là bao nhiêu ngày?",
+        "keywords": [
+            "3 ngày",
+            "ba ngày"
+        ],
+        "expected_article": "Điều 115",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC027",
+        "category": "factual",
+        "question": "Người sử dụng lao động phải trả lương làm đêm thêm bao nhiêu phần trăm?",
+        "keywords": [
+            "30%",
+            "ba mươi phần trăm"
+        ],
+        "expected_article": "Điều 98",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC028",
+        "category": "adversarial",
+        "question": "Luật lao động có quy định về work from home không?",
+        "keywords": [
+            "thỏa thuận",
+            "làm việc tại nhà",
+            "từ xa"
+        ],
+        "expected_article": "",
+        "expected_doc": ""
+    },
+    {
+        "id": "TC029",
+        "category": "factual",
+        "question": "Số lần ký hợp đồng lao động xác định thời hạn tối đa là bao nhiêu?",
+        "keywords": [
+            "2 lần",
+            "hai lần"
+        ],
+        "expected_article": "Điều 20",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC030",
+        "category": "factual",
+        "question": "Thời gian nghỉ kết hôn theo quy định là bao nhiêu ngày?",
+        "keywords": [
+            "3 ngày",
+            "ba ngày"
+        ],
+        "expected_article": "Điều 115",
+        "expected_doc": "BLLĐ"
+    }
+]

@@ -1,0 +1,100 @@
+[
+    {
+        "id": "TC_HARD_003",
+        "category": "multi-condition_calculation",
+        "question": "Chị B làm việc ca đêm (từ 22h đến 6h sáng) vào ngày lễ Quốc khánh 2/9. Lương cơ bản của chị là 10 triệu đồng/tháng, làm việc 26 ngày/tháng. Hỏi: (1) Chị B được hưởng bao nhiêu phần trăm lương cho ca làm việc này? (2) Tính tiền lương cụ thể mà chị được nhận cho ca đêm ngày lễ đó?",
+        "keywords": [
+            "làm đêm",
+            "ngày lễ",
+            "300%",
+            "30%",
+            "20%",
+            "tiền lương"
+        ],
+        "expected_articles": [
+            "Điều 97 BLLĐ",
+            "Điều 98 BLLĐ",
+            "Điều 55 ND145",
+            "Điều 57 ND145"
+        ],
+        "difficulty": "ULTRA_HARD",
+        "expected_answer": "Làm đêm ngày lễ = 300% (ngày lễ) + 30% (đêm) + 20% (thêm đêm) = 390%"
+    },
+    {
+        "id": "TC_HARD_004",
+        "category": "exception_case",
+        "question": "Anh C 17 tuổi, muốn xin làm việc tại xưởng gia công gỗ (công việc nhẹ, không độc hại). Hỏi: (1) Anh C có được phép làm việc không? (2) Thời giờ làm việc của anh tối đa là bao nhiêu? (3) Khi ký hợp đồng lao động, ai là người ký? (4) Anh có được làm thêm giờ, làm đêm không?",
+        "keywords": [
+            "lao động chưa thành niên",
+            "15-18 tuổi",
+            "cha mẹ đồng ý",
+            "không làm đêm"
+        ],
+        "expected_articles": [
+            "Điều 143 BLLĐ",
+            "Điều 144 BLLĐ",
+            "Điều 145 BLLĐ",
+            "Điều 146 BLLĐ",
+            "Điều 18 BLLĐ"
+        ],
+        "difficulty": "ULTRA_HARD"
+    },
+    {
+        "id": "TC_HARD_005",
+        "category": "dispute_resolution",
+        "question": "Công ty X đơn phương chấm dứt hợp đồng với anh D mà không báo trước, lý do là anh thường xuyên không hoàn thành công việc. Anh D cho rằng công ty vi phạm vì không có quy chế đánh giá và muốn kiện. Hỏi: (1) Công ty có vi phạm pháp luật không? Điều khoản nào? (2) Anh D được bồi thường những gì nếu thắng kiện? (3) Anh D có thể khởi kiện ở đâu và trong thời hạn bao lâu?",
+        "keywords": [
+            "đơn phương chấm dứt trái pháp luật",
+            "không báo trước",
+            "bồi thường",
+            "khởi kiện"
+        ],
+        "expected_articles": [
+            "Điều 36 BLLĐ",
+            "Điều 39 BLLĐ",
+            "Điều 41 BLLĐ",
+            "Điều 187 BLLĐ",
+            "Điều 188 BLLĐ"
+        ],
+        "difficulty": "ULTRA_HARD"
+    },
+    {
+        "id": "TC_HARD_006",
+        "category": "multi-benefit_calculation",
+        "question": "Chị E sinh đôi, đã đóng BHXH được 3 năm, lương bình quân 6 tháng đóng BHXH trước sinh là 15 triệu đồng/tháng. Hỏi: (1) Chị được nghỉ thai sản bao lâu? (2) Tính tổng số tiền chế độ thai sản chị được hưởng (bao gồm cả trợ cấp một lần)?",
+        "keywords": [
+            "sinh đôi",
+            "6 tháng",
+            "thêm 1 tháng",
+            "2 lần lương cơ sở",
+            "trợ cấp một lần"
+        ],
+        "expected_articles": [
+            "Điều 34 BHXH",
+            "Điều 38 BHXH",
+            "Điều 139 BLLĐ"
+        ],
+        "difficulty": "ULTRA_HARD",
+        "expected_answer": "Nghỉ 7 tháng (6+1), trợ cấp = 7×15tr + 2×2×lương cơ sở"
+    },
+    {
+        "id": "TC_HARD_007",
+        "category": "comparison_analysis",
+        "question": "So sánh quyền lợi khi nghỉ việc của 2 trường hợp: (A) Người lao động tự xin nghỉ việc sau 5 năm làm việc, và (B) Người lao động bị cho thôi việc do công ty cắt giảm nhân sự sau 5 năm làm việc. Giả sử cả hai đều đã đóng BHTN đủ 5 năm, lương 15 triệu/tháng. Hỏi: (1) Mỗi người được hưởng trợ cấp gì từ công ty? (2) Ai được hưởng trợ cấp thất nghiệp và bao nhiêu?",
+        "keywords": [
+            "trợ cấp thôi việc",
+            "trợ cấp mất việc làm",
+            "so sánh",
+            "tự nghỉ",
+            "cắt giảm"
+        ],
+        "expected_articles": [
+            "Điều 34 BLLĐ",
+            "Điều 42 BLLĐ",
+            "Điều 46 BLLĐ",
+            "Điều 47 BLLĐ",
+            "Điều 49 VL"
+        ],
+        "difficulty": "ULTRA_HARD"
+    }
+]

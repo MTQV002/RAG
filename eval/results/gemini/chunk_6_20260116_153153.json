@@ -1,0 +1,120 @@
+{
+  "timestamp": "2026-01-16T15:31:53.995393",
+  "model": "gemini-2.5-flash",
+  "total_tests": 5,
+  "summary": {
+    "avg_rag_latency_ms": 4411.0,
+    "avg_gemini_latency_ms": 8450.0,
+    "avg_rag_words": 38.4,
+    "avg_gemini_words": 200.6,
+    "rag_citation_rate": 100.0,
+    "gemini_citation_rate": 100.0
+  },
+  "results": [
+    {
+      "test_id": "TC026",
+      "question": "Thời gian nghỉ tang theo quy định là bao nhiêu ngày?",
+      "rag_answer": "Theo Điều 115 Bộ luật Lao động, thời gian nghỉ việc riêng để nghỉ tang là 03 ngày trong trường hợp cha đẻ, mẹ đẻ, cha nuôi, mẹ nuôi; cha đẻ, mẹ đẻ, cha nuôi, mẹ nuôi của vợ hoặc chồng; vợ hoặc chồng; con đẻ, con nuôi chết.",
+      "gemini_answer": "Theo quy định của Bộ luật Lao động Việt Nam, thời gian nghỉ tang là **03 ngày** làm việc.\n\nCụ thể, người lao động được nghỉ việc riêng mà vẫn hưởng nguyên lương và phải thông báo trước với người sử dụng lao động trong trường hợp sau đây:\n\n*   **Cha đẻ, mẹ đẻ, cha nuôi, mẹ nuôi; cha vợ, mẹ vợ hoặc cha chồng, mẹ chồng; vợ, chồng; con đẻ, con nuôi chết: nghỉ 03 ngày.**\n\nQuy định này được nêu tại **Điều 115 Khoản 3 điểm b của Bộ luật Lao động số 45/2019/QH14**.",
+      "rag_sources": [
+        "91 BHXH",
+        "85 BHXH",
+        "115 BLLĐ",
+        "52 BHXH",
+        "112 BLLĐ",
+        "109 BHXH",
+        "113 BLLĐ"
+      ],
+      "rag_latency_ms": 3913.939889986068,
+      "gemini_latency_ms": 10231.200111971702,
+      "rag_word_count": 49,
+      "gemini_word_count": 96,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC027",
+      "question": "Người sử dụng lao động phải trả lương làm đêm thêm bao nhiêu phần trăm?",
+      "rag_answer": "Theo khoản 2 Điều 98 Bộ luật Lao động, người lao động làm việc vào ban đêm thì được trả thêm ít nhất bằng 30% tiền lương tính theo đơn giá tiền lương hoặc tiền lương thực trả theo công việc của ngày làm việc bình thường.",
+      "gemini_answer": "Theo quy định của pháp luật lao động Việt Nam, người sử dụng lao động phải trả lương làm đêm thêm **ít nhất 30%**.\n\nCụ thể, **Điều 97 Khoản 2 Bộ luật Lao động 2019** quy định:\n\"Người lao động làm việc vào ban đêm thì được trả thêm ít nhất 30% tiền lương tính theo đơn giá tiền lương hoặc tiền lương thực trả của công việc của ngày làm việc bình thường.\"\n\n**Lưu ý thêm:**\nNếu người lao động làm **thêm giờ vào ban đêm**, thì ngoài tiền lương làm thêm giờ và tiền lương làm đêm đã nêu, người lao động còn được trả thêm **ít nhất 20%** tiền lương tính theo đơn giá tiền lương hoặc tiền lương thực trả của công việc làm vào ban ngày của ngày làm việc bình thường hoặc của ngày nghỉ hằng tuần, ngày nghỉ lễ, tết, ngày nghỉ có hưởng lương (**Điều 97 Khoản 3 Bộ luật Lao động 2019**).\n\n**Văn bản pháp luật áp dụng:**\n*   Bộ luật Lao động số 45/2019/QH14.",
+      "rag_sources": [
+        "98 BLLĐ",
+        "57 ND145",
+        "55 ND145",
+        "56 ND145",
+        "5 ND293",
+        "95 BLLĐ",
+        "17 ND12"
+      ],
+      "rag_latency_ms": 4459.806167986244,
+      "gemini_latency_ms": 8025.7902320008725,
+      "rag_word_count": 47,
+      "gemini_word_count": 174,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC028",
+      "question": "Luật lao động có quy định về work from home không?",
+      "rag_answer": "Theo Điều 167 Bộ luật Lao động, người lao động có thể thỏa thuận với người sử dụng lao động để nhận việc về làm tại nhà.",
+      "gemini_answer": "Có, Bộ luật Lao động Việt Nam có quy định về hình thức làm việc tại nhà (work from home), mặc dù không sử dụng chính xác thuật ngữ \"work from home\" mà dùng cụm từ **\"làm việc tại nhà\"**.\n\nCụ thể, **Khoản 1 Điều 13 của Bộ luật Lao động năm 2019** quy định:\n\n> \"Hợp đồng lao động là sự thỏa thuận giữa người lao động và người sử dụng lao động về việc làm có trả công, tiền lương, điều kiện lao động, quyền và nghĩa vụ của mỗi bên trong quan hệ lao động. Trường hợp hai bên thỏa thuận bằng tên gọi khác nhưng có nội dung thể hiện về việc làm có trả công, tiền lương và sự quản lý, điều hành, giám sát của một bên thì được coi là hợp đồng lao động.\n>\n> **Trước khi nhận người lao động vào làm việc thì người sử dụng lao động phải giao kết hợp đồng lao động với người lao động.**\n>\n> **Chính phủ quy định chi tiết về hợp đồng lao động đối với người lao động làm việc không trọn thời gian, người lao động làm việc theo mùa vụ, công việc nhất định có thời hạn dưới 12 tháng, người lao động làm việc tại nhà.**\"\n\nNhư vậy:\n\n1.  **Công nhận hình thức:** Bộ luật Lao động 2019 đã chính thức công nhận \"làm việc tại nhà\" là một hình thức làm việc.\n2.  **Thỏa thuận trong hợp đồng:** Việc làm việc tại nhà phải được thỏa thuận rõ ràng trong hợp đồng lao động giữa người lao động và người sử dụng lao động.\n3.  **Nội dung hợp đồng:** Hợp đồng lao động đối với người làm việc tại nhà cần quy định cụ thể về:\n    *   Thời giờ làm việc, thời giờ nghỉ ngơi.\n    *   Tiền lương, hình thức trả lương.\n    *   Điều kiện lao động (ví dụ: việc cung cấp thiết bị, công cụ làm việc).\n    *   Quyền và nghĩa vụ của mỗi bên.\n    *   An toàn, vệ sinh lao động.\n    *   Việc giám sát, đánh giá kết quả công việc.\n4.  **Áp dụng các quy định chung:** Các quy định chung khác của Bộ luật Lao động về quyền và nghĩa vụ của người lao động, người sử dụng lao động, bảo hiểm xã hội, giải quyết tranh chấp lao động... vẫn được áp dụng đối với người làm việc tại nhà, trừ khi có quy định khác.\n\nTóm lại, Luật Lao động có quy định về work from home dưới tên gọi \"làm việc tại nhà\" và yêu cầu hình thức này phải được thỏa thuận rõ ràng trong hợp đồng lao động.",
+      "rag_sources": [
+        "167 BLLĐ",
+        "4 BLLĐ",
+        "137 BLLĐ",
+        "3 BLLĐ",
+        "212 BLLĐ",
+        "135 BLLĐ",
+        "44 ND145"
+      ],
+      "rag_latency_ms": 5333.630995010026,
+      "gemini_latency_ms": 10319.228601001669,
+      "rag_word_count": 27,
+      "gemini_word_count": 450,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC029",
+      "question": "Số lần ký hợp đồng lao động xác định thời hạn tối đa là bao nhiêu?",
+      "rag_answer": "Theo khoản 2 Điều 20 Bộ luật Lao động, hợp đồng lao động xác định thời hạn chỉ được ký thêm 1 lần, sau đó nếu người lao động vẫn tiếp tục làm việc thì phải ký kết hợp đồng lao động không xác định thời hạn.",
+      "gemini_answer": "Theo quy định của Bộ luật Lao động 2019, các bên chỉ được ký tối đa **02 lần** hợp đồng lao động xác định thời hạn.\n\nCụ thể:\n\n1.  **Lần 1:** Ký hợp đồng lao động xác định thời hạn (có thời hạn không quá 36 tháng).\n2.  **Lần 2:** Khi hợp đồng lao động xác định thời hạn lần thứ nhất hết hạn mà người lao động vẫn tiếp tục làm việc, hai bên có thể ký thêm **01 lần** hợp đồng lao động xác định thời hạn nữa (có thời hạn không quá 36 tháng).\n3.  **Sau đó:** Sau khi hợp đồng lao động xác định thời hạn lần thứ hai này hết hạn mà người lao động vẫn tiếp tục làm việc, thì bắt buộc phải ký kết hợp đồng lao động **không xác định thời hạn**.\n\nQuy định này được nêu rõ tại **Khoản 2 Điều 20 Bộ luật Lao động số 45/2019/QH14**.",
+      "rag_sources": [
+        "20 BLLĐ",
+        "155 BLLĐ",
+        "23 ND145",
+        "14 BLLĐ",
+        "18 BLLĐ",
+        "39 VL",
+        "21 BLLĐ"
+      ],
+      "rag_latency_ms": 4246.926067979075,
+      "gemini_latency_ms": 8298.979502986185,
+      "rag_word_count": 47,
+      "gemini_word_count": 157,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC030",
+      "question": "Thời gian nghỉ kết hôn theo quy định là bao nhiêu ngày?",
+      "rag_answer": "Theo điểm a khoản 1 Điều 115 Bộ luật Lao động, thời gian nghỉ việc riêng để kết hôn là 03 ngày.",
+      "gemini_answer": "Theo quy định của pháp luật lao động Việt Nam, thời gian nghỉ kết hôn là **03 ngày làm việc**.\n\nĐiều này được quy định tại **Điểm a Khoản 1 Điều 115 Bộ luật Lao động năm 2019**.\n\n**Cụ thể:**\n*   **Điều 115. Nghỉ việc riêng, nghỉ không hưởng lương**\n    1.  Người lao động được nghỉ việc riêng mà vẫn hưởng nguyên lương và phải thông báo cho người sử dụng lao động trong trường hợp sau đây:\n        a) Kết hôn: nghỉ 03 ngày;\n        b) Con đẻ, con nuôi kết hôn: nghỉ 01 ngày;\n        c) Cha đẻ, mẹ đẻ, cha nuôi, mẹ nuôi; cha vợ, mẹ vợ hoặc cha chồng, mẹ chồng chết; vợ chết hoặc chồng chết; con đẻ, con nuôi chết: nghỉ 03 ngày.",
+      "rag_sources": [
+        "115 BLLĐ",
+        "137 BLLĐ",
+        "113 BLLĐ",
+        "57 BHXH",
+        "66 ND145",
+        "52 BHXH",
+        "112 BLLĐ"
+      ],
+      "rag_latency_ms": 4099.445190047845,
+      "gemini_latency_ms": 5375.562863948289,
+      "rag_word_count": 22,
+      "gemini_word_count": 126,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "timestamp": "2026-01-16T16:52:37.880329",
+  "model": "gemini-2.5-flash",
+  "total_tests": 5,
+  "summary": {
+    "latency": {
+      "rag_avg_ms": 12933.0,
+      "gemini_avg_ms": 10919.0,
+      "winner": "Gemini"
+    },
+    "answer_length": {
+      "rag_avg_words": 292.0,
+      "gemini_avg_words": 479.0
+    },
+    "article_coverage": {
+      "rag_avg_pct": 41.7,
+      "gemini_avg_pct": 39.3,
+      "winner": "RAG"
+    },
+    "sub_question_answering": {
+      "total_sub_questions": 13,
+      "rag_answered": 11,
+      "gemini_answered": 8,
+      "rag_rate_pct": 84.6,
+      "gemini_rate_pct": 61.5
+    },
+    "calculation": {
+      "rag_has_calc_pct": 40.0,
+      "gemini_has_calc_pct": 60.0
+    },
+    "errors": {
+      "rag_error_pct": 0.0,
+      "gemini_error_pct": 40.0
+    }
+  },
+  "results": [
+    {
+      "test_id": "TC_HARD_003",
+      "category": "multi-condition_calculation",
+      "question": "Chị B làm việc ca đêm (từ 22h đến 6h sáng) vào ngày lễ Quốc khánh 2/9. Lương cơ bản của chị là 10 triệu đồng/tháng, làm việc 26 ngày/tháng. Hỏi: (1) Chị B được hưởng bao nhiêu phần trăm lương cho ca làm việc này? (2) Tính tiền lương cụ thể mà chị được nhận cho ca đêm ngày lễ đó?",
+      "expected_articles": [
+        "Điều 97 BLLĐ",
+        "Điều 98 BLLĐ",
+        "Điều 55 ND145",
+        "Điều 57 ND145"
+      ],
+      "rag_answer": "Để trả lời câu hỏi, chúng ta cần dựa vào các quy định về tiền lương làm thêm giờ và làm việc vào ban đêm trong Bộ luật Lao động và Nghị định hướng dẫn.\n\n(1) Theo Điều 98 Bộ luật Lao động, người lao động làm việc vào ban đêm được trả thêm ít nhất bằng 30% tiền lương tính theo đơn giá tiền lương hoặc tiền lương thực trả theo công việc của ngày làm việc bình thường. Ngoài ra, vì chị B làm việc vào ngày lễ Quốc khánh (2/9), nên theo khoản 1 Điều 98, chị được hưởng ít nhất 300% tiền lương so với ngày làm việc bình thường cho thời gian làm việc ngoài giờ (làm thêm giờ). Tuy nhiên, vì chị làm việc toàn bộ ca đêm vào ngày lễ, nên cần tính cả tiền lương cho ca đêm và tiền lương ngày lễ.\n\n(2) Để tính tiền lương cụ thể, trước tiên cần tính tiền lương giờ của chị B. Lương cơ bản của chị là 10 triệu đồng/tháng, làm việc 26 ngày/tháng. Giả sử một ngày làm việc bình thường có 8 giờ, thì:\n\n- Tổng giờ làm việc trong tháng = 26 ngày/tháng * 8 giờ/ngày = 208 giờ/tháng\n- Tiền lương giờ = Lương cơ bản / Tổng giờ làm việc = 10.000.000 đồng / 208 giờ ≈ 48.077 đồng/giờ\n\nTiền lương làm việc vào ban đêm ngày lễ (2/9) = (Tiền lương giờ * 300% cho ngày lễ) + (Tiền lương giờ * 30% cho làm việc ban đêm) + 20% tiền lương giờ ban ngày của ngày làm việc bình thường (theo Điều 57 Nghị định hướng dẫn Bộ luật Lao động về điều kiện lao động).\n\n- Tiền lương giờ cho ngày lễ = 48.077 đồng/giờ * 300% = 144.231 đồng/giờ\n- Tiền lương giờ cho làm việc ban đêm = 48.077 đồng/giờ * 30% = 14.423 đồng/giờ\n- Tiền lương giờ ban ngày của ngày làm việc bình thường = 48.077 đồng/giờ\n- 20% tiền lương giờ ban ngày = 48.077 đồng/giờ * 20% = 9.615 đồng/giờ\n\nTổng tiền lương giờ cho ca đêm ngày lễ = 144.231 đồng/giờ + 14.423 đồng/giờ + 9.615 đồng/giờ = 168.269 đồng/giờ\n\nCa đêm từ 22h đến 6h sáng = 8 giờ\n\nTiền lương cho ca đêm ngày lễ = 168.269 đồng/giờ * 8 giờ = 1.346.152 đồng\n\nVậy, chị B được hưởng 330% lương cơ bản cho ca làm việc này (300% cho ngày lễ + 30% cho làm việc ban đêm), và tiền lương cụ thể mà chị được nhận cho ca đêm ngày lễ đó là 1.346.152 đồng.",
+      "rag_sources": [
+        "98 BLLĐ",
+        "57 ND145",
+        "56 ND145",
+        "106 BLLĐ",
+        "55 ND145",
+        "112 BLLĐ",
+        "67 ND145"
+      ],
+      "rag_latency_ms": 5971.694334002677,
+      "rag_word_count": 442,
+      "gemini_answer": "Chào bạn, với vai trò là chuyên gia pháp luật lao động Việt Nam, tôi xin tư vấn cụ thể về trường hợp của chị B như sau:\n\n**Cơ sở pháp lý:**\n*   Bộ luật Lao động số 45/2019/QH14 (sau đây gọi tắt là BLLĐ 2019).\n\n---\n\n**Phân tích và trả lời:**\n\n**1. Chị B được hưởng bao nhiêu phần trăm lương cho ca làm việc này?**\n\nChị B làm việc ca đêm (từ 22h đến 6h sáng) vào ngày lễ Quốc khánh 2/9. Đây là sự kết hợp của 3 yếu tố:\n*   Làm việc vào ngày lễ, tết.\n*   Làm thêm giờ (vì ngày lễ là ngày nghỉ có hưởng lương, việc làm việc vào ngày này được coi là làm thêm giờ).\n*   Làm việc vào ban đêm.\n\nTheo quy định của BLLĐ 2019:\n\n*   **Tiền lương làm thêm giờ vào ngày lễ, tết:**\n    *   Khoản 1 Điều 98 BLLĐ 2019 quy định: \"Người lao động làm thêm giờ vào ngày nghỉ lễ, tết, ngày nghỉ có hưởng lương, ít nhất bằng 300% chưa kể tiền lương ngày lễ, tết, ngày nghỉ có hưởng lương đối với người lao động hưởng lương ngày.\"\n    *   Đối với người lao động hưởng lương tháng như chị B, tiền lương ngày lễ đã được tính trong lương tháng. Do đó, khi làm việc vào ngày lễ, chị B sẽ được trả thêm ít nhất 300% tiền lương của ngày làm việc bình thường cho thời gian làm thêm giờ đó.\n\n*   **Tiền lương làm việc vào ban đêm:**\n    *   Khoản 2 Điều 97 BLLĐ 2019 quy định: \"Người lao động làm việc vào ban đêm thì được trả thêm ít nhất bằng 30% tiền lương tính theo đơn giá tiền lương hoặc tiền lương thực trả theo công việc của ngày làm việc bình thường.\"\n\n*   **Tiền lương làm thêm giờ vào ban đêm (kết hợp):**\n    *   Khoản 3 Điều 98 BLLĐ 2019 quy định: \"Người lao động làm thêm giờ vào ban đêm thì ngoài tiền lương làm thêm giờ theo quy định tại khoản 1 và khoản 2 Điều này, người lao động còn được trả thêm 20% tiền lương tính theo đơn giá tiền lương hoặc tiền lương thực trả theo công việc làm vào ban ngày của ngày làm việc bình thường hoặc của ngày nghỉ hằng tuần hoặc của ngày nghỉ lễ, tết.\"\n\n**Tính toán phần trăm lương:**\n1.  **Tiền lương làm thêm giờ vào ngày lễ:** 300% tiền lương của giờ làm việc bình thường.\n2.  **Tiền lương làm việc vào ban đêm:** 30% tiền lương của giờ làm việc bình thường (đã bao gồm trong 300% nếu tính theo cách hiểu là 300% là tổng cộng cho giờ làm việc đó).\n3.  **Tiền lương làm thêm giờ vào ban đêm (phần cộng thêm):** 20% của tiền lương tính theo đơn giá tiền lương của giờ làm việc vào ngày lễ.\n\nNhư vậy, tổng phần trăm lương mà chị B được hưởng cho mỗi giờ làm việc trong ca đêm ngày lễ sẽ là:\n*   **300%** (cho làm thêm giờ ngày lễ)\n*   **+ 20% của 300%** (cho làm thêm giờ vào ban đêm trên cơ sở tiền lương làm thêm giờ ngày lễ)\n\nCông thức: **300% + (20% x 300%) = 300% + 60% = 360%**\n\n**Kết luận (1):** Chị B được hưởng ít nhất **360%** tiền lương tính theo đơn giá tiền lương của giờ làm việc bình thường cho mỗi giờ làm việc trong ca đêm ngày lễ Quốc khánh 2/9.\n\n---\n\n**2. Tính tiền lương cụ thể mà chị được nhận cho ca đêm ngày lễ đó?**\n\n**Bước 1: Tính tiền lương cơ bản theo ngày và theo giờ của chị B.**\n*   Lương cơ bản/tháng: 10.000.000 đồng\n*   Số ngày làm việc/tháng: 26 ngày\n*   Số giờ làm việc/ngày: 8 giờ (giả định theo quy định chung, nếu không có thỏa thuận khác)\n\n*   **Tiền lương cơ bản/ngày:** 10.000.000 đồng / 26 ngày = 384.615,38 đồng/ngày\n*   **Tiền lương cơ bản/giờ:** 384.615,38 đồng / 8 giờ = 48.076,92 đồng/giờ\n\n**Bước 2: Xác định số giờ làm việc ca đêm vào ngày lễ.**\n*   Ca đêm của chị B là từ 22h đến 6h sáng hôm sau.\n*   Tổng số giờ làm việc: 8 giờ.\n*   Tất cả 8 giờ này đều thuộc khung giờ làm việc ban đêm (từ 22h đến 6h sáng hôm sau theo Khoản 1 Điều 106 BLLĐ 2019).\n\n**Bước 3: Tính tổng tiền lương chị B được nhận cho ca đêm ngày lễ.**\n*   Tiền lương mỗi giờ làm việc trong ca đêm ngày lễ = Tiền lương cơ bản/giờ x 360%\n*   Tiền lương mỗi giờ = 48.076,92 đồng/giờ x 360% = 48.076,92 đồng/giờ x 3,6 = 173.076,91 đồng/giờ\n\n*   **Tổng tiền lương cho ca đêm ngày lễ:**\n    *   Tổng tiền = Tiền lương mỗi giờ x Tổng số giờ làm việc\n    *   Tổng tiền = 173.076,91 đồng/giờ x 8 giờ = **1.384.615,28 đồng**\n\n**Kết luận (2):** Tiền lương cụ thể mà chị B được nhận cho ca đêm ngày lễ Quốc khánh 2/9 là **1.384.615,28 đồng**.\n\n---\n\n**Lưu ý quan trọng:**\n*   Số tiền này là tiền lương được trả cho **thời gian làm việc thực tế** vào ngày lễ, ban đêm.\n*   Do chị B hưởng lương tháng, chị đã được nhận tiền lương của ngày 2/9 (ngày lễ có hưởng lương) trong tiền lương tháng của mình. Khoản tiền 1.384.615,28 đồng này là khoản tiền **trả thêm** cho việc chị đã làm việc vào ngày lễ và vào ban đêm.",
+      "gemini_latency_ms": 17403.193877020385,
+      "gemini_word_count": 929,
+      "rag_article_hits": 3,
+      "rag_article_coverage": 75.0,
+      "gemini_article_hits": 2,
+      "gemini_article_coverage": 50.0,
+      "sub_question_count": 2,
+      "rag_sub_answered": 2,
+      "gemini_sub_answered": 2,
+      "rag_has_calculation": true,
+      "gemini_has_calculation": true,
+      "rag_error": "",
+      "gemini_error": ""
+    },
+    {
+      "test_id": "TC_HARD_004",
+      "category": "exception_case",
+      "question": "Anh C 17 tuổi, muốn xin làm việc tại xưởng gia công gỗ (công việc nhẹ, không độc hại). Hỏi: (1) Anh C có được phép làm việc không? (2) Thời giờ làm việc của anh tối đa là bao nhiêu? (3) Khi ký hợp đồng lao động, ai là người ký? (4) Anh có được làm thêm giờ, làm đêm không?",
+      "expected_articles": [
+        "Điều 143 BLLĐ",
+        "Điều 144 BLLĐ",
+        "Điều 145 BLLĐ",
+        "Điều 146 BLLĐ",
+        "Điều 18 BLLĐ"
+      ],
+      "rag_answer": "Để trả lời câu hỏi, chúng ta cần dựa vào các quy định về lao động trẻ em và thời giờ làm việc trong Bộ luật Lao động.\n\n(1) Theo Điều 145 Bộ luật Lao động, người sử dụng lao động chỉ được tuyển dụng và sử dụng người từ đủ 13 tuổi đến chưa đủ 15 tuổi vào làm các công việc nhẹ theo quy định. Người từ đủ 15 tuổi đến chưa đủ 18 tuổi có thể được làm công việc phù hợp với sức khỏe. Vì anh C đã 17 tuổi, nên anh được phép làm việc tại xưởng gia công gỗ nếu công việc đó không được coi là nặng nhọc, độc hại hoặc nguy hiểm.\n\n(2) Theo Điều 146 Bộ luật Lao động, thời giờ làm việc của người từ đủ 15 tuổi đến chưa đủ 18 tuổi không được quá 8 giờ trong 01 ngày và 40 giờ trong 01 tuần. Do đó, thời giờ làm việc của anh C tối đa là 8 giờ trong một ngày và 40 giờ trong một tuần.\n\n(3) Theo Điều 145 Bộ luật Lao động, khi sử dụng người chưa đủ 15 tuổi làm việc, người sử dụng lao động phải giao kết hợp đồng lao động bằng văn bản với người chưa đủ 15 tuổi và người đại diện theo pháp luật của người đó. Vì anh C đã 17 tuổi, nên anh có thể tự ký hợp đồng lao động, nhưng để bảo vệ quyền lợi của mình, anh nên có người đại diện theo pháp luật hoặc người giám hộ tham gia ký kết hợp đồng lao động.\n\n(4) Theo Điều 146 Bộ luật Lao động, người từ đủ 15 tuổi đến chưa đủ 18 tuổi có thể được làm thêm giờ, làm việc vào ban đêm trong một số nghề, công việc theo danh mục do Bộ trưởng Bộ Lao động - Thương binh và Xã hội ban hành. Tuy nhiên, anh C cần kiểm tra xem công việc tại xưởng gia công gỗ có thuộc danh mục được phép làm thêm giờ và làm đêm hay không. Ngoài ra, anh cũng cần đảm bảo rằng việc làm thêm giờ và làm đêm không ảnh hưởng đến sức khỏe và sự phát triển của mình.",
+      "rag_sources": [
+        "146 BLLĐ",
+        "107 BLLĐ",
+        "108 BLLĐ",
+        "137 BLLĐ",
+        "105 BLLĐ",
+        "160 BLLĐ",
+        "145 BLLĐ"
+      ],
+      "rag_latency_ms": 5480.0072310026735,
+      "rag_word_count": 382,
+      "gemini_answer": "Chào bạn, với vai trò là chuyên gia pháp luật lao động Việt Nam, tôi xin tư vấn chi tiết về trường hợp của Anh C như sau:\n\n**Phân tích tình huống:** Anh C 17 tuổi, muốn làm việc tại xưởng gia công gỗ (công việc nhẹ, không độc hại).\n\n---\n\n**(1) Anh C có được phép làm việc không?**\n\n**Trả lời:** Có, Anh C được phép làm việc.\n\n**Giải thích:**\nTheo quy định của pháp luật lao động Việt Nam, người từ đủ 15 tuổi đến dưới 18 tuổi được coi là lao động chưa thành niên và được phép làm việc, với những điều kiện và giới hạn nhất định.\n\n*   **Điều 143 Bộ luật Lao động 2019** quy định:\n    *   Khoản 1: \"Lao động chưa thành niên là người lao động dưới 18 tuổi.\"\n    *   Khoản 2: \"Người sử dụng lao động chỉ được sử dụng người lao động dưới 18 tuổi vào công việc phù hợp với sức khỏe để bảo đảm sự phát triển thể lực, trí lực, nhân cách; có trách nhiệm quan tâm chăm sóc người lao động chưa thành niên về các mặt lao động, tiền lương, sức khỏe, học tập trong quá trình lao động.\"\n\n*   **Điều 145 Bộ luật Lao động 2019** quy định về các công việc cấm sử dụng người từ đủ 15 tuổi đến dưới 18 tuổi. Các công việc này được quy định chi tiết tại **Thông tư 10/2020/TT-BLĐTBXH** ban hành Danh mục công việc không được sử dụng người lao động từ đủ 15 tuổi đến dưới 18 tuổi.\n\nVì trường hợp của Anh C được mô tả là \"công việc nhẹ, không độc hại\" tại xưởng gia công gỗ, nếu công việc cụ thể đó không thuộc danh mục các công việc bị cấm theo Thông tư 10/2020/TT-BLĐTBXH và phù hợp với sức khỏe của Anh C, thì Anh C hoàn toàn được phép làm việc.\n\n---\n\n**(2) Thời giờ làm việc của anh tối đa là bao nhiêu?**\n\n**Trả lời:** Thời giờ làm việc của Anh C tối đa là **08 giờ/ngày** và **40 giờ/tuần**.\n\n**Giải thích:**\n**Điều 146 Bộ luật Lao động 2019** quy định về thời giờ làm việc của người lao động chưa thành niên:\n\n*   Khoản 2: \"Thời giờ làm việc của người từ đủ 15 tuổi đến dưới 18 tuổi không được quá 08 giờ trong 01 ngày và 40 giờ trong 01 tuần.\"\n\n---\n\n**(3) Khi ký hợp đồng lao động, ai là người ký?**\n\n**Trả lời:** Anh C (người lao động) sẽ trực tiếp ký hợp đồng lao động, nhưng phải có sự đồng ý bằng văn bản của người đại diện theo pháp luật của mình.\n\n**Giải thích:**\n**Điều 18 Bộ luật Lao động 2019** quy định về thẩm quyền giao kết hợp đồng lao động:\n\n*   Khoản 3 điểm b: \"Người từ đủ 15 tuổi đến dưới 18 tuổi tự mình giao kết hợp đồng lao động với sự đồng ý bằng văn bản của người đại diện theo pháp luật của người đó.\"\n\nNgười đại diện theo pháp luật của Anh C thường là cha, mẹ hoặc người giám hộ hợp pháp.\n\n---\n\n**(4) Anh có được làm thêm giờ, làm đêm không?**\n\n**Trả lời:** Không, Anh C không được làm thêm giờ và không được làm việc ban đêm.\n\n**Giải thích:**\n**Điều 146 Bộ luật Lao động 2019** quy định về thời giờ làm việc của người lao động chưa thành niên:\n\n*   Khoản 4: \"Không được làm thêm giờ hoặc làm việc ban đêm đối với người từ đủ 15 tuổi đến dưới 18 tuổi, trừ một số ngành, nghề, công việc được pháp luật quy định.\"\n\nCác ngành, nghề, công việc được phép làm thêm giờ hoặc làm việc ban đêm đối với người từ đủ 15 tuổi đến dưới 18 tuổi được quy định rất hạn chế tại **Thông tư 09/2020/TT-BLĐTBXH** (chủ yếu trong lĩnh vực nghệ thuật, thể dục thể thao). Công việc tại xưởng gia công gỗ (dù là công việc nhẹ) không thuộc các trường hợp ngoại lệ này.\n\n---\n\n**Tóm tắt:**\n\n1.  **Được phép làm việc:** Có, nếu công việc nhẹ, không độc hại và không thuộc danh mục cấm.\n2.  **Thời giờ làm việc tối đa:** 08 giờ/ngày và 40 giờ/tuần.\n3.  **Người ký HĐLĐ:** Anh C trực tiếp ký, với sự đồng ý bằng văn bản của người đại diện theo pháp luật.\n4.  **Làm thêm giờ, làm đêm:** Không được phép.",
+      "gemini_latency_ms": 19137.876648979727,
+      "gemini_word_count": 749,
+      "rag_article_hits": 2,
+      "rag_article_coverage": 40.0,
+      "gemini_article_hits": 4,
+      "gemini_article_coverage": 80.0,
+      "sub_question_count": 4,
+      "rag_sub_answered": 4,
+      "gemini_sub_answered": 4,
+      "rag_has_calculation": false,
+      "gemini_has_calculation": true,
+      "rag_error": "",
+      "gemini_error": ""
+    },
+    {
+      "test_id": "TC_HARD_005",
+      "category": "dispute_resolution",
+      "question": "Công ty X đơn phương chấm dứt hợp đồng với anh D mà không báo trước, lý do là anh thường xuyên không hoàn thành công việc. Anh D cho rằng công ty vi phạm vì không có quy chế đánh giá và muốn kiện. Hỏi: (1) Công ty có vi phạm pháp luật không? Điều khoản nào? (2) Anh D được bồi thường những gì nếu thắng kiện? (3) Anh D có thể khởi kiện ở đâu và trong thời hạn bao lâu?",
+      "expected_articles": [
+        "Điều 36 BLLĐ",
+        "Điều 39 BLLĐ",
+        "Điều 41 BLLĐ",
+        "Điều 187 BLLĐ",
+        "Điều 188 BLLĐ"
+      ],
+      "rag_answer": "Để trả lời câu hỏi, chúng ta cần dựa vào các quy định về đơn phương chấm dứt hợp đồng lao động và trách nhiệm của người sử dụng lao động trong Bộ luật Lao động.\n\n(1) Theo Điều 36 Bộ luật Lao động, người sử dụng lao động có quyền đơn phương chấm dứt hợp đồng lao động trong trường hợp người lao động thường xuyên không hoàn thành công việc theo hợp đồng lao động. Tuy nhiên, để thực hiện việc này, người sử dụng lao động phải có quy chế đánh giá mức độ hoàn thành công việc và phải tham khảo ý kiến của tổ chức đại diện người lao động tại cơ sở (nếu có). Nếu công ty X không có quy chế đánh giá và không tham khảo ý kiến của tổ chức đại diện người lao động tại cơ sở (nếu có), thì công ty X có thể được coi là vi phạm pháp luật, cụ thể là vi phạm khoản 1 Điều 36 Bộ luật Lao động.\n\n(2) Nếu anh D thắng kiện, anh có thể được bồi thường theo quy định tại Điều 41 Bộ luật Lao động. Cụ thể, người sử dụng lao động phải:\n* Nhận anh D trở lại làm việc theo hợp đồng lao động đã giao kết\n* Trả tiền lương, đóng bảo hiểm xã hội, bảo hiểm y tế, bảo hiểm thất nghiệp trong những ngày anh D không được làm việc\n* Trả thêm cho anh D một khoản tiền ít nhất bằng 02 tháng tiền lương theo hợp đồng lao động\n* Nếu anh D không muốn tiếp tục làm việc, người sử dụng lao động phải trả trợ cấp thôi việc theo quy định tại Điều 46 Bộ luật Lao động\n\n(3) Anh D có thể khởi kiện tại Tòa án nhân dân cấp huyện nơi công ty X đặt trụ sở chính. Thời hạn khởi kiện là trong thời hạn 01 năm kể từ ngày anh D biết hoặc phải biết về hành vi đơn phương chấm dứt hợp đồng lao động trái pháp luật của công ty X.",
+      "rag_sources": [
+        "36 BLLĐ",
+        "41 BLLĐ",
+        "35 BLLĐ",
+        "12 ND12",
+        "5 BLLĐ",
+        "188 BLLĐ",
+        "42 ND12"
+      ],
+      "rag_latency_ms": 6136.201896006241,
+      "rag_word_count": 358,
+      "gemini_answer": "",
+      "gemini_latency_ms": 0,
+      "gemini_word_count": 0,
+      "rag_article_hits": 3,
+      "rag_article_coverage": 60.0,
+      "gemini_article_hits": 0,
+      "gemini_article_coverage": 0.0,
+      "sub_question_count": 3,
+      "rag_sub_answered": 3,
+      "gemini_sub_answered": 0,
+      "rag_has_calculation": false,
+      "gemini_has_calculation": false,
+      "rag_error": "",
+      "gemini_error": "The model is overloaded. Please try again later."
+    },
+    {
+      "test_id": "TC_HARD_006",
+      "category": "multi-benefit_calculation",
+      "question": "Chị E sinh đôi, đã đóng BHXH được 3 năm, lương bình quân 6 tháng đóng BHXH trước sinh là 15 triệu đồng/tháng. Hỏi: (1) Chị được nghỉ thai sản bao lâu? (2) Tính tổng số tiền chế độ thai sản chị được hưởng (bao gồm cả trợ cấp một lần)?",
+      "expected_articles": [
+        "Điều 34 BHXH",
+        "Điều 38 BHXH",
+        "Điều 139 BLLĐ"
+      ],
+      "rag_answer": "Để trả lời câu hỏi, chúng ta cần dựa vào các quy định về chế độ thai sản trong Luật Bảo hiểm xã hội.\n\n(1) Theo Điều 139 Bộ luật Lao động, lao động nữ sinh con được nghỉ thai sản trước và sau khi sinh con là 06 tháng. Trường hợp lao động nữ sinh đôi trở lên thì tính từ con thứ 02 trở đi, cứ mỗi con, người mẹ được nghỉ thêm 01 tháng. Vì chị E sinh đôi, nên chị được nghỉ thai sản 06 tháng + 01 tháng = 07 tháng.\n\n(2) Theo Điều 39 Luật Bảo hiểm xã hội, lao động nữ sinh con được hưởng chế độ thai sản với mức hưởng như sau:\n* Mức hưởng chế độ thai sản = 100% mức bình quân tiền lương tháng đóng bảo hiểm xã hội của 06 tháng liền kề trước khi nghỉ việc hưởng chế độ thai sản\n* Thời gian hưởng chế độ thai sản = 07 tháng (đối với trường hợp sinh đôi)\n\nMức bình quân tiền lương tháng đóng bảo hiểm xã hội của 06 tháng liền kề trước khi nghỉ việc hưởng chế độ thai sản = 15 triệu đồng/tháng\n\nMức hưởng chế độ thai sản = 100% x 15 triệu đồng/tháng x 07 tháng = 105 triệu đồng\n\nTrợ cấp một lần khi sinh con = 2 tháng lương cơ sở x 2 (vì sinh đôi) = 2 x 2 x 1.490.000 đồng = 5.960.000 đồng (theo mức lương cơ sở hiện hành)\n\nTổng số tiền chế độ thai sản chị E được hưởng = 105 triệu đồng + 5.960.000 đồng = 110.960.000 đồng",
+      "rag_sources": [
+        "139 BLLĐ",
+        "53 BHXH",
+        "55 BHXH",
+        "54 BHXH",
+        "61 BHXH",
+        "51 BHXH",
+        "141 BHXH"
+      ],
+      "rag_latency_ms": 42839.94844101835,
+      "rag_word_count": 276,
+      "gemini_answer": "Chào bạn, với vai trò là chuyên gia pháp luật lao động Việt Nam, tôi xin tư vấn chi tiết về chế độ thai sản của chị E như sau:\n\n**Cơ sở pháp lý:**\n\n*   Luật Bảo hiểm xã hội số 58/2014/QH13 ngày 20/11/2014 (sau đây gọi tắt là Luật BHXH 2014).\n*   Nghị định số 24/2023/NĐ-CP ngày 14/5/2023 của Chính phủ quy định mức lương cơ sở đối với cán bộ, công chức, viên chức và lực lượng vũ trang (có hiệu lực từ 01/7/2023).\n\n**Thông tin của chị E:**\n\n*   Sinh đôi.\n*   Đã đóng BHXH được 3 năm (đủ điều kiện hưởng chế độ thai sản theo Điều 31 Luật BHXH 2014).\n*   Lương bình quân 6 tháng đóng BHXH trước sinh: 15.000.000 đồng/tháng.\n\n---\n\n### (1) Chị E được nghỉ thai sản bao lâu?\n\nChị E sinh đôi nên thời gian nghỉ thai sản sẽ được tính theo quy định đặc biệt cho trường hợp sinh nhiều con.\n\n*   **Điều 34 Khoản 1 Luật BHXH 2014** quy định: \"Lao động nữ sinh con được nghỉ việc hưởng chế độ thai sản trước và sau khi sinh con là 06 tháng.\"\n*   **Điều 34 Khoản 2 Luật BHXH 2014** quy định: \"Trường hợp lao động nữ sinh đôi trở lên thì từ con thứ hai trở đi, cứ mỗi con, người mẹ được nghỉ thêm 01 tháng.\"\n\n**Áp dụng cho chị E:**\n\n*   Đối với con thứ nhất: Chị E được nghỉ 06 tháng.\n*   Đối với con thứ hai (do sinh đôi): Chị E được nghỉ thêm 01 tháng.\n\n**Tổng thời gian nghỉ thai sản của chị E là:** 06 tháng + 01 tháng = **07 tháng**.\n\n---\n\n### (2) Tính tổng số tiền chế độ thai sản chị E được hưởng (bao gồm cả trợ cấp một lần)?\n\nTổng số tiền chế độ thai sản chị E được hưởng bao gồm:\n1.  Tiền trợ cấp thai sản trong thời gian nghỉ việc.\n2.  Tiền trợ cấp một lần khi sinh con.\n\n#### 1. Tiền trợ cấp thai sản trong thời gian nghỉ việc:\n\n*   **Điều 39 Khoản 1 Luật BHXH 2014** quy định: \"Mức hưởng chế độ thai sản một tháng bằng 100% mức bình quân tiền lương tháng đóng bảo hiểm xã hội của 06 tháng trước khi nghỉ việc hưởng chế độ thai sản.\"\n\n**Công thức tính:**\nMức hưởng = (Mức bình quân tiền lương tháng đóng BHXH của 06 tháng trước khi nghỉ việc) x (Số tháng nghỉ thai sản)\n\n**Áp dụng cho chị E:**\n\n*   Mức bình quân tiền lương tháng đóng BHXH của 06 tháng trước khi nghỉ việc: 15.000.000 đồng/tháng.\n*   Số tháng nghỉ thai sản: 07 tháng.\n\n**Tính toán:**\nTiền trợ cấp thai sản = 15.000.000 đồng/tháng x 7 tháng = **105.000.000 đồng**.\n\n#### 2. Tiền trợ cấp một lần khi sinh con:\n\n*   **Điều 38 Luật BHXH 2014** quy định: \"Lao động nữ sinh con hoặc người lao động nhận nuôi con nuôi dưới 06 tháng tuổi thì được trợ cấp một lần cho mỗi con bằng 02 lần mức lương cơ sở tại tháng lao động nữ sinh con hoặc tháng người lao động nhận nuôi con nuôi.\"\n\n**Lưu ý:** Mức lương cơ sở hiện hành theo Nghị định số 24/2023/NĐ-CP là **1.800.000 đồng/tháng** (áp dụng từ ngày 01/7/2023).\n\n**Công thức tính:**\nTrợ cấp một lần = (2 x Mức lương cơ sở) x (Số con được sinh)\n\n**Áp dụng cho chị E:**\n\n*   Mức lương cơ sở: 1.800.000 đồng/tháng.\n*   Số con được sinh: 02 con (sinh đôi).\n\n**Tính toán:**\nTiền trợ cấp một lần = (2 x 1.800.000 đồng/tháng) x 2 con = 3.600.000 đồng x 2 = **7.200.000 đồng**.\n\n#### 3. Tổng số tiền chế độ thai sản chị E được hưởng:\n\nTổng số tiền = Tiền trợ cấp thai sản trong thời gian nghỉ việc + Tiền trợ cấp một lần khi sinh con\n\n**Tính toán:**\nTổng số tiền = 105.000.000 đồng + 7.200.000 đồng = **112.200.000 đồng**.\n\n---\n\n**Kết luận:**\n\n1.  **Chị E được nghỉ thai sản 07 tháng.**\n2.  **Tổng số tiền chế độ thai sản chị E được hưởng là 112.200.000 đồng**, bao gồm:\n    *   105.000.000 đồng tiền trợ cấp thai sản trong 07 tháng nghỉ việc.\n    *   7.200.000 đồng tiền trợ cấp một lần khi sinh đôi.",
+      "gemini_latency_ms": 18052.258533018176,
+      "gemini_word_count": 719,
+      "rag_article_hits": 1,
+      "rag_article_coverage": 33.3,
+      "gemini_article_hits": 2,
+      "gemini_article_coverage": 66.7,
+      "sub_question_count": 2,
+      "rag_sub_answered": 2,
+      "gemini_sub_answered": 2,
+      "rag_has_calculation": true,
+      "gemini_has_calculation": true,
+      "rag_error": "",
+      "gemini_error": ""
+    },
+    {
+      "test_id": "TC_HARD_007",
+      "category": "comparison_analysis",
+      "question": "So sánh quyền lợi khi nghỉ việc của 2 trường hợp: (A) Người lao động tự xin nghỉ việc sau 5 năm làm việc, và (B) Người lao động bị cho thôi việc do công ty cắt giảm nhân sự sau 5 năm làm việc. Giả sử cả hai đều đã đóng BHTN đủ 5 năm, lương 15 triệu/tháng. Hỏi: (1) Mỗi người được hưởng trợ cấp gì từ công ty? (2) Ai được hưởng trợ cấp thất nghiệp và bao nhiêu?",
+      "expected_articles": [
+        "Điều 34 BLLĐ",
+        "Điều 42 BLLĐ",
+        "Điều 46 BLLĐ",
+        "Điều 47 BLLĐ",
+        "Điều 49 VL"
+      ],
+      "rag_answer": "",
+      "rag_sources": [],
+      "rag_latency_ms": 4237.101427977905,
+      "rag_word_count": 0,
+      "gemini_answer": "",
+      "gemini_latency_ms": 0,
+      "gemini_word_count": 0,
+      "rag_article_hits": 0,
+      "rag_article_coverage": 0.0,
+      "gemini_article_hits": 0,
+      "gemini_article_coverage": 0.0,
+      "sub_question_count": 2,
+      "rag_sub_answered": 0,
+      "gemini_sub_answered": 0,
+      "rag_has_calculation": false,
+      "gemini_has_calculation": false,
+      "rag_error": "",
+      "gemini_error": "The model is overloaded. Please try again later."
+    }
+  ]
+}

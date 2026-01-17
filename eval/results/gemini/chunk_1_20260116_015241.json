@@ -1,0 +1,120 @@
+{
+  "timestamp": "2026-01-16T01:52:41.256447",
+  "model": "gemini-2.5-flash",
+  "total_tests": 5,
+  "summary": {
+    "avg_rag_latency_ms": 21161.0,
+    "avg_gemini_latency_ms": 8498.0,
+    "avg_rag_words": 100.6,
+    "avg_gemini_words": 170.4,
+    "rag_citation_rate": 100.0,
+    "gemini_citation_rate": 100.0
+  },
+  "results": [
+    {
+      "test_id": "TC001",
+      "question": "Thời gian làm việc tối đa trong tuần là bao nhiêu giờ?",
+      "rag_answer": "Theo **Bộ luật Lao động 2019**, Chương VII, Điều 105, khoản 1:  \n\n> “Thời giờ làm việc bình thường không quá **08 giờ trong 01 ngày và không quá **48 giờ** trong 01 tuần**.”  \n\nVì vậy, thời gian làm việc tối đa trong một tuần là **48 giờ**.",
+      "gemini_answer": "Theo Bộ luật Lao động 2019, thời gian làm việc tối đa trong tuần được quy định như sau:\n\n1.  **Thời giờ làm việc bình thường:**\n    *   Không quá **48 giờ/tuần** (không quá 08 giờ/ngày).\n    *   *(Điều 105 Bộ luật Lao động 2019)*\n\n2.  **Thời giờ làm thêm (nếu có):**\n    *   Người sử dụng lao động được sử dụng người lao động làm thêm giờ khi được sự đồng ý của người lao động.\n    *   Tổng số giờ làm việc bình thường và số giờ làm thêm không quá **12 giờ trong 01 ngày**.\n    *   Tổng số giờ làm thêm không quá **40 giờ trong 01 tháng**.\n    *   *(Khoản 2 Điều 107 Bộ luật Lao động 2019)*\n\nDựa trên các quy định trên, trong trường hợp người lao động làm việc tối đa cả giờ làm việc bình thường và giờ làm thêm, thời gian làm việc tối đa trong một tuần có thể lên tới:\n\n*   Nếu một tuần có 6 ngày làm việc, mỗi ngày làm việc 8 giờ bình thường và 4 giờ làm thêm (để đạt tối đa 12 giờ/ngày):\n    *   Giờ làm việc bình thường: 8 giờ/ngày x 6 ngày = 48 giờ.\n    *   Giờ làm thêm: 4 giờ/ngày x 6 ngày = 24 giờ.\n    *   **Tổng cộng: 48 giờ + 24 giờ = 72 giờ.**\n\nLưu ý rằng 24 giờ làm thêm trong một tuần này vẫn nằm trong giới hạn 40 giờ làm thêm trong một tháng.",
+      "rag_sources": [
+        "105 BLLĐ",
+        "61 ND145",
+        "146 BLLĐ",
+        "60 ND145",
+        "107 BLLĐ",
+        "111 BLLĐ",
+        "109 BLLĐ"
+      ],
+      "rag_latency_ms": 4556.047777994536,
+      "gemini_latency_ms": 13544.577095017303,
+      "rag_word_count": 48,
+      "gemini_word_count": 244,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC002",
+      "question": "Thời gian nghỉ thai sản cho lao động nữ là bao lâu?",
+      "rag_answer": "Theo **Điều 139, khoản 1** của **Bộ luật Lao động 2019** (Chương X “Những quy định riêng đối với lao động nữ”):\n\n- Lao động nữ được nghỉ thai sản **tổng cộng 06 tháng** (trước và sau khi sinh).  \n- Thời gian nghỉ **trước khi sinh không quá 02 tháng**; phần còn lại (tối đa 04 tháng) là thời gian nghỉ **sau khi sinh**.  \n\n> “Lao động nữ được nghỉ thai sản trước và sau khi sinh con là 06 tháng; thời gian nghỉ trước khi sinh không quá 02 tháng.”  \n\nNếu sinh đôi trở lên, từ con thứ 2 trở đi mỗi con được nghỉ **thêm 01 tháng**.",
+      "gemini_answer": "Thời gian nghỉ thai sản cho lao động nữ được quy định như sau:\n\n1.  **Thời gian nghỉ chung:** Lao động nữ được nghỉ thai sản trước và sau khi sinh con là **06 tháng**.\n    *   Thời gian nghỉ hưởng chế độ thai sản trước khi sinh tối đa không quá **02 tháng**.\n\n2.  **Trường hợp sinh đôi trở lên:** Cứ mỗi con từ con thứ hai trở đi, người mẹ được nghỉ thêm **01 tháng**.\n\n**Cơ sở pháp lý:**\n\n*   **Điều 139 Bộ luật Lao động 2019.**\n*   **Điều 34 Luật Bảo hiểm xã hội 2014.**\n\nTrong thời gian nghỉ thai sản này, lao động nữ được hưởng chế độ thai sản theo quy định của pháp luật về bảo hiểm xã hội.",
+      "rag_sources": [
+        "139 BLLĐ",
+        "55 BHXH",
+        "54 BHXH",
+        "53 BHXH",
+        "52 BHXH",
+        "51 BHXH",
+        "57 BHXH"
+      ],
+      "rag_latency_ms": 4621.699886978604,
+      "gemini_latency_ms": 6093.873993959278,
+      "rag_word_count": 109,
+      "gemini_word_count": 124,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC003",
+      "question": "Người lao động được nghỉ phép năm bao nhiêu ngày?",
+      "rag_answer": "Theo **Điều 113, khoản 1** của **Bộ luật Lao động 2019** (Chương VII “Thời giờ làm việc, thời giờ nghỉ ngơi”):\n\n- **12 ngày** làm việc – đối với người lao động làm công việc trong điều kiện bình thường;  \n- **14 ngày** làm việc – đối với người lao động chưa thành niên, người khuyết tật, hoặc người làm nghề, công việc nặng nhọc, độc hại, nguy hiểm;  \n- **16 ngày** làm việc – đối với người lao động làm nghề, công việc **đặc biệt** nặng nhọc, độc hại, nguy hiểm.  \n\nNếu người lao động chưa làm việc đủ 12 tháng cho một người sử dụng lao động, số ngày nghỉ hằng năm được tính theo tỷ lệ tương ứng với số tháng làm việc (Điều 113, khoản 2).",
+      "gemini_answer": "Theo Bộ luật Lao động 2019, số ngày nghỉ phép năm của người lao động được quy định như sau:\n\n1.  **Trường hợp thông thường:**\n    *   Người lao động làm việc đủ 12 tháng cho một người sử dụng lao động thì được nghỉ hằng năm **12 ngày làm việc** (Điều 113 Khoản 1).\n\n2.  **Trường hợp được nghỉ nhiều hơn:**\n    *   Người làm công việc nặng nhọc, độc hại, nguy hiểm; người làm việc ở vùng có điều kiện sinh sống khắc nghiệt; người chưa thành niên; người khuyết tật: được nghỉ hằng năm **14 ngày làm việc** (Điều 113 Khoản 2).\n    *   Người làm công việc đặc biệt nặng nhọc, độc hại, nguy hiểm; người làm việc ở vùng có điều kiện sinh sống đặc biệt khắc nghiệt: được nghỉ hằng năm **16 ngày làm việc** (Điều 113 Khoản 3).\n\n3.  **Ngày nghỉ tăng thêm theo thâm niên:**\n    *   Cứ đủ 05 năm làm việc cho một người sử dụng lao động thì số ngày nghỉ hằng năm của người lao động được tăng thêm **01 ngày** (Điều 114).\n\n**Tóm lại:** Số ngày nghỉ phép năm cơ bản là 12 ngày làm việc, nhưng có thể tăng lên 14 hoặc 16 ngày tùy thuộc vào tính chất công việc và điều kiện làm việc, và được cộng thêm 1 ngày cho mỗi 5 năm thâm niên làm việc.",
+      "rag_sources": [
+        "113 BLLĐ",
+        "111 BLLĐ",
+        "114 BLLĐ",
+        "66 ND145",
+        "112 BLLĐ",
+        "46 BHXH",
+        "115 BLLĐ"
+      ],
+      "rag_latency_ms": 8098.070775042288,
+      "gemini_latency_ms": 7284.604059008416,
+      "rag_word_count": 130,
+      "gemini_word_count": 230,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC004",
+      "question": "Thời gian thử việc tối đa là bao lâu?",
+      "rag_answer": "Theo **Điều 25** của **Bộ luật Lao động 2019** (Chương III “Hợp đồng lao động”) thời gian thử việc **không quá**:\n\n| Loại công việc | Thời gian thử việc tối đa |\n|----------------|---------------------------|\n| Người quản lý doanh nghiệp (theo Luật Doanh nghiệp, Luật quản lý, sử dụng vốn nhà nước) | **180 ngày** |\n| Công việc có chức danh nghề nghiệp cần trình độ chuyên môn, kỹ thuật **từ cao đẳng trở lên** | **60 ngày** |\n| Công việc có chức danh nghề nghiệp cần trình độ chuyên môn, kỹ thuật **trung cấp, công nhân kỹ thuật, nhân viên nghiệp vụ** | **30 ngày** |\n| Các công việc khác | **06 ngày làm việc** |\n\n> “Thời gian thử việc … không quá 180 ngày …; không quá 60 ngày …; không quá 30 ngày …; không quá 06 ngày làm việc đối với công việc khác.” (Điều 25, khoản 1)\n\nDo đó, thời gian thử việc tối đa phụ thuộc vào tính chất và mức độ phức tạp của công việc như trên.",
+      "gemini_answer": "Thời gian thử việc tối đa phụ thuộc vào tính chất và mức độ phức tạp của công việc, cụ thể như sau:\n\n*   **Không quá 180 ngày** đối với công việc có chức danh nghề nghiệp cần trình độ chuyên môn, kỹ thuật từ cao đẳng trở lên.\n*   **Không quá 60 ngày** đối với công việc có chức danh nghề nghiệp cần trình độ chuyên môn, kỹ thuật trung cấp, công nhân kỹ thuật, nhân viên nghiệp vụ.\n*   **Không quá 30 ngày** đối với các loại công việc khác.\n*   **Không áp dụng thử việc** đối với hợp đồng lao động có thời hạn dưới 01 tháng.\n\nCăn cứ: **Điều 25 Bộ luật Lao động 2019**.",
+      "rag_sources": [
+        "25 BLLĐ",
+        "24 BLLĐ",
+        "155 BLLĐ",
+        "10 ND12",
+        "219 BLLĐ",
+        "27 BLLĐ",
+        "65 ND145"
+      ],
+      "rag_latency_ms": 41445.72129496373,
+      "gemini_latency_ms": 5921.195368049666,
+      "rag_word_count": 179,
+      "gemini_word_count": 119,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC005",
+      "question": "Lương tối thiểu vùng I năm 2026 là bao nhiêu?",
+      "rag_answer": "Theo **Nghị định về mức lương tối thiểu vùng 2026**, Điều 3, bảng mức lương tối thiểu:\n\n- **Mức lương tối thiểu tháng** vùng I: **5.310.000 đồng/tháng**  \n- **Mức lương tối thiểu giờ** vùng I: **25.500 đồng/giờ**.",
+      "gemini_answer": "Hiện tại, mức lương tối thiểu vùng I cho năm 2026 **chưa được công bố**.\n\nMức lương tối thiểu vùng thường được Chính phủ quyết định và ban hành bằng Nghị định vào cuối năm trước đó hoặc đầu năm áp dụng, sau khi có sự thảo luận và đề xuất từ Hội đồng Tiền lương Quốc gia.\n\nĐể bạn tham khảo, mức lương tối thiểu vùng I đang áp dụng hiện nay (từ ngày 01/7/2024) là **4.960.000 đồng/tháng**. Mức này được quy định tại **Nghị định 24/2023/NĐ-CP** ngày 14/5/2023 của Chính phủ.\n\nBạn cần theo dõi các thông báo chính thức từ Chính phủ và Bộ Lao động - Thương binh và Xã hội vào cuối năm 2025 hoặc đầu năm 2026 để biết chính xác mức lương tối thiểu vùng cho năm 2026.",
+      "rag_sources": [
+        "3 ND293",
+        "5 ND293",
+        "4 ND293",
+        "PL_28 ND293",
+        "PL_1 ND293",
+        "PL_13 ND293",
+        "PL_29 ND293"
+      ],
+      "rag_latency_ms": 47084.120025043376,
+      "gemini_latency_ms": 9645.546808023937,
+      "rag_word_count": 37,
+      "gemini_word_count": 135,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    }
+  ]
+}

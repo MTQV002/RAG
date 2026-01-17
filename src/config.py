@@ -1,12 +1,9 @@
-"""Configuration settings for RAG v3 using Pydantic Settings"""
 from typing import Optional, Literal
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from functools import lru_cache
 
 
 class Settings(BaseSettings):
-    """Application settings with environment variable support"""
-    
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
@@ -23,35 +20,38 @@ class Settings(BaseSettings):
     # LLM Model Configuration
     LLM_MODEL_GEMINI: str = "gemini-2.5-flash-latest"
     LLM_MODEL_OPENAI: str = "gpt-4o-mini"
-    LLM_MODEL_GROQ: str = "llama-3.3-70b-versatile"  # Options: llama-3.3-70b-versatile, llama-3.1-70b-versatile, mixtral-8x7b-32768
-    LLM_TEMPERATURE: float = 0.1
-    LLM_CONTEXT_WINDOW: int = 32768
-    LLM_MAX_TOKENS: int = 2048
+    LLM_MODEL_GROQ: str = "llama-3.3-70b-versatile" # openai/gpt-oss-120b,llama-3.1-8b-instant,openai/gpt-oss-20b,llama-3.3-70b-versatile
+    LLM_TEMPERATURE: float = 0.05   
+    LLM_CONTEXT_WINDOW: int = 131072  
+    LLM_MAX_TOKENS: int = 4096      
     
     # ===== Embedding Settings =====
-    EMBEDDING_MODEL: str = "bkai-foundation-models/vietnamese-bi-encoder"
+    EMBEDDING_MODEL: str = "AITeamVN/Vietnamese_Embedding"
     EMBEDDING_DIM: int = 768
     EMBEDDING_BATCH_SIZE: int = 32
-    
+     
     # ===== Reranker Settings =====
     RERANKER_MODEL: str = "BAAI/bge-reranker-v2-m3"
-    RERANKER_TOP_N: int = 5
-    HUGGINGFACE_API_KEY: Optional[str] = None  # Optional for HF Inference API
+    RERANKER_TOP_N: int = 7        
+    HUGGINGFACE_API_KEY: Optional[str] = None
     
     # ===== Qdrant Cloud Settings =====
-    QDRANT_URL: str = "http://localhost:6333"  # Qdrant Cloud URL
+    QDRANT_URL: str = "http://localhost:6333" 
     QDRANT_API_KEY: Optional[str] = None
-    QDRANT_COLLECTION: str = "vietnam_labor_law_v3"
+    QDRANT_COLLECTION: str = "legal_decrees_vL"
     
     # ===== Retrieval Settings =====
-    VECTOR_TOP_K: int = 20
-    BM25_TOP_K: int = 20
-    HYBRID_TOP_K: int = 30  # After RRF fusion
-    RRF_K: int = 60  # RRF constant
+    VECTOR_TOP_K: int = 15          
+    BM25_TOP_K: int = 15
+    HYBRID_TOP_K: int = 25          
+    RRF_K: int = 30                 
+    
+    # ===== Memory Settings =====
+    MEMORY_TOKEN_LIMIT: int = 12000 
     
     # ===== Chunking Settings (for Ingestion) =====
-    CHUNK_SIZE: int = 512
-    CHUNK_OVERLAP: int = 50
+    CHUNK_SIZE: int = 5000
+    CHUNK_OVERLAP: int = 0
     
     # ===== Observability (Arize Phoenix) =====
     PHOENIX_COLLECTOR_ENDPOINT: Optional[str] = None
@@ -64,7 +64,6 @@ class Settings(BaseSettings):
     # ===== Derived Properties =====
     @property
     def llm_model(self) -> str:
-        """Get the appropriate LLM model based on provider"""
         if self.LLM_PROVIDER == "gemini":
             return self.LLM_MODEL_GEMINI
         elif self.LLM_PROVIDER == "groq":
@@ -73,7 +72,6 @@ class Settings(BaseSettings):
     
     @property
     def llm_api_key(self) -> Optional[str]:
-        """Get the appropriate API key based on provider"""
         if self.LLM_PROVIDER == "gemini":
             return self.GEMINI_API_KEY
         elif self.LLM_PROVIDER == "groq":
@@ -83,9 +81,7 @@ class Settings(BaseSettings):
 
 @lru_cache()
 def get_settings() -> Settings:
-    """Get cached settings instance"""
     return Settings()
 
 
-# Global settings instance
 settings = get_settings()

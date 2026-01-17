@@ -1,0 +1,60 @@
+[
+    {
+        "id": "TC021",
+        "category": "multi_hop",
+        "question": "So sánh thời gian nghỉ thai sản của lao động nữ thường và lao động nữ sinh đôi?",
+        "keywords": [
+            "6 tháng",
+            "thêm 1 tháng",
+            "con thứ hai"
+        ],
+        "expected_article": "Điều 139",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC022",
+        "category": "multi_hop",
+        "question": "Người lao động làm việc trong môi trường độc hại được hưởng chế độ gì?",
+        "keywords": [
+            "phụ cấp",
+            "thêm ngày nghỉ",
+            "bồi dưỡng"
+        ],
+        "expected_article": "Điều 103",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC023",
+        "category": "edge_case",
+        "question": "Intern có được trả lương không theo luật Việt Nam?",
+        "keywords": [
+            "không bắt buộc",
+            "thỏa thuận",
+            "thực tập"
+        ],
+        "expected_article": "",
+        "expected_doc": ""
+    },
+    {
+        "id": "TC024",
+        "category": "factual",
+        "question": "Thời gian tối đa tạm hoãn hợp đồng lao động do nghĩa vụ quân sự là bao lâu?",
+        "keywords": [
+            "hết thời hạn",
+            "nghĩa vụ quân sự"
+        ],
+        "expected_article": "Điều 30",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC025",
+        "category": "factual",
+        "question": "Mức hưởng ốm đau của người lao động là bao nhiêu phần trăm tiền lương?",
+        "keywords": [
+            "75%",
+            "bảy mươi lăm"
+        ],
+        "expected_article": "Điều 28",
+        "expected_doc": "BHXH"
+    }
+]

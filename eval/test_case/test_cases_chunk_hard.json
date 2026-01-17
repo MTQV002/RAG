@@ -1,0 +1,94 @@
+[
+    {
+        "id": "TC_HARD_001",
+        "category": "multi-document_complex",
+        "question": "Một lao động nữ 54 tuổi, làm việc trong môi trường đặc biệt nặng nhọc, độc hại được 20 năm, đang mang thai tháng thứ 6. Công ty muốn cho cô nghỉ việc vì tái cơ cấu. Hỏi: (1) Công ty có được sa thải cô không và tại sao? (2) Nếu cô tự nghỉ, cô có cần báo trước không? (3) Cô có đủ điều kiện nghỉ hưu sớm không? (4) Cô được hưởng những chế độ gì từ BHXH khi nghỉ thai sản?",
+        "keywords": ["không được sa thải", "mang thai", "nghỉ hưu sớm", "thai sản", "độc hại"],
+        "expected_articles": [
+            "Điều 37 BLLĐ", "Điều 35 BLLĐ", "Điều 169 BLLĐ", "Điều 139 BLLĐ",
+            "Điều 34 BHXH", "Điều 55 BHXH"
+        ],
+        "difficulty": "ULTRA_HARD"
+    },
+    {
+        "id": "TC_HARD_002",
+        "category": "calculation_multi_law",
+        "question": "Anh A làm việc 10 năm 4 tháng tại công ty X, trong đó: đóng BHXH đủ 10 năm, đóng BHTN đủ 8 năm. Lương bình quân 6 tháng cuối là 20 triệu đồng/tháng. Anh A nghỉ việc do công ty sáp nhập với công ty khác. Hỏi chi tiết: (1) Anh A được hưởng trợ cấp gì từ công ty? Tính số tiền cụ thể? (2) Anh A có được hưởng trợ cấp thất nghiệp không? Nếu có thì mức hưởng hàng tháng và thời gian hưởng là bao lâu? (3) Ngoài ra anh còn được hưởng quyền lợi gì khác?",
+        "keywords": ["trợ cấp mất việc làm", "trợ cấp thất nghiệp", "sáp nhập", "BHTN"],
+        "expected_articles": [
+            "Điều 43 BLLĐ", "Điều 47 BLLĐ", "Điều 48 BLLĐ",
+            "Điều 50 VL", "Điều 51 VL", "Điều 52 VL"
+        ],
+        "difficulty": "ULTRA_HARD"
+    },
+    {
+        "id": "TC_HARD_003",
+        "category": "multi-hop_overtime",
+        "question": "Một công nhân làm thêm 4 giờ vào ngày nghỉ lễ (ban đêm từ 22h-02h), lương theo giờ bình thường là 50.000đ/giờ. Hỏi: (1) Tổng tiền lương làm thêm giờ anh ta được nhận là bao nhiêu? (2) Nếu trong năm anh đã làm thêm 280 giờ rồi thì 4 giờ này có hợp pháp không? (3) Công ty có thể bắt buộc anh làm thêm giờ này không?",
+        "keywords": ["làm thêm giờ ban đêm", "ngày lễ", "300%", "30%", "200 giờ/năm"],
+        "expected_articles": [
+            "Điều 98 BLLĐ - Tiền lương làm thêm giờ",
+            "Điều 97 BLLĐ - Tiền lương làm việc ban đêm",
+            "Điều 107 BLLĐ - Giới hạn làm thêm giờ",
+            "Điều 59 NĐ145 - Làm thêm tối đa 300 giờ"
+        ],
+        "difficulty": "ULTRA_HARD",
+        "expected_calculation": {
+            "note": "Lương làm thêm ngày lễ = 300%, ban đêm thêm 30% + 20%",
+            "formula": "4h × 50k × (300% + 30% + 20%) = 4 × 50k × 3.5 = 700.000đ"
+        }
+    },
+    {
+        "id": "TC_HARD_004",
+        "category": "termination_complex",
+        "question": "Một nhân viên bị công ty đơn phương chấm dứt hợp đồng với lý do 'thường xuyên không hoàn thành công việc'. Anh ta đã làm việc 5 năm, hợp đồng không xác định thời hạn, lương 15 triệu/tháng. Hỏi: (1) Việc sa thải có hợp pháp không và cần điều kiện gì? (2) Công ty phải báo trước bao lâu? (3) Anh ta có được hưởng trợ cấp thôi việc không? Nếu có thì số tiền bao nhiêu? (4) Nếu sa thải trái pháp luật, công ty phải bồi thường gì?",
+        "keywords": ["đơn phương chấm dứt", "không hoàn thành công việc", "báo trước 45 ngày", "trợ cấp thôi việc"],
+        "expected_articles": [
+            "Điều 36 BLLĐ - Quyền đơn phương chấm dứt của NSDLĐ",
+            "Điều 46 BLLĐ - Trợ cấp thôi việc",
+            "Điều 41 BLLĐ - Nghĩa vụ khi sa thải trái pháp luật",
+            "Điều 48 BLLĐ - Trách nhiệm thanh toán"
+        ],
+        "difficulty": "ULTRA_HARD"
+    },
+    {
+        "id": "TC_HARD_005",
+        "category": "probation_complex",
+        "question": "Một người được tuyển vào vị trí Giám đốc chi nhánh (có bằng đại học), thử việc với lương 20 triệu/tháng. Sau 90 ngày thử việc, công ty thông báo không đạt yêu cầu. Hỏi: (1) Thời gian thử việc 90 ngày có đúng quy định không? (2) Mức lương thử việc 20 triệu có vi phạm không nếu lương chính thức là 25 triệu? (3) Khi kết thúc thử việc, người này có được hưởng quyền lợi gì? (4) Nếu thử việc đạt nhưng không được ký hợp đồng chính thức thì xử lý thế nào?",
+        "keywords": ["thử việc quản lý", "180 ngày", "85% lương", "kết thúc thử việc"],
+        "expected_articles": [
+            "Điều 24 BLLĐ - Thử việc",
+            "Điều 25 BLLĐ - Thời gian thử việc",
+            "Điều 26 BLLĐ - Tiền lương thử việc",
+            "Điều 27 BLLĐ - Kết thúc thời gian thử việc"
+        ],
+        "difficulty": "ULTRA_HARD"
+    },
+    {
+        "id": "TC_HARD_006",
+        "category": "sick_leave_complex",
+        "question": "Một người lao động đã đóng BHXH được 18 năm, bị ốm phải nghỉ việc 2 tháng liên tục. Đây là lần ốm thứ 2 trong năm (lần 1 nghỉ 20 ngày). Hỏi: (1) Anh ta được nghỉ ốm tối đa bao nhiêu ngày trong năm theo quy định? (2) Mức hưởng trợ cấp ốm đau là bao nhiêu phần trăm lương? (3) Nếu hết thời gian nghỉ ốm mà vẫn chưa khỏi, anh ta có quyền tiếp tục nghỉ không? (4) Công ty có được chấm dứt hợp đồng với người đang nghỉ ốm không?",
+        "keywords": ["nghỉ ốm", "75% lương", "60 ngày/năm", "đóng BHXH 15 năm"],
+        "expected_articles": [
+            "Điều 26 BHXH - Thời gian nghỉ ốm",
+            "Điều 28 BHXH - Mức hưởng trợ cấp ốm đau",
+            "Điều 36 BLLĐ - Chấm dứt HĐ khi ốm 12 tháng",
+            "Điều 37 BLLĐ - Không được sa thải khi đang điều trị"
+        ],
+        "difficulty": "ULTRA_HARD"
+    },
+    {
+        "id": "TC_HARD_007",
+        "category": "contract_transfer",
+        "question": "Công ty A bán lại cho công ty B. Có 50 nhân viên đang làm việc. Hỏi: (1) Hợp đồng lao động của 50 người này có còn hiệu lực không? (2) Công ty B có bắt buộc phải nhận tất cả nhân viên cũ không? (3) Nếu công ty B không cần một số vị trí, họ xử lý thế nào? (4) Những người bị cho nghỉ được hưởng chế độ gì? (5) Thời hạn thanh toán các khoản là bao lâu?",
+        "keywords": ["chuyển nhượng", "phương án sử dụng lao động", "trợ cấp mất việc"],
+        "expected_articles": [
+            "Điều 43 BLLĐ - Nghĩa vụ khi chuyển nhượng",
+            "Điều 44 BLLĐ - Phương án sử dụng lao động",
+            "Điều 47 BLLĐ - Trợ cấp mất việc làm",
+            "Điều 48 BLLĐ - Thanh toán trong 14 ngày",
+            "Điều 42 BLLĐ - Thay đổi cơ cấu"
+        ],
+        "difficulty": "ULTRA_HARD"
+    }
+]

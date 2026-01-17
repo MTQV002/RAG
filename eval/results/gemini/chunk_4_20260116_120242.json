@@ -1,0 +1,120 @@
+{
+  "timestamp": "2026-01-16T12:02:42.277548",
+  "model": "gemini-2.5-flash",
+  "total_tests": 5,
+  "summary": {
+    "avg_rag_latency_ms": 11152.0,
+    "avg_gemini_latency_ms": 6713.0,
+    "avg_rag_words": 47.6,
+    "avg_gemini_words": 178.4,
+    "rag_citation_rate": 100.0,
+    "gemini_citation_rate": 100.0
+  },
+  "results": [
+    {
+      "test_id": "TC016",
+      "question": "Thời gian nghỉ hàng tuần tối thiểu là bao nhiêu?",
+      "rag_answer": "Theo Điều 111 Bộ luật Lao động, thời gian nghỉ hàng tuần tối thiểu là 24 giờ liên tục.",
+      "gemini_answer": "Thời gian nghỉ hàng tuần tối thiểu là **24 giờ liên tục**.\n\nĐiều này được quy định tại **Điều 111 Bộ luật Lao động 2019**:\n\n*   \"Mỗi tuần, người lao động được nghỉ ít nhất 24 giờ liên tục.\"\n*   \"Trường hợp đặc biệt do chu kỳ lao động không thể nghỉ hằng tuần thì người sử dụng lao động có trách nhiệm bảo đảm cho người lao động được nghỉ tính bình quân 01 tháng ít nhất 04 ngày.\"",
+      "rag_sources": [
+        "111 BLLĐ",
+        "105 BLLĐ",
+        "80 ND145",
+        "43 BHXH",
+        "52 BHXH",
+        "46 BHXH",
+        "110 BLLĐ"
+      ],
+      "rag_latency_ms": 4248.485362972133,
+      "gemini_latency_ms": 4041.6306080296636,
+      "rag_word_count": 19,
+      "gemini_word_count": 80,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC017",
+      "question": "Mức đóng bảo hiểm xã hội của người lao động là bao nhiêu phần trăm?",
+      "rag_answer": "Theo Điều 33 Luật Bảo hiểm xã hội 2024, mức đóng bảo hiểm xã hội của người lao động là 8% tiền lương làm căn cứ đóng bảo hiểm xã hội bắt buộc vào quỹ hưu trí và tử tuất.",
+      "gemini_answer": "Mức đóng bảo hiểm xã hội của người lao động hiện nay (bao gồm Bảo hiểm xã hội, Bảo hiểm y tế và Bảo hiểm thất nghiệp) là **10.5%** trên tiền lương tháng làm căn cứ đóng bảo hiểm xã hội.\n\nCụ thể, người lao động phải đóng các khoản sau:\n\n1.  **Bảo hiểm xã hội (BHXH): 8%**\n    *   Khoản này đóng vào quỹ hưu trí, tử tuất, ốm đau, thai sản.\n2.  **Bảo hiểm y tế (BHYT): 1.5%**\n3.  **Bảo hiểm thất nghiệp (BHTN): 1%**\n\n**Tổng cộng:** 8% (BHXH) + 1.5% (BHYT) + 1% (BHTN) = **10.5%**\n\n**Căn cứ pháp lý:**\n\n*   **Luật Bảo hiểm xã hội 2014:** Quy định về mức đóng BHXH.\n*   **Luật Bảo hiểm y tế 2008 (sửa đổi, bổ sung 2014):** Quy định về mức đóng BHYT.\n*   **Luật Việc làm 2013:** Quy định về mức đóng BHTN.\n*   **Nghị định số 115/2015/NĐ-CP** quy định chi tiết một số điều của Luật BHXH về BHXH bắt buộc.\n*   **Nghị định số 146/2018/NĐ-CP** quy định chi tiết và hướng dẫn biện pháp thi hành một số điều của Luật BHYT.\n*   **Nghị định số 28/2015/NĐ-CP** quy định chi tiết thi hành một số điều của Luật Việc làm về BHTN.",
+      "rag_sources": [
+        "33 BHXH",
+        "34 BHXH",
+        "36 BHXH",
+        "33 VL",
+        "44 ATVSLĐ",
+        "32 BHXH",
+        "66 BHXH"
+      ],
+      "rag_latency_ms": 4586.353420978412,
+      "gemini_latency_ms": 8148.507453966886,
+      "rag_word_count": 40,
+      "gemini_word_count": 205,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC018",
+      "question": "Lao động nữ nuôi con dưới 12 tháng được nghỉ bao nhiêu phút mỗi ngày?",
+      "rag_answer": "Theo khoản 4 Điều 137 Bộ luật Lao động và điểm a khoản 4 Điều 80 Nghị định hướng dẫn Bộ luật Lao động về điều kiện lao động, lao động nữ trong thời gian nuôi con dưới 12 tháng tuổi được nghỉ mỗi ngày 60 phút trong thời gian làm việc. Thời gian nghỉ vẫn được hưởng đủ tiền lương theo hợp đồng lao động.",
+      "gemini_answer": "Theo quy định của pháp luật lao động Việt Nam, lao động nữ đang nuôi con dưới 12 tháng tuổi được hưởng chế độ nghỉ đặc biệt.\n\nCụ thể, **Điều 137 Bộ luật Lao động năm 2019** quy định:\n\n\"Lao động nữ trong thời gian nuôi con dưới 12 tháng tuổi được nghỉ mỗi ngày 60 phút trong thời gian làm việc để vắt, trữ sữa, cho con bú, nghỉ ngơi; thời gian nghỉ này vẫn được hưởng đủ tiền lương theo hợp đồng lao động.\"\n\n**Tóm lại:** Lao động nữ nuôi con dưới 12 tháng tuổi được nghỉ **60 phút mỗi ngày** và vẫn được hưởng đủ tiền lương theo hợp đồng lao động.",
+      "rag_sources": [
+        "80 ND145",
+        "137 BLLĐ",
+        "55 BHXH",
+        "139 BLLĐ",
+        "28 ND12",
+        "58 ND145",
+        "109 BLLĐ"
+      ],
+      "rag_latency_ms": 4535.8346460270695,
+      "gemini_latency_ms": 5356.040220998693,
+      "rag_word_count": 66,
+      "gemini_word_count": 115,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC019",
+      "question": "Hợp đồng lao động xác định thời hạn tối đa là bao lâu?",
+      "rag_answer": "Theo điểm b khoản 1 Điều 20 Bộ luật Lao động, hợp đồng lao động xác định thời hạn là hợp đồng mà trong đó hai bên xác định thời hạn, thời điểm chấm dứt hiệu lực của hợp đồng trong thời gian không quá 36 tháng kể từ thời điểm có hiệu lực của hợp đồng.",
+      "gemini_answer": "Theo quy định của pháp luật lao động Việt Nam, hợp đồng lao động xác định thời hạn có thời hạn tối đa là **36 tháng** (03 năm).\n\nĐiều này được quy định tại **Điểm b Khoản 1 Điều 20 Bộ luật Lao động năm 2019**.\n\nCụ thể, Điểm b Khoản 1 Điều 20 Bộ luật Lao động 2019 quy định:\n\"Hợp đồng lao động xác định thời hạn là hợp đồng mà trong đó hai bên xác định thời hạn, thời điểm chấm dứt hiệu lực của hợp đồng trong thời gian **không quá 36 tháng** kể từ thời điểm có hiệu lực của hợp đồng.\"",
+      "rag_sources": [
+        "20 BLLĐ",
+        "155 BLLĐ",
+        "2 BHXH",
+        "14 BLLĐ",
+        "48 BLLĐ",
+        "151 BLLĐ",
+        "24 BLLĐ"
+      ],
+      "rag_latency_ms": 4417.505523015279,
+      "gemini_latency_ms": 5719.209643022623,
+      "rag_word_count": 57,
+      "gemini_word_count": 107,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC020",
+      "question": "Mức phạt khi không ký hợp đồng lao động là bao nhiêu?",
+      "rag_answer": "Theo khoản 1 Điều 9 Nghị định xử phạt vi phạm hành chính trong lĩnh vực lao động, mức phạt khi không ký hợp đồng lao động với người lao động từ đủ 3 tháng trở lên là từ 2.000.000 đồng đến 5.000.000 đồng đối với vi phạm từ 01 người đến 10 người lao động.",
+      "gemini_answer": "Theo quy định của pháp luật lao động Việt Nam, hành vi không ký hợp đồng lao động là một vi phạm hành chính và sẽ bị xử phạt.\n\nMức phạt được quy định cụ thể tại **Điều 9 Nghị định số 12/2022/NĐ-CP** quy định xử phạt vi phạm hành chính trong lĩnh vực lao động, bảo hiểm xã hội, người lao động Việt Nam đi làm việc ở nước ngoài theo hợp đồng, như sau:\n\n1.  **Phạt tiền từ 2.000.000 đồng đến 5.000.000 đồng** đối với người sử dụng lao động có hành vi **không giao kết hợp đồng lao động bằng văn bản** đối với công việc có thời hạn từ đủ 01 tháng trở lên.\n    *   *Lưu ý:* Đối với công việc có thời hạn dưới 01 tháng, các bên có thể giao kết hợp đồng lao động bằng lời nói, trừ trường hợp quy định tại khoản 2 Điều 18 của Bộ luật Lao động 2019.\n\n2.  **Phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng** đối với người sử dụng lao động có hành vi **giao kết hợp đồng lao động không đúng loại hình** quy định tại Điều 20 của Bộ luật Lao động (ví dụ: giao kết hợp đồng xác định thời hạn khi phải là hợp đồng không xác định thời hạn).\n\nNgoài ra, người sử dụng lao động vi phạm còn bị áp dụng **biện pháp khắc phục hậu quả**: Buộc người sử dụng lao động giao kết hợp đồng lao động bằng văn bản với người lao động đối với hành vi vi phạm không giao kết hợp đồng lao động bằng văn bản.\n\n**Lưu ý quan trọng:** Mức phạt nêu trên là mức phạt áp dụng đối với **cá nhân**. Trường hợp tổ chức vi phạm thì mức phạt tiền sẽ **gấp 02 lần** mức phạt tiền đối với cá nhân (theo Khoản 1 Điều 6 Nghị định 12/2022/NĐ-CP).\n\n**Tóm lại:**\n*   Nếu không ký hợp đồng lao động bằng văn bản cho công việc từ 1 tháng trở lên: **2.000.000 đồng đến 5.000.000 đồng** (đối với cá nhân).\n*   Nếu ký sai loại hợp đồng lao động: **5.000.000 đồng đến 10.000.000 đồng** (đối với cá nhân).\n*   Tổ chức vi phạm sẽ bị phạt gấp đôi.\n*   Buộc phải ký hợp đồng lao động.",
+      "rag_sources": [
+        "14 ND12",
+        "9 ND12",
+        "32 ND12",
+        "33 ND12",
+        "11 ND12",
+        "12 ND12",
+        "42 ND12"
+      ],
+      "rag_latency_ms": 37972.28180599632,
+      "gemini_latency_ms": 10300.467598019168,
+      "rag_word_count": 56,
+      "gemini_word_count": 385,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    }
+  ]
+}

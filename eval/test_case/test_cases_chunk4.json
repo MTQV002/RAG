@@ -1,0 +1,58 @@
+[
+    {
+        "id": "TC016",
+        "category": "factual",
+        "question": "Thời gian nghỉ hàng tuần tối thiểu là bao nhiêu?",
+        "keywords": [
+            "24 giờ",
+            "1 ngày"
+        ],
+        "expected_article": "Điều 111",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC017",
+        "category": "factual",
+        "question": "Mức đóng bảo hiểm xã hội của người lao động là bao nhiêu phần trăm?",
+        "keywords": [
+            "8%",
+            "tám phần trăm"
+        ],
+        "expected_article": "Điều 5",
+        "expected_doc": "BHXH"
+    },
+    {
+        "id": "TC018",
+        "category": "factual",
+        "question": "Lao động nữ nuôi con dưới 12 tháng được nghỉ bao nhiêu phút mỗi ngày?",
+        "keywords": [
+            "60 phút",
+            "1 giờ"
+        ],
+        "expected_article": "Điều 137",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC019",
+        "category": "factual",
+        "question": "Hợp đồng lao động xác định thời hạn tối đa là bao lâu?",
+        "keywords": [
+            "36 tháng",
+            "3 năm"
+        ],
+        "expected_article": "Điều 20",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC020",
+        "category": "factual",
+        "question": "Mức phạt khi không ký hợp đồng lao động là bao nhiêu?",
+        "keywords": [
+            "20.000.000",
+            "40.000.000",
+            "triệu đồng"
+        ],
+        "expected_article": "Điều 9",
+        "expected_doc": "ND12"
+    }
+]

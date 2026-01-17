@@ -1,14 +1,34 @@
-# Welcome to Chainlit! 🚀🤖
+# Hệ thống Tra cứu Pháp luật Lao động
 
-Hi there, Developer! 👋 We're excited to have you on board. Chainlit is a powerful tool designed to help you prototype, debug and share applications built on top of LLMs.
+**Trợ lý AI chuyên về Pháp luật Lao động Việt Nam**
 
-## Useful Links 🔗
+---
 
-- **Documentation:** Get started with our comprehensive [Chainlit Documentation](https://docs.chainlit.io) 📚
-- **Discord Community:** Join our friendly [Chainlit Discord](https://discord.gg/k73SQ3FyUh) to ask questions, share your projects, and connect with other developers! 💬
+## Cơ sở dữ liệu
 
-We can't wait to see what you create with Chainlit! Happy coding! 💻😊
+Hệ thống được xây dựng trên **693 điều** từ các văn bản pháp luật:
 
-## Welcome screen
+**Luật:**
+- Bộ luật Lao động 2019
+- Luật An toàn, vệ sinh lao động 2015
+- Luật Bảo hiểm xã hội 2024
+- Luật Việc làm 2024
 
-To modify the welcome screen, edit the `chainlit.md` file at the root of your project. If you do not want a welcome screen, just leave this file empty.
+**Nghị định:**
+- NĐ 145/2020/NĐ-CP - Hướng dẫn Bộ luật Lao động
+- NĐ 12/2022/NĐ-CP - Xử phạt vi phạm hành chính
+- NĐ 293/2025/NĐ-CP - Lương tối thiểu vùng
+
+---
+
+## Gợi ý câu hỏi
+
+- Thời gian thử việc tối đa là bao lâu?
+- Mức lương tối thiểu vùng I năm 2026?
+- Quy định về làm thêm giờ?
+- Điều kiện hưởng trợ cấp thất nghiệp?
+- Mức phạt khi không ký hợp đồng lao động?
+
+---
+
+*Mỗi câu trả lời đều có trích dẫn Điều/Khoản cụ thể từ văn bản gốc*

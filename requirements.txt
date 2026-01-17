@@ -11,7 +11,7 @@ tqdm==4.66.2
 uvicorn==0.40.0
 # Additional llama-index plugins (cài những plugin bổ sung cho llama-index, có thể cài sau khi cài  những thư viện trên tránh xung đột)
 llama-index-postprocessor-sbert-rerank==0.4.2
-llama-index-retrievers-bm25
 llama-index-llms-groq
 llama-index-embeddings-huggingface
 llama-index-vector-stores-qdrant
+llama-index-retrievers-bm2

@@ -1,0 +1,60 @@
+[
+    {
+        "id": "TC001",
+        "category": "factual",
+        "question": "Thời gian làm việc tối đa trong tuần là bao nhiêu giờ?",
+        "keywords": [
+            "48 giờ",
+            "8 giờ/ngày"
+        ],
+        "expected_article": "Điều 105",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC002",
+        "category": "factual",
+        "question": "Thời gian nghỉ thai sản cho lao động nữ là bao lâu?",
+        "keywords": [
+            "6 tháng",
+            "180 ngày"
+        ],
+        "expected_article": "Điều 139",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC003",
+        "category": "factual",
+        "question": "Người lao động được nghỉ phép năm bao nhiêu ngày?",
+        "keywords": [
+            "12 ngày",
+            "14 ngày",
+            "16 ngày"
+        ],
+        "expected_article": "Điều 113",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC004",
+        "category": "factual",
+        "question": "Thời gian thử việc tối đa là bao lâu?",
+        "keywords": [
+            "60 ngày",
+            "30 ngày",
+            "6 ngày"
+        ],
+        "expected_article": "Điều 25",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC005",
+        "category": "factual",
+        "question": "Lương tối thiểu vùng I năm 2026 là bao nhiêu?",
+        "keywords": [
+            "4.960.000",
+            "4960000",
+            "vùng I"
+        ],
+        "expected_article": "Điều 3",
+        "expected_doc": "ND293"
+    }
+]

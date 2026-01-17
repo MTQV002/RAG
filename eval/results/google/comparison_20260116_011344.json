@@ -1,0 +1,129 @@
+{
+  "timestamp": "2026-01-16T01:13:44.585547",
+  "total_tests": 5,
+  "summary": {
+    "avg_rag_latency_ms": 8285.0,
+    "avg_google_latency_ms": 178.0,
+    "avg_rag_words": 60.8,
+    "avg_google_words": 148.2,
+    "rag_citation_rate": 100.0,
+    "google_citation_rate": 80.0
+  },
+  "results": [
+    {
+      "test_id": "TC001",
+      "question": "Thời gian làm việc tối đa trong tuần là bao nhiêu giờ?",
+      "rag_answer": "Theo Điều 105 Bộ luật Lao động, thời giờ làm việc bình thường không quá 08 giờ trong 01 ngày và không quá 48 giờ trong 01 tuần.",
+      "google_answer": "[Result 1] Thời giờ làm việc theo tuần của người lao động được quy ...\n1. Thời giờ làm việc bình thường không quá 08 giờ trong 01 ngày và không quá 48 giờ trong 01 tuần. 2. Người sử dụng lao ...\nhttps://thuvienphapluat.vn/phap-luat/thoi-gio-lam-viec-theo-tuan-cua-nguoi-lao-dong-duoc-quy-dinh-the-nao-gio-lam-viec-ban-dem-danh-cho--30602.html\n\n[Result 2] Thời giờ làm việc bình thường được quy định tối đa là bao ...\nTrường hợp làm việc theo tuần, thời giờ làm việc bình thường không quá 10 giờ/ngày và không quá 48 giờ/tuần.\nhttps://thuvienphapluat.vn/lao-dong-tien-luong/thoi-gio-lam-viec-binh-thuong-duoc-quy-dinh-toi-da-la-bao-nhieu-gio-trong-1-ngay-1-tuan-1070.html\n\n[Result 3] Quy định về thời giờ làm việc tại Việt Nam\nĐiều 105 Bộ luật Lao động 2019 quy định: “1. Thời giờ làm việc bình thường không quá 08 giờ trong 01 ngày và không quá 48 giờ trong 01 tuần.\nhttps://aslgate.com/vi/quy-dinh-ve-thoi-gio-lam-viec-tai-viet-nam/",
+      "rag_sources": [
+        "105 BLLĐ",
+        "61 ND145",
+        "146 BLLĐ",
+        "60 ND145",
+        "107 BLLĐ",
+        "111 BLLĐ",
+        "106 BLLĐ"
+      ],
+      "rag_latency_ms": 5408.988678012975,
+      "google_latency_ms": 218.16167602082714,
+      "rag_word_count": 28,
+      "google_word_count": 126,
+      "rag_char_count": 127,
+      "google_char_count": 933,
+      "rag_has_citation": true,
+      "google_has_citation": true
+    },
+    {
+      "test_id": "TC002",
+      "question": "Thời gian nghỉ thai sản cho lao động nữ là bao lâu?",
+      "rag_answer": "Theo khoản 1 Điều 139 Bộ luật Lao động, lao động nữ được nghỉ thai sản trước và sau khi sinh con là 06 tháng, thời gian nghỉ trước khi sinh không quá 02 tháng.",
+      "google_answer": "[Result 1] Quy định thời gian nghỉ việc hưởng chế độ thai sản khi sinh con\n1. Lao động nữ được nghỉ thai sản trước và sau khi sinh con là 6 tháng; thời gian nghỉ trước khi sinh con không quá 2 tháng.\nhttps://xaydungchinhsach.chinhphu.vn/quy-dinh-thoi-gian-nghi-viec-huong-che-do-thai-san-khi-sinh-con-119240729165907987.htm\n\n[Result 2] Chế độ thai sản 2026: Quyền lợi cần biết khi sinh con năm ...\nLao động nữ được nghỉ thai sản trước và sau khi sinh con là 06 tháng; thời gian nghỉ trước khi sinh không quá 02 tháng. Trường hợp lao động nữ ...\nhttps://luatvietnam.vn/bao-hiem/che-do-thai-san-563-19578-article.html\n\n[Result 3] Từ 1 7 2025, thời gian lao động nữ nghỉ việc hưởng chế độ ...\n1. Lao động nữ được nghỉ thai sản trước và sau khi sinh con là 06 tháng; thời gian nghỉ trước khi sinh không quá 02 tháng.\nhttps://thuvienphapluat.vn/phap-luat-viec-lam/tu-1-7-2025-thoi-gian-lao-dong-nu-nghi-viec-huong-che-do-thai-san-khi-sinh-con-la-bao-lau-30263.html",
+      "rag_sources": [
+        "139 BLLĐ",
+        "53 BHXH",
+        "54 BHXH",
+        "55 BHXH",
+        "51 BHXH",
+        "137 BLLĐ",
+        "52 BHXH"
+      ],
+      "rag_latency_ms": 3158.903710951563,
+      "google_latency_ms": 168.80643903277814,
+      "rag_word_count": 35,
+      "google_word_count": 139,
+      "rag_char_count": 159,
+      "google_char_count": 959,
+      "rag_has_citation": true,
+      "google_has_citation": false
+    },
+    {
+      "test_id": "TC003",
+      "question": "Người lao động được nghỉ phép năm bao nhiêu ngày?",
+      "rag_answer": "Theo khoản 1 Điều 113 Bộ luật Lao động, người lao động được nghỉ phép năm như sau: \n- 12 ngày làm việc đối với người làm công việc trong điều kiện bình thường;\n- 14 ngày làm việc đối với người lao động chưa thành niên, lao động là người khuyết tật, người làm nghề, công việc nặng nhọc, độc hại, nguy hiểm;\n- 16 ngày làm việc đối với người làm nghề, công việc đặc biệt nặng nhọc, độc hại, nguy hiểm.",
+      "google_answer": "[Result 1] Quy định về số ngày nghỉ phép năm của người lao động\n2. Quy định chung về số ngày nghỉ phép năm · Được nghỉ 12 ngày làm việc đối với người làm công việc trong điều kiện bình thường; · Được nghỉ 14 ...\nhttps://ebh.vn/tin-tuc/quy-dinh-ve-so-ngay-nghi-phep-nam\n\n[Result 2] Chế độ nghỉ phép năm mới nhất cho người lao động hiện ...\nBên cạnh đó, số ngày nghỉ phép năm còn tăng thêm theo thâm niên làm việc. Cứ đủ 05 năm làm việc cho một người sử dụng lao động thì số ngày nghỉ ...\nhttps://thuvienphapluat.vn/lao-dong-tien-luong/che-do-nghi-phep-nam-moi-nhat-cho-nguoi-lao-dong-hien-nay-nhu-the-nao-18297.html\n\n[Result 3] Làm việc chưa đủ 1 tháng, người lao động có ngày nghỉ ...\nTheo quy định tại Điều 113 của Bộ luật này, người lao động làm việc đủ 12 tháng cho một người sử dụng lao động thì được nghỉ hằng năm, hưởng ...\nhttps://laodong.vn/cong-doan/lam-viec-chua-du-1-thang-nguoi-lao-dong-co-ngay-nghi-phep-nam-khong-864300.ldo",
+      "rag_sources": [
+        "113 BLLĐ",
+        "111 BLLĐ",
+        "114 BLLĐ",
+        "66 ND145",
+        "112 BLLĐ",
+        "46 BHXH",
+        "115 BLLĐ"
+      ],
+      "rag_latency_ms": 3778.844900021795,
+      "google_latency_ms": 154.50654498999938,
+      "rag_word_count": 84,
+      "google_word_count": 146,
+      "rag_char_count": 398,
+      "google_char_count": 937,
+      "rag_has_citation": true,
+      "google_has_citation": true
+    },
+    {
+      "test_id": "TC004",
+      "question": "Thời gian thử việc tối đa là bao lâu?",
+      "rag_answer": "Theo Điều 25 Bộ luật Lao động, thời gian thử việc tối đa là: \n- Không quá 180 ngày đối với công việc của người quản lý doanh nghiệp;\n- Không quá 60 ngày đối với công việc có chức danh nghề nghiệp cần trình độ chuyên môn, kỹ thuật từ cao đẳng trở lên;\n- Không quá 30 ngày đối với công việc có chức danh nghề nghiệp cần trình độ chuyên môn, kỹ thuật trung cấp, công nhân kỹ thuật, nhân viên nghiệp vụ;\n- Không quá 06 ngày làm việc đối với công việc khác.",
+      "google_answer": "[Result 1] Thời gian thử việc tối đa của người lao động là bao lâu?\nNhư vậy, thời gian thử việc tối đa của người lao động là không quá 180 ngày đối với trường hợp làm công việc của người quản lý doanh nghiệp. 3.\nhttps://thuvienphapluat.vn/chinh-sach-phap-luat-moi/vn/ho-tro-phap-luat/tu-van-phap-luat/46004/thoi-gian-thu-viec-toi-da-cua-nguoi-lao-dong-la-bao-lau\n\n[Result 2] Quy định về mức lương thử việc và thời gian thử việc tối đa\n- Thời gian thử việc tối đa không quá 30 ngày đối với công việc có chức danh nghề cần trình độ chuyên môn, kỹ thuật từ trung cấp, công nhân kỹ thuật, nhân viên ...\nhttp://baohiemxahoidientu.vn/bhxh/quy-dinh-ve-thoi-gian-va-muc-luong-thu-viec-2017.html\n\n[Result 3] Toàn bộ quy định về thời gian thử việc theo Luật lao động\nBộ luật lao động 2019 quy định hợp đồng lao động thời gian thử việc tối đa là 60 ngày. Nội dung hợp đồng thử việc. Hợp đồng thử việc là giấy ...\nhttps://fastwork.vn/quy-dinh-ve-thoi-gian-thu-viec/",
+      "rag_sources": [
+        "25 BLLĐ",
+        "24 BLLĐ",
+        "10 ND12",
+        "155 BLLĐ",
+        "65 ND145",
+        "39 VL",
+        "27 BLLĐ"
+      ],
+      "rag_latency_ms": 3367.93987598503,
+      "google_latency_ms": 197.93172203935683,
+      "rag_word_count": 98,
+      "google_word_count": 149,
+      "rag_char_count": 452,
+      "google_char_count": 953,
+      "rag_has_citation": true,
+      "google_has_citation": true
+    },
+    {
+      "test_id": "TC005",
+      "question": "Lương tối thiểu vùng I năm 2026 là bao nhiêu?",
+      "rag_answer": "Theo Điều 3 Nghị định về mức lương tối thiểu vùng 2026, mức lương tối thiểu tháng và mức lương tối thiểu giờ đối với người lao động làm việc cho người sử dụng lao động theo vùng như sau:\n\n- Vùng I: \n + Mức lương tối thiểu tháng: 5.310.000 đồng/tháng\n + Mức lương tối thiểu giờ: 25.500 đồng/giờ",
+      "google_answer": "[Answer Box]\nMức lương tối thiểu theo giờ tại vùng I tăng từ 23.800 đồng/giờ lên 25.500 đồng/giờ (tăng 7,14%), vùng II từ 21.200 đồng/giờ lên 22.700 đồng/giờ (tăng 7,08%), vùng III từ 18.600 đồng/giờ lên 20.000 đồng/giờ (tăng 7,53%), vùng IV từ 16.600 đồng/giờ lên 17.800 đồng/giờ (tăng 7,23%).\n\n[Result 1] Từ tháng 1/2026, mức lương tối thiểu được tăng bao nhiêu?\nMức lương tối thiểu theo giờ tại vùng I tăng từ 23.800 đồng/giờ lên 25.500 đồng/giờ, vùng II từ 21.200 đồng/giờ lên 22.700 đồng/giờ, vùng III từ ...\nhttps://xaydungchinhsach.chinhphu.vn/tu-1-1-2026-muc-luong-toi-thieu-duoc-tang-bao-nhieu-119251111091442629.htm\n\n[Result 2] Mức lương tối thiểu vùng từ ngày 01/01/2026 là bao nhiêu?\nTheo đó, mức lương tối thiểu vùng từ ngày 01/01/2026 là: - Mức lương tối thiểu vùng 1 là 5.310.000 đồng/tháng. - Mức lương tối thiểu vùng 2 là ...\nhttps://thuvienphapluat.vn/lao-dong-tien-luong/muc-luong-toi-thieu-vung-tu-ngay-112026-la-bao-nhieu-50877.html\n\n[Result 3] Mức lương tối thiểu vùng năm 2026 theo Nghị định 293\nNgày 10 tháng 11 năm 2025, Chính phủ ban hành Nghị định 293/2025/NĐ-CP, quy định mức lương tối thiểu đối với người lao động làm việc theo hợp đồng lao động.\nhttps://ketoanthienung.net/muc-luong-toi-thieu-vung-nam-moi-nhat-hien-nay.htm",
+      "rag_sources": [
+        "3 ND293",
+        "4 ND293",
+        "5 ND293",
+        "PL_1 ND293",
+        "PL_28 ND293",
+        "PL_13 ND293",
+        "PL_27 ND293"
+      ],
+      "rag_latency_ms": 25711.37886896031,
+      "google_latency_ms": 151.0292770108208,
+      "rag_word_count": 59,
+      "google_word_count": 181,
+      "rag_char_count": 293,
+      "google_char_count": 1253,
+      "rag_has_citation": true,
+      "google_has_citation": true
+    }
+  ]
+}

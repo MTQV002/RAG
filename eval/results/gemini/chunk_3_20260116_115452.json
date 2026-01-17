@@ -1,0 +1,120 @@
+{
+  "timestamp": "2026-01-16T11:54:52.140543",
+  "model": "gemini-2.5-flash",
+  "total_tests": 5,
+  "summary": {
+    "avg_rag_latency_ms": 32626.0,
+    "avg_gemini_latency_ms": 8136.0,
+    "avg_rag_words": 172.6,
+    "avg_gemini_words": 253.2,
+    "rag_citation_rate": 100.0,
+    "gemini_citation_rate": 100.0
+  },
+  "results": [
+    {
+      "test_id": "TC011",
+      "question": "Thời gian nghỉ giữa ca làm việc tối thiểu là bao lâu?",
+      "rag_answer": "Theo Bộ luật Lao động, Điều 110 “Nghỉ chuyển ca” quy định: **người lao động làm việc theo ca được nghỉ ít nhất 12 giờ trước khi chuyển sang ca làm việc khác**. (Bộ luật Lao động, Điều 110).",
+      "gemini_answer": "Theo Bộ luật Lao động 2019, thời gian nghỉ tối thiểu giữa hai ca làm việc (khi chuyển ca) là **12 giờ**.\n\nCụ thể, **Điều 110 Bộ luật Lao động 2019** quy định:\n\"Người lao động làm việc theo ca liên tục được nghỉ ít nhất 12 giờ trước khi chuyển sang ca làm việc khác.\"",
+      "rag_sources": [
+        "64 ND145",
+        "109 BLLĐ",
+        "63 ND145",
+        "110 BLLĐ",
+        "111 BLLĐ",
+        "69 ND145",
+        "105 BLLĐ"
+      ],
+      "rag_latency_ms": 4413.820230984129,
+      "gemini_latency_ms": 6579.029569053091,
+      "rag_word_count": 39,
+      "gemini_word_count": 56,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC012",
+      "question": "Mức trợ cấp thôi việc tính thế nào?",
+      "rag_answer": "**Cách tính trợ cấp thôi việc** (theo Bộ luật Lao động 2019 và Nghị định 08/2020/ND‑CT):\n\n1. **Đối tượng được hưởng**  \n   - Người lao động đã làm việc thường xuyên cho người sử dụng lao động **từ đủ 12 tháng trở lên**.  \n   - Hợp đồng chấm dứt theo các khoản 1, 2, 3, 4, 6, 7, 9, 10 Điều 34 của Bộ luật Lao động.  \n   - Không thuộc các trường hợp **đủ điều kiện hưởng lương hưu** (Điều 169 BLĐ) hoặc **tự ý bỏ việc** mà không có lý do chính đáng (Điểm e khoản 1 Điều 36 BLĐ).  \n   *(Bộ luật Lao động, Điều 46; Nghị định 08/2020, Điều 8, khoản 1‑a, b)*  \n\n2. **Tiền lương làm cơ sở tính trợ cấp**  \n   - **Tiền lương bình quân của 06 tháng liền kề** trước ngày người lao động thôi việc (hoặc mất việc).  \n   - Nếu người lao động có nhiều hợp đồng liên tiếp, lấy tiền lương bình quân của 06 tháng liền kề **trước khi chấm dứt hợp đồng cuối cùng**.  \n   *(Bộ luật Lao động, Điều 46, khoản 3; Nghị định 08/2020, khoản 5‑a)*  \n\n3. **Công thức tính**  \n   - **Mỗi năm làm việc được trả ½ tháng tiền lương** (theo tiền lương bình quân ở mục 2).  \n   - Thời gian làm việc để tính **được làm tròn**:  \n     - Đủ 12 tháng → tính 1 năm.  \n     - Tháng lẻ **≤ 6 tháng** → tính ½ năm.  \n     - Tháng lẻ **> 6 tháng** → tính 1 năm.  \n   *(Nghị định 08/2020, khoản 8‑c)*  \n\n4. **Công thức cụ thể**  \n\n\\[\n\\text{Trợ cấp thôi việc} = \\frac{1}{2} \\times \\text{Số năm (theo quy tắc làm tròn)} \\times \\text{Tiền lương bình quân 6 tháng}\n\\]\n\n   - Ví dụ: Người lao động làm việc thực tế 3 năm 4 tháng → tính 3 năm + ½ năm = **3,5 năm** → trợ cấp = 3,5 × ½ = 1,75 tháng tiền lương bình quân.  \n\n5. **Các khoản trừ**  \n   - Thời gian đã **được trả trợ cấp thôi việc, trợ cấp mất việc làm** hoặc **tham gia bảo hiểm thất nghiệp** sẽ không tính lại (Điều 46, khoản 2; Nghị định 08/2020, khoản 3).  \n\n> **Tóm tắt**: Trợ cấp thôi việc = *½ tháng tiền lương bình quân 6 tháng* × *số năm làm việc (được làm tròn theo quy định)*, áp dụng cho người lao động làm việc ≥12 tháng và không thuộc các trường hợp ngoại lệ.  \n\n*(Nguồn: Bộ luật Lao động, Điều 46; Nghị định 08/2020/ND‑CT, Điều 8)*.",
+      "gemini_answer": "Mức trợ cấp thôi việc được tính dựa trên **Điều 46 Bộ luật Lao động 2019**.\n\n**1. Điều kiện hưởng trợ cấp thôi việc:**\nNgười lao động được trả trợ cấp thôi việc nếu đã làm việc thường xuyên cho người sử dụng lao động từ đủ 12 tháng trở lên khi chấm dứt hợp đồng lao động, trừ các trường hợp sau:\n*   Người lao động đủ điều kiện hưởng lương hưu theo quy định của pháp luật về bảo hiểm xã hội.\n*   Người lao động bị xử lý kỷ luật sa thải.\n\n**2. Mức trợ cấp thôi việc:**\n*   Mỗi năm làm việc được trợ cấp **1/2 tháng tiền lương**.\n\n**3. Cách xác định các yếu tố để tính trợ cấp:**\n\n*   **Thời gian làm việc để tính trợ cấp thôi việc:**\n    *   Là tổng thời gian người lao động đã làm việc thực tế cho người sử dụng lao động.\n    *   **Trừ đi** thời gian người lao động đã tham gia bảo hiểm thất nghiệp.\n    *   **Trừ đi** thời gian đã được người sử dụng lao động chi trả trợ cấp thôi việc, trợ cấp mất việc làm trước đó (nếu có).\n    *   Thời gian làm việc để tính trợ cấp thôi việc của người lao động được làm tròn theo nguyên tắc: có tháng lẻ từ đủ 01 tháng đến dưới 06 tháng thì được tính bằng 1/2 năm; từ đủ 06 tháng trở lên thì được tính bằng 01 năm.\n\n*   **Tiền lương để tính trợ cấp thôi việc:**\n    *   Là tiền lương bình quân của **06 tháng liền kề** trước khi người lao động chấm dứt hợp đồng lao động.\n    *   Tiền lương này bao gồm mức lương, phụ cấp lương và các khoản bổ sung khác được ghi trong hợp đồng lao động.\n\n**Ví dụ minh họa:**\nMột người lao động làm việc cho công ty A được 3 năm 8 tháng. Trong đó, có 3 năm 8 tháng đóng bảo hiểm thất nghiệp. Tiền lương bình quân 6 tháng cuối là 10.000.000 VNĐ.\n\n*   **Thời gian làm việc để tính trợ cấp:** 3 năm 8 tháng (tổng thời gian) - 3 năm 8 tháng (thời gian đóng BHTN) = 0 tháng.\n    *   Trong trường hợp này, người lao động sẽ không được hưởng trợ cấp thôi việc vì toàn bộ thời gian làm việc đã được tính để đóng bảo hiểm thất nghiệp.\n\n**Ví dụ khác:**\nMột người lao động làm việc cho công ty B được 3 năm 8 tháng. Trong đó, có 3 năm đóng bảo hiểm thất nghiệp. Tiền lương bình quân 6 tháng cuối là 10.000.000 VNĐ.\n\n*   **Thời gian làm việc để tính trợ cấp:** 3 năm 8 tháng (tổng thời gian) - 3 năm (thời gian đóng BHTN) = 8 tháng.\n    *   8 tháng được làm tròn thành 1 năm.\n*   **Mức trợ cấp:** 1 năm x 1/2 x 10.000.000 VNĐ = 5.000.000 VNĐ.\n\n**Lưu ý quan trọng:** Trợ cấp thôi việc và trợ cấp thất nghiệp là hai khoản trợ cấp khác nhau. Thời gian đóng bảo hiểm thất nghiệp sẽ được trừ đi khi tính trợ cấp thôi việc để tránh việc người lao động được hưởng lợi kép cho cùng một khoảng thời gian.",
+      "rag_sources": [
+        "46 BLLĐ",
+        "8 ND145",
+        "47 BLLĐ",
+        "39 VL",
+        "45 BHXH",
+        "48 ATVSLĐ",
+        "76 BHXH"
+      ],
+      "rag_latency_ms": 6007.64770997921,
+      "gemini_latency_ms": 11035.515358031262,
+      "rag_word_count": 412,
+      "gemini_word_count": 542,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC013",
+      "question": "Người sử dụng lao động phải trả lương làm thêm giờ bao nhiêu phần trăm?",
+      "rag_answer": "Theo **Điều 98** Bộ luật Lao động (Chương VI – Tiền lương) và **Nghị định 55** hướng dẫn:\n\n| Loại thời gian làm thêm giờ | Mức trả tối thiểu |\n|-----------------------------|-------------------|\n| **Ngày thường** (ngoài giờ làm việc bình thường) | **150 %** tiền lương giờ thực trả (hoặc tiền lương thực trả) của ngày làm việc bình thường. |\n| **Ngày nghỉ hằng tuần** | **200 %** tiền lương giờ thực trả của ngày làm việc bình thường. |\n| **Ngày nghỉ lễ, tết, ngày nghỉ có hưởng lương** | **300 %** tiền lương giờ thực trả của ngày làm việc bình thường (chưa kể tiền lương ngày lễ, tết, ngày nghỉ có hưởng lương). |\n\n*Trích dẫn:*  \n- **Bộ luật Lao động**, Điều 98, khoản 1, a‑c.  \n- **Nghị định hướng dẫn Bộ luật Lao động về điều kiện lao động**, Điều 55, khoản 1, a‑c.\n\n> **Lưu ý:** Khi làm việc vào ban đêm, người lao động còn được trả thêm **ít nhất 30 %** tiền lương (khoản 2 Điều 98) và, nếu là làm thêm giờ vào ban đêm, còn được trả thêm **20 %** tiền lương (khoản 3 Điều 98).  \n\nNhư vậy, mức trả lương làm thêm giờ phụ thuộc vào ngày làm việc (thường, nghỉ tuần, nghỉ lễ) và có các phụ cấp thêm khi làm việc vào ban đêm.",
+      "gemini_answer": "Theo quy định của Bộ luật Lao động 2019, người sử dụng lao động phải trả lương làm thêm giờ cho người lao động với các mức sau:\n\n1.  **Làm thêm giờ vào ngày thường:** Ít nhất bằng **150%** đơn giá tiền lương hoặc tiền lương thực trả theo công việc đang làm.\n2.  **Làm thêm giờ vào ngày nghỉ hằng tuần:** Ít nhất bằng **200%** đơn giá tiền lương hoặc tiền lương thực trả theo công việc đang làm.\n3.  **Làm thêm giờ vào ngày nghỉ lễ, tết, ngày nghỉ có hưởng lương:** Ít nhất bằng **300%** đơn giá tiền lương hoặc tiền lương thực trả theo công việc đang làm, **chưa kể tiền lương ngày lễ, tết, ngày nghỉ có hưởng lương** đối với người lao động hưởng lương ngày.\n\n**Cơ sở pháp lý:** Khoản 1 Điều 98 Bộ luật Lao động số 45/2019/QH14.",
+      "rag_sources": [
+        "98 BLLĐ",
+        "55 ND145",
+        "57 ND145",
+        "107 BLLĐ",
+        "5 ND293",
+        "18 ND12",
+        "17 ND12"
+      ],
+      "rag_latency_ms": 56742.11734399432,
+      "gemini_latency_ms": 7022.504397958983,
+      "rag_word_count": 227,
+      "gemini_word_count": 146,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC014",
+      "question": "Hợp đồng lao động có những loại nào?",
+      "rag_answer": "Theo **Điều 20** Bộ luật Lao động (Chương III – Hợp đồng lao động):\n\n1. **Hợp đồng lao động không xác định thời hạn**  \n   - Hai bên không xác định thời hạn, thời điểm chấm dứt hiệu lực của hợp đồng.\n\n2. **Hợp đồng lao động xác định thời hạn**  \n   - Hai bên xác định thời hạn, thời điểm chấm dứt hiệu lực của hợp đồng, thời gian không quá **36 tháng** kể từ ngày có hiệu lực.\n\n*Lưu ý:* Trường hợp đặc biệt (ví dụ: người được thuê làm giám đốc trong doanh nghiệp có vốn nhà nước và các trường hợp quy định tại khoản 1 Điều 149, khoản 2 Điều 151, khoản 4 Điều 177) có quy định riêng, nhưng về cơ bản hợp đồng lao động chỉ có hai loại trên.  \n\n*(Bộ luật Lao động, Điều 20)*.",
+      "gemini_answer": "Chào bạn,\n\nTheo **Bộ luật Lao động 2019**, hợp đồng lao động được phân loại thành 02 loại chính, được quy định tại **Điều 20**:\n\n1.  **Hợp đồng lao động không xác định thời hạn:**\n    *   Là hợp đồng mà trong đó hai bên không xác định thời điểm chấm dứt hiệu lực của hợp đồng.\n    *   Đây là loại hợp đồng mang lại sự ổn định cao nhất cho người lao động.\n\n2.  **Hợp đồng lao động xác định thời hạn:**\n    *   Là hợp đồng mà trong đó hai bên xác định thời điểm chấm dứt hiệu lực của hợp đồng trong thời gian **không quá 36 tháng** kể từ thời điểm có hiệu lực của hợp đồng.\n    *   **Lưu ý quan trọng về hợp đồng xác định thời hạn:**\n        *   Chỉ được ký tối đa **02 lần liên tiếp** đối với cùng một công việc.\n        *   Sau khi hợp đồng xác định thời hạn lần thứ hai hết hạn mà người lao động vẫn tiếp tục làm việc hoặc nếu hai bên ký kết hợp đồng mới, thì hợp đồng mới phải là **hợp đồng lao động không xác định thời hạn** (trừ một số trường hợp đặc biệt như hợp đồng với người cao tuổi, người nước ngoài, thành viên ban lãnh đạo doanh nghiệp nhà nước).\n        *   Nếu hết thời hạn 30 ngày kể từ ngày hợp đồng xác định thời hạn hết hạn mà hai bên không ký kết hợp đồng mới và người lao động vẫn tiếp tục làm việc, thì hợp đồng đã giao kết trở thành **hợp đồng lao động không xác định thời hạn**.\n\nHy vọng thông tin này hữu ích cho bạn!",
+      "rag_sources": [
+        "20 BLLĐ",
+        "14 BLLĐ",
+        "13 BLLĐ",
+        "21 BLLĐ",
+        "179 BLLĐ",
+        "55 BLLĐ",
+        "34 BLLĐ"
+      ],
+      "rag_latency_ms": 41621.15078401985,
+      "gemini_latency_ms": 8651.442473987117,
+      "rag_word_count": 141,
+      "gemini_word_count": 282,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC015",
+      "question": "Tuổi lao động tối thiểu ở Việt Nam là bao nhiêu?",
+      "rag_answer": "Theo **Điều 3, khoản 1** của **Bộ luật Lao động**: “**Độ tuổi lao động tối thiểu của người lao động là đủ 15 tuổi**, trừ trường hợp quy định tại Mục 1 Chương XI của Bộ luật này.” (Bộ luật Lao động, Điều 3).",
+      "gemini_answer": "Theo Bộ luật Lao động 2019, tuổi lao động tối thiểu ở Việt Nam **thông thường là đủ 15 tuổi**.\n\nCụ thể:\n\n1.  **Tuổi lao động tối thiểu chung:**\n    *   Cấm sử dụng người lao động dưới 15 tuổi làm việc, trừ một số trường hợp theo quy định của pháp luật.\n    *   (Điều 145 Khoản 1 Bộ luật Lao động 2019)\n\n2.  **Các trường hợp ngoại lệ:**\n    *   **Từ đủ 13 tuổi đến dưới 15 tuổi:** Được phép làm các công việc nhẹ theo danh mục do Bộ trưởng Bộ Lao động - Thương binh và Xã hội ban hành.\n        *   (Điều 145 Khoản 2 Bộ luật Lao động 2019)\n    *   **Dưới 13 tuổi:** Chỉ được sử dụng làm các công việc nghệ thuật, thể dục, thể thao nhưng không làm ảnh hưởng đến sự phát triển thể lực, trí lực, nhân cách của người lao động và phải có sự đồng ý của cơ quan chuyên môn về lao động thuộc Ủy ban nhân dân cấp tỉnh.\n        *   (Điều 146 Khoản 1 Bộ luật Lao động 2019)\n\nTrong mọi trường hợp sử dụng người lao động chưa thành niên (dưới 18 tuổi), người sử dụng lao động phải tuân thủ các quy định chặt chẽ về thời giờ làm việc, công việc cấm, khám sức khỏe định kỳ, có sự đồng ý của cha, mẹ hoặc người giám hộ, v.v. (Điều 144, 147 Bộ luật Lao động 2019).",
+      "rag_sources": [
+        "3 BLLĐ",
+        "2 VL",
+        "143 BLLĐ",
+        "145 BLLĐ",
+        "169 BLLĐ",
+        "219 BLLĐ",
+        "151 BLLĐ"
+      ],
+      "rag_latency_ms": 54344.42840295378,
+      "gemini_latency_ms": 7393.97574798204,
+      "rag_word_count": 44,
+      "gemini_word_count": 240,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "timestamp": "2026-01-16T15:34:16.630663",
+  "model": "gemini-2.5-flash",
+  "total_tests": 5,
+  "summary": {
+    "avg_rag_latency_ms": 17098.0,
+    "avg_gemini_latency_ms": 6666.0,
+    "avg_rag_words": 58.4,
+    "avg_gemini_words": 149.0,
+    "rag_citation_rate": 100.0,
+    "gemini_citation_rate": 80.0
+  },
+  "results": [
+    {
+      "test_id": "TC006",
+      "question": "Thời gian làm thêm giờ tối đa trong ngày là bao nhiêu?",
+      "rag_answer": "Theo khoản 1 Điều 60 Nghị định hướng dẫn Bộ luật Lao động về điều kiện lao động, tổng số giờ làm thêm không quá 50% số giờ làm việc bình thường trong 01 ngày khi làm thêm vào ngày làm việc bình thường. Tuy nhiên, theo khoản 4 Điều 60 Nghị định hướng dẫn Bộ luật Lao động về điều kiện lao động, tổng số giờ làm thêm không quá 12 giờ trong một ngày, khi làm thêm vào ngày nghỉ lễ, tết và ngày nghỉ hằng tuần.",
+      "gemini_answer": "Thời gian làm thêm giờ tối đa trong ngày được quy định tại Bộ luật Lao động 2019 như sau:\n\nTheo **Điều 107 khoản 2 điểm a Bộ luật Lao động 2019**:\n\n*   Số giờ làm thêm của người lao động **không quá 50% số giờ làm việc bình thường trong 01 ngày**.\n    *   **Ví dụ:** Nếu thời gian làm việc bình thường là 08 giờ/ngày, thì thời gian làm thêm tối đa là **04 giờ/ngày**.\n*   Trong trường hợp áp dụng quy định làm việc theo tuần, tổng số giờ làm việc bình thường và số giờ làm thêm **không quá 12 giờ trong 01 ngày**.\n\n**Lưu ý:** Tổng số giờ làm thêm không quá 200 giờ trong 01 năm, trừ một số trường hợp đặc biệt do Chính phủ quy định thì được làm thêm không quá 300 giờ/năm.",
+      "rag_sources": [
+        "60 ND145",
+        "107 BLLĐ",
+        "146 BLLĐ",
+        "61 ND145",
+        "62 ND145",
+        "105 BLLĐ",
+        "18 ND12"
+      ],
+      "rag_latency_ms": 4157.094523019623,
+      "gemini_latency_ms": 12980.818226002157,
+      "rag_word_count": 89,
+      "gemini_word_count": 141,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC007",
+      "question": "Tuổi nghỉ hưu của nam giới hiện tại là bao nhiêu?",
+      "rag_answer": "Theo khoản 2 Điều 169 Bộ luật Lao động, kể từ năm 2021, tuổi nghỉ hưu của người lao động trong điều kiện lao động bình thường là đủ 60 tuổi 03 tháng đối với lao động nam.",
+      "gemini_answer": "[Gemini Error: 'content']",
+      "rag_sources": [
+        "169 BLLĐ",
+        "100 BHXH",
+        "68 BHXH",
+        "21 BHXH",
+        "66 BHXH",
+        "219 BLLĐ",
+        "64 BHXH"
+      ],
+      "rag_latency_ms": 10444.930227997247,
+      "gemini_latency_ms": 0,
+      "rag_word_count": 38,
+      "gemini_word_count": 3,
+      "rag_has_citation": true,
+      "gemini_has_citation": false
+    },
+    {
+      "test_id": "TC008",
+      "question": "Tuổi nghỉ hưu của nữ giới hiện tại là bao nhiêu?",
+      "rag_answer": "Theo khoản 2 Điều 169 Bộ luật Lao động, kể từ năm 2021, tuổi nghỉ hưu của người lao động trong điều kiện lao động bình thường là đủ 55 tuổi 04 tháng đối với lao động nữ.",
+      "gemini_answer": "Hiện tại (năm 2024), tuổi nghỉ hưu của nữ giới trong điều kiện lao động bình thường là **56 tuổi 4 tháng**.\n\nQuy định này được căn cứ theo **Điều 169 Khoản 2 của Bộ luật Lao động 2019**, có hiệu lực từ ngày 01/01/2021.\n\nCụ thể, lộ trình tăng tuổi nghỉ hưu đối với lao động nữ như sau:\n*   Năm 2021: 55 tuổi 4 tháng\n*   Năm 2022: 55 tuổi 8 tháng\n*   Năm 2023: 56 tuổi\n*   **Năm 2024: 56 tuổi 4 tháng**\n*   Và cứ mỗi năm tăng thêm 04 tháng cho đến khi đạt 60 tuổi vào năm 2035.",
+      "rag_sources": [
+        "169 BLLĐ",
+        "100 BHXH",
+        "68 BHXH",
+        "66 BHXH",
+        "219 BLLĐ",
+        "64 BHXH",
+        "65 BHXH"
+      ],
+      "rag_latency_ms": 26365.277524047997,
+      "gemini_latency_ms": 5417.842624010518,
+      "rag_word_count": 38,
+      "gemini_word_count": 104,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC009",
+      "question": "Lương thử việc tối thiểu bằng bao nhiêu phần trăm lương chính thức?",
+      "rag_answer": "Theo Điều 26 Bộ luật Lao động, tiền lương của người lao động trong thời gian thử việc do hai bên thỏa thuận nhưng ít nhất phải bằng 85% mức lương của công việc đó.",
+      "gemini_answer": "Theo quy định của pháp luật lao động Việt Nam, tiền lương của người lao động trong thời gian thử việc **ít nhất phải bằng 85%** mức lương của công việc đó sau khi thử việc.\n\nĐiều này được quy định tại **Điều 26 Bộ luật Lao động 2019**.",
+      "rag_sources": [
+        "26 BLLĐ",
+        "10 ND12",
+        "3 ND293",
+        "91 BLLĐ",
+        "25 BLLĐ",
+        "5 ND293",
+        "17 ND12"
+      ],
+      "rag_latency_ms": 22821.738261030987,
+      "gemini_latency_ms": 4108.719616953749,
+      "rag_word_count": 35,
+      "gemini_word_count": 49,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    },
+    {
+      "test_id": "TC010",
+      "question": "Người lao động phải báo trước bao nhiêu ngày khi nghỉ việc?",
+      "rag_answer": "Theo khoản 1 Điều 35 Bộ luật Lao động, người lao động phải báo trước cho người sử dụng lao động như sau:\n- Ít nhất 45 ngày nếu làm việc theo hợp đồng lao động không xác định thời hạn;\n- Ít nhất 30 ngày nếu làm việc theo hợp đồng lao động xác định thời hạn có thời hạn từ 12 tháng đến 36 tháng;\n- Ít nhất 03 ngày làm việc nếu làm việc theo hợp đồng lao động xác định thời hạn có thời hạn dưới 12 tháng.",
+      "gemini_answer": "Theo Bộ luật Lao động 2019, thời gian báo trước khi người lao động đơn phương chấm dứt hợp đồng lao động phụ thuộc vào loại hợp đồng và một số trường hợp đặc biệt.\n\nCụ thể, căn cứ **Điều 35 Khoản 2 Bộ luật Lao động 2019**, người lao động phải báo trước cho người sử dụng lao động như sau:\n\n1.  **Đối với hợp đồng lao động không xác định thời hạn:**\n    *   Ít nhất **45 ngày**.\n\n2.  **Đối với hợp đồng lao động xác định thời hạn:**\n    *   Ít nhất **30 ngày** đối với hợp đồng có thời hạn từ 12 tháng đến 36 tháng.\n    *   Ít nhất **03 ngày làm việc** đối với hợp đồng có thời hạn dưới 12 tháng.\n\n3.  **Đối với một số ngành, nghề, công việc đặc thù:**\n    *   Ít nhất **120 ngày** (áp dụng cho các trường hợp quy định tại Khoản 1 Điều 7 Nghị định 145/2020/NĐ-CP, ví dụ: thành viên ban lãnh đạo doanh nghiệp, người làm việc trong lĩnh vực hàng không, hàng hải, khai khoáng...).\n\n**Các trường hợp người lao động được đơn phương chấm dứt hợp đồng lao động mà không cần báo trước:**\n\nTheo **Điều 35 Khoản 1 Bộ luật Lao động 2019**, người lao động có quyền đơn phương chấm dứt hợp đồng lao động mà không cần báo trước trong các trường hợp sau:\n\n*   Không được bố trí đúng công việc, địa điểm làm việc hoặc không được bảo đảm điều kiện làm việc theo thỏa thuận, trừ trường hợp chuyển người lao động làm công việc khác so với hợp đồng lao động quy định tại Điều 29 của Bộ luật này.\n*   Không được trả đủ lương hoặc trả lương không đúng thời hạn, trừ trường hợp quy định tại Khoản 4 Điều 112 của Bộ luật này.\n*   Bị người sử dụng lao động ngược đãi, đánh đập hoặc có hành vi quấy rối tình dục tại nơi làm việc; bị cưỡng bức lao động.\n*   Lao động nữ mang thai phải nghỉ việc theo quy định tại Khoản 1 Điều 138 của Bộ luật này.\n*   Đủ tuổi nghỉ hưu theo quy định tại Điều 169 của Bộ luật này, trừ trường hợp các bên có thỏa thuận khác.\n*   Người sử dụng lao động cung cấp thông tin không trung thực theo quy định tại Khoản 1 Điều 16 của Bộ luật này làm ảnh hưởng đến việc thực hiện hợp đồng lao động.\n\nViệc tuân thủ thời gian báo trước là rất quan trọng để đảm bảo quyền và lợi ích hợp pháp của cả người lao động và người sử dụng lao động.",
+      "rag_sources": [
+        "35 BLLĐ",
+        "115 BLLĐ",
+        "7 ND145",
+        "139 BLLĐ",
+        "41 BLLĐ",
+        "113 BLLĐ",
+        "29 BLLĐ"
+      ],
+      "rag_latency_ms": 21703.37429799838,
+      "gemini_latency_ms": 10822.382404992823,
+      "rag_word_count": 92,
+      "gemini_word_count": 448,
+      "rag_has_citation": true,
+      "gemini_has_citation": true
+    }
+  ]
+}

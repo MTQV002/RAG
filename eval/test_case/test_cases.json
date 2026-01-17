@@ -1,0 +1,242 @@
+[
+  {
+    "id": "TC001",
+    "category": "factual",
+    "question": "Thời gian làm việc tối đa trong tuần là bao nhiêu giờ?",
+    "keywords": ["48 giờ", "8 giờ/ngày"],
+    "expected_article": "Điều 105",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC002",
+    "category": "factual",
+    "question": "Thời gian nghỉ thai sản cho lao động nữ là bao lâu?",
+    "keywords": ["6 tháng", "180 ngày"],
+    "expected_article": "Điều 139",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC003",
+    "category": "factual",
+    "question": "Người lao động được nghỉ phép năm bao nhiêu ngày?",
+    "keywords": ["12 ngày", "14 ngày", "16 ngày"],
+    "expected_article": "Điều 113",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC004",
+    "category": "factual",
+    "question": "Thời gian thử việc tối đa là bao lâu?",
+    "keywords": ["60 ngày", "30 ngày", "6 ngày"],
+    "expected_article": "Điều 25",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC005",
+    "category": "factual",
+    "question": "Lương tối thiểu vùng I năm 2026 là bao nhiêu?",
+    "keywords": ["4.960.000", "4960000", "vùng I"],
+    "expected_article": "Điều 3",
+    "expected_doc": "ND293"
+  },
+  {
+    "id": "TC006",
+    "category": "factual",
+    "question": "Thời gian làm thêm giờ tối đa trong ngày là bao nhiêu?",
+    "keywords": ["4 giờ", "50%"],
+    "expected_article": "Điều 107",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC007",
+    "category": "factual",
+    "question": "Tuổi nghỉ hưu của nam giới hiện tại là bao nhiêu?",
+    "keywords": ["60 tuổi", "62 tuổi"],
+    "expected_article": "Điều 169",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC008",
+    "category": "factual",
+    "question": "Tuổi nghỉ hưu của nữ giới hiện tại là bao nhiêu?",
+    "keywords": ["55 tuổi", "60 tuổi"],
+    "expected_article": "Điều 169",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC009",
+    "category": "factual",
+    "question": "Lương thử việc tối thiểu bằng bao nhiêu phần trăm lương chính thức?",
+    "keywords": ["85%", "85 phần trăm"],
+    "expected_article": "Điều 26",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC010",
+    "category": "factual",
+    "question": "Người lao động phải báo trước bao nhiêu ngày khi nghỉ việc?",
+    "keywords": ["30 ngày", "45 ngày", "3 ngày"],
+    "expected_article": "Điều 35",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC011",
+    "category": "factual",
+    "question": "Thời gian nghỉ giữa ca làm việc tối thiểu là bao lâu?",
+    "keywords": ["30 phút", "45 phút"],
+    "expected_article": "Điều 109",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC012",
+    "category": "factual",
+    "question": "Mức trợ cấp thôi việc tính thế nào?",
+    "keywords": ["nửa tháng", "0.5 tháng", "1/2 tháng"],
+    "expected_article": "Điều 46",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC013",
+    "category": "factual",
+    "question": "Người sử dụng lao động phải trả lương làm thêm giờ bao nhiêu phần trăm?",
+    "keywords": ["150%", "200%", "300%"],
+    "expected_article": "Điều 98",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC014",
+    "category": "factual",
+    "question": "Hợp đồng lao động có những loại nào?",
+    "keywords": ["xác định thời hạn", "không xác định thời hạn"],
+    "expected_article": "Điều 20",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC015",
+    "category": "factual",
+    "question": "Tuổi lao động tối thiểu ở Việt Nam là bao nhiêu?",
+    "keywords": ["15 tuổi", "đủ 15 tuổi"],
+    "expected_article": "Điều 143",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC016",
+    "category": "factual",
+    "question": "Thời gian nghỉ hàng tuần tối thiểu là bao nhiêu?",
+    "keywords": ["24 giờ", "1 ngày"],
+    "expected_article": "Điều 111",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC017",
+    "category": "factual",
+    "question": "Mức đóng bảo hiểm xã hội của người lao động là bao nhiêu phần trăm?",
+    "keywords": ["8%", "tám phần trăm"],
+    "expected_article": "Điều 5",
+    "expected_doc": "BHXH"
+  },
+  {
+    "id": "TC018",
+    "category": "factual",
+    "question": "Lao động nữ nuôi con dưới 12 tháng được nghỉ bao nhiêu phút mỗi ngày?",
+    "keywords": ["60 phút", "1 giờ"],
+    "expected_article": "Điều 137",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC019",
+    "category": "factual",
+    "question": "Hợp đồng lao động xác định thời hạn tối đa là bao lâu?",
+    "keywords": ["36 tháng", "3 năm"],
+    "expected_article": "Điều 20",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC020",
+    "category": "factual",
+    "question": "Mức phạt khi không ký hợp đồng lao động là bao nhiêu?",
+    "keywords": ["20.000.000", "40.000.000", "triệu đồng"],
+    "expected_article": "Điều 9",
+    "expected_doc": "ND12"
+  },
+  {
+    "id": "TC021",
+    "category": "multi_hop",
+    "question": "So sánh thời gian nghỉ thai sản của lao động nữ thường và lao động nữ sinh đôi?",
+    "keywords": ["6 tháng", "thêm 1 tháng", "con thứ hai"],
+    "expected_article": "Điều 139",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC022",
+    "category": "multi_hop",
+    "question": "Người lao động làm việc trong môi trường độc hại được hưởng chế độ gì?",
+    "keywords": ["phụ cấp", "thêm ngày nghỉ", "bồi dưỡng"],
+    "expected_article": "Điều 103",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC023",
+    "category": "edge_case",
+    "question": "Intern có được trả lương không theo luật Việt Nam?",
+    "keywords": ["không bắt buộc", "thỏa thuận", "thực tập"],
+    "expected_article": "",
+    "expected_doc": ""
+  },
+  {
+    "id": "TC024",
+    "category": "factual",
+    "question": "Thời gian tối đa tạm hoãn hợp đồng lao động do nghĩa vụ quân sự là bao lâu?",
+    "keywords": ["hết thời hạn", "nghĩa vụ quân sự"],
+    "expected_article": "Điều 30",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC025",
+    "category": "factual",
+    "question": "Mức hưởng ốm đau của người lao động là bao nhiêu phần trăm tiền lương?",
+    "keywords": ["75%", "bảy mươi lăm"],
+    "expected_article": "Điều 28",
+    "expected_doc": "BHXH"
+  },
+  {
+    "id": "TC026",
+    "category": "factual",
+    "question": "Thời gian nghỉ tang theo quy định là bao nhiêu ngày?",
+    "keywords": ["3 ngày", "ba ngày"],
+    "expected_article": "Điều 115",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC027",
+    "category": "factual",
+    "question": "Người sử dụng lao động phải trả lương làm đêm thêm bao nhiêu phần trăm?",
+    "keywords": ["30%", "ba mươi phần trăm"],
+    "expected_article": "Điều 98",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC028",
+    "category": "adversarial",
+    "question": "Luật lao động có quy định về work from home không?",
+    "keywords": ["thỏa thuận", "làm việc tại nhà", "từ xa"],
+    "expected_article": "",
+    "expected_doc": ""
+  },
+  {
+    "id": "TC029",
+    "category": "factual",
+    "question": "Số lần ký hợp đồng lao động xác định thời hạn tối đa là bao nhiêu?",
+    "keywords": ["2 lần", "hai lần"],
+    "expected_article": "Điều 20",
+    "expected_doc": "BLLĐ"
+  },
+  {
+    "id": "TC030",
+    "category": "factual",
+    "question": "Thời gian nghỉ kết hôn theo quy định là bao nhiêu ngày?",
+    "keywords": ["3 ngày", "ba ngày"],
+    "expected_article": "Điều 115",
+    "expected_doc": "BLLĐ"
+  }
+]

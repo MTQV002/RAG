@@ -1,0 +1,59 @@
+[
+    {
+        "id": "TC011",
+        "category": "factual",
+        "question": "Thời gian nghỉ giữa ca làm việc tối thiểu là bao lâu?",
+        "keywords": [
+            "30 phút",
+            "45 phút"
+        ],
+        "expected_article": "Điều 109",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC012",
+        "category": "factual",
+        "question": "Mức trợ cấp thôi việc tính thế nào?",
+        "keywords": [
+            "nửa tháng",
+            "0.5 tháng",
+            "1/2 tháng"
+        ],
+        "expected_article": "Điều 46",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC013",
+        "category": "factual",
+        "question": "Người sử dụng lao động phải trả lương làm thêm giờ bao nhiêu phần trăm?",
+        "keywords": [
+            "150%",
+            "200%",
+            "300%"
+        ],
+        "expected_article": "Điều 98",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC014",
+        "category": "factual",
+        "question": "Hợp đồng lao động có những loại nào?",
+        "keywords": [
+            "xác định thời hạn",
+            "không xác định thời hạn"
+        ],
+        "expected_article": "Điều 20",
+        "expected_doc": "BLLĐ"
+    },
+    {
+        "id": "TC015",
+        "category": "factual",
+        "question": "Tuổi lao động tối thiểu ở Việt Nam là bao nhiêu?",
+        "keywords": [
+            "15 tuổi",
+            "đủ 15 tuổi"
+        ],
+        "expected_article": "Điều 143",
+        "expected_doc": "BLLĐ"
+    }
+]

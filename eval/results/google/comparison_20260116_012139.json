@@ -1,0 +1,105 @@
+{
+  "timestamp": "2026-01-16T01:21:39.073626",
+  "total_tests": 5,
+  "summary": {
+    "avg_rag_latency_ms": 3534.0,
+    "avg_google_latency_ms": 3753.0,
+    "avg_rag_words": 24.6,
+    "avg_google_words": 149.4,
+    "rag_citation_rate": 40.0,
+    "google_citation_rate": 60.0
+  },
+  "results": [
+    {
+      "test_id": "TC006",
+      "question": "Thời gian làm thêm giờ tối đa trong ngày là bao nhiêu?",
+      "rag_answer": "Theo khoản 2 Điều 107 Bộ luật Lao động, thời gian làm thêm giờ tối đa trong ngày là không quá 50% số giờ làm việc bình thường trong 01 ngày, nhưng tổng số giờ làm việc bình thường và số giờ làm thêm không quá 12 giờ trong 01 ngày.",
+      "google_answer": "[Result 1] Thời gian làm thêm giờ tối đa được quy định thế nào?\nNếu thời gian làm việc bình thường là 10 giờ/ngày thì doanh nghiệp chỉ được sử dụng người lao động làm thêm tối đa 02 giờ/ngày.\nhttps://thuvienphapluat.vn/lao-dong-tien-luong/thoi-gian-lam-them-gio-toi-da-duoc-quy-dinh-the-nao-16068.html\n\n[Result 2] Quy định về số giờ làm thêm của người lao động mới nhất\nDo đó, thời gian làm thêm tối đa của người lao động trong một ngày không vượt quá 4 giờ/ngày, tương đương tổng thời gian làm việc trong ngày ...\nhttps://ebh.vn/tin-tuc/gioi-han-so-gio-lam-them-nguoi-lao-dong\n\n[Result 3] Người lao động làm thêm tối đa bao nhiêu tiếng?\nTheo đó, thời gian làm thêm giờ tối đa trong năm là 200 giờ/năm;. Tổng số giờ làm thêm không quá 50% số giờ làm việc bình thường trong 01 ...\nhttps://luatvietnam.vn/luong-thuong/nguoi-lao-dong-lam-them-toi-da-bao-nhieu-tieng-579-102204-article.html",
+      "rag_sources": [
+        "107 BLLĐ",
+        "60 ND145",
+        "146 BLLĐ",
+        "105 BLLĐ",
+        "62 ND145",
+        "108 BLLĐ",
+        "18 ND12"
+      ],
+      "rag_latency_ms": 4272.919462993741,
+      "google_latency_ms": 4191.693310975097,
+      "rag_word_count": 51,
+      "google_word_count": 131,
+      "rag_char_count": 230,
+      "google_char_count": 886,
+      "rag_has_citation": true,
+      "google_has_citation": false
+    },
+    {
+      "test_id": "TC007",
+      "question": "Tuổi nghỉ hưu của nam giới hiện tại là bao nhiêu?",
+      "rag_answer": "Theo khoản 2 Điều 169 Bộ luật Lao động, tuổi nghỉ hưu của người lao động trong điều kiện lao động bình thường được điều chỉnh theo lộ trình cho đến khi đủ 62 tuổi đối với lao động nam vào năm 2028. Kể từ năm 2021, tuổi nghỉ hưu của người lao động trong điều kiện lao động bình thường là đủ 60 tuổi 03 tháng đối với lao động nam.",
+      "google_answer": "[Result 1] Tra cứu TUỔI NGHỈ HƯU và THỜI ĐIỂM NGHỈ HƯU\n(Chinhphu.vn) - Năm 2026, độ tuổi nghỉ hưu của người lao động nam sẽ là 61 tuổi 6 tháng, lao động nữ sẽ là 57 tuổi 8; năm 2027, độ tuổi nghỉ hưu của người ...\nhttps://xaydungchinhsach.chinhphu.vn/tra-cuu-tuoi-nghi-huu-thoi-diem-nghi-huu-cua-nguoi-lao-dong-theo-nam-sinh-119241029170451525.htm\n\n[Result 2] Quy định mới về tuổi nghỉ hưu\nKể từ ngày 01/01/2021, tuổi nghỉ hưu của người lao động trong điều kiện lao động bình thường là đủ 60 tuổi 03 tháng đối với lao động nam và đủ 55 tuổi 04 tháng ...\nhttps://mod.gov.vn/vn/chi-tiet/sa-ttsk/sa-tt-tn/4b3592ea-7675-4b4b-bb7c-c3a56bfdfa74\n\n[Result 3] Quy định tuổi nghỉ hưu năm 2025 của nam và nữ mới nhất\nKể từ năm 2021, tuổi nghỉ hưu của người lao động trong điều kiện lao động bình thường là đủ 60 tuổi 03 tháng đối với lao động nam và đủ 55 tuổi ...\nhttps://thuvienphapluat.vn/phap-luat/quy-dinh-tuoi-nghi-huu-nam-2024-cua-nam-va-nu-moi-nhat-theo-bo-luat-lao-dong-2019-nhu-the-nao-958397-171981.html",
+      "rag_sources": [
+        "169 BLLĐ",
+        "100 BHXH",
+        "68 BHXH",
+        "21 BHXH",
+        "66 BHXH",
+        "219 BLLĐ",
+        "64 BHXH"
+      ],
+      "rag_latency_ms": 4028.4087489708327,
+      "google_latency_ms": 4274.75623798091,
+      "rag_word_count": 72,
+      "google_word_count": 145,
+      "rag_char_count": 328,
+      "google_char_count": 1003,
+      "rag_has_citation": true,
+      "google_has_citation": true
+    },
+    {
+      "test_id": "TC008",
+      "question": "Tuổi nghỉ hưu của nữ giới hiện tại là bao nhiêu?",
+      "rag_answer": "",
+      "google_answer": "[Result 1] Tra cứu TUỔI NGHỈ HƯU và THỜI ĐIỂM NGHỈ HƯU\nNăm 2025, độ tuổi nghỉ hưu của người lao động nam sẽ là 61 tuổi 3 tháng, lao động nữ sẽ là 56 tuổi 8 tháng; năm 2026, độ tuổi nghỉ hưu của người lao động ...\nhttps://xaydungchinhsach.chinhphu.vn/tra-cuu-tuoi-nghi-huu-thoi-diem-nghi-huu-cua-nguoi-lao-dong-theo-nam-sinh-119241029170451525.htm\n\n[Result 2] Quy định tuổi nghỉ hưu năm 2025 của nam và nữ mới nhất\n- Tuổi nghỉ hưu của người lao động trong điều kiện lao động bình thường được điều chỉnh theo lộ trình cho đến khi đủ 62 tuổi đối với lao động ...\nhttps://thuvienphapluat.vn/phap-luat/quy-dinh-tuoi-nghi-huu-nam-2024-cua-nam-va-nu-moi-nhat-theo-bo-luat-lao-dong-2019-nhu-the-nao-958397-171981.html\n\n[Result 3] Quy định mới về tuổi nghỉ hưu\nKể từ ngày 01/01/2021, tuổi nghỉ hưu của người lao động trong điều kiện lao động bình thường là đủ 60 tuổi 03 tháng đối với lao động nam và đủ 55 tuổi 04 tháng ...\nhttps://mod.gov.vn/vn/chi-tiet/sa-ttsk/sa-tt-tn/4b3592ea-7675-4b4b-bb7c-c3a56bfdfa74",
+      "rag_sources": [],
+      "rag_latency_ms": 3410.410912008956,
+      "google_latency_ms": 2098.7873220001347,
+      "rag_word_count": 0,
+      "google_word_count": 144,
+      "rag_char_count": 0,
+      "google_char_count": 1000,
+      "rag_has_citation": false,
+      "google_has_citation": true
+    },
+    {
+      "test_id": "TC009",
+      "question": "Lương thử việc tối thiểu bằng bao nhiêu phần trăm lương chính thức?",
+      "rag_answer": "",
+      "google_answer": "[Result 1] Mức tiền lương thử việc tối thiểu mà công ty trả cho người ...\nNhư vậy, căn cứ quy định nêu trên, mức lương thử việc tối thiểu người lao động được nhận bằng 85% mức lương chính thức.\nhttps://thuvienphapluat.vn/lao-dong-tien-luong/muc-tien-luong-thu-viec-toi-thieu-ma-cong-ty-tra-cho-nguoi-lao-dong-la-bao-nhieu-32020.html\n\n[Result 2] Lương thử việc bao nhiêu? Tổng hợp các quy định mới nhất\nMức lương thử việc tối thiểu sẽ được xác định dựa trên mức lương tối thiểu vùng (mức lương thấp nhất mà Nhà nước quy định) để làm cơ sở cho ...\nhttps://www.topcv.vn/luong-thu-viec-bao-nhieu\n\n[Result 3] Cách Tính Lương Thử Việc: Quy Định, Công Thức & Mức ...\nTiền lương thử việc do hai bên thỏa thuận, nhưng tối thiểu phải bằng 85% lương chính thức của vị trí đó. Lương chính thức không được thấp hơn m ...\nhttps://easyhrm.vn/tin-tuc/cach-tinh-luong-thu-viec/",
+      "rag_sources": [],
+      "rag_latency_ms": 3058.680073998403,
+      "google_latency_ms": 1611.7962269927375,
+      "rag_word_count": 0,
+      "google_word_count": 135,
+      "rag_char_count": 0,
+      "google_char_count": 860,
+      "rag_has_citation": false,
+      "google_has_citation": false
+    },
+    {
+      "test_id": "TC010",
+      "question": "Người lao động phải báo trước bao nhiêu ngày khi nghỉ việc?",
+      "rag_answer": "",
+      "google_answer": "[Answer Box]\n2. Có phải làm đủ 45 ngày báo trước khi nghỉ việc? Bộ luật Lao động chỉ yêu cầu người lao động làm việc theo hợp đồng lao động không thời hạn phải báo trước ít nhất ngày 45 ngày.\n\n[Result 1] Thời gian báo trước khi xin nghỉ việc được tính theo ngày ...\na) Ít nhất 45 ngày nếu làm việc theo hợp đồng lao động không xác định thời hạn; b) Ít nhất 30 ngày nếu làm việc theo hợp đồng lao động xác định ...\nhttps://thuvienphapluat.vn/phap-luat/thoi-gian-bao-truoc-khi-xin-nghi-viec-duoc-tinh-theo-ngay-lam-viec-hay-ngay-binh-thuong-theo-lich-911415-67302.html\n\n[Result 2] Công ty cho nghỉ việc không báo trước: Người lao động ...\n- Ít nhất 30 ngày đối với hợp đồng lao động xác định thời hạn có thời hạn từ 12 tháng đến 36 tháng; - Ít nhất 03 ngày làm việc đối với hợp đồng ...\nhttps://baomoi.com/cong-ty-cho-nghi-viec-khong-bao-truoc-nguoi-lao-dong-can-biet-c47556223.epi\n\n[Result 3] Nghỉ việc báo trước 30 ngày, người lao động vẫn phạm luật?\nĐồng thời, phải báo cho người sử dụng lao động biết trước ít nhất 30 ngày. Điều này đồng nghĩa, muốn đơn phương chấm dứt hợp đồng, người lao động phải đảm bảo ...\nhttps://dtbd.hcmulaw.edu.vn/ban-tin-phap-luat/nghi-viec-bao-truoc-30-ngay-nguoi-lao-dong-van-pham-luat-108.html",
+      "rag_sources": [],
+      "rag_latency_ms": 2897.4057830055244,
+      "google_latency_ms": 6590.384118026122,
+      "rag_word_count": 0,
+      "google_word_count": 192,
+      "rag_char_count": 0,
+      "google_char_count": 1225,
+      "rag_has_citation": false,
+      "google_has_citation": true
+    }
+  ]
+}

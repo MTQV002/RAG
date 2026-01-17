@@ -1,12 +1,4 @@
-"""
-RAG v3 - Chainlit Frontend (Production SSE)
-===========================================
-Full-featured UI with:
-- SSE Streaming
-- Source citations with Metadata (Article, Clause, etc.)
-- Session Management & Memory Reset
-- Beautiful formatting
-"""
+
 import os
 import json
 import chainlit as cl
@@ -15,6 +7,22 @@ from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
+
+# def serialize_nodes(nodes):
+#     results = []
+#     for node in nodes:
+#         meta = node.get("metadata", {})
+#         results.append({
+#             "doc_name": meta.get("doc_name"),
+#             "short_name": meta.get("short_name"),
+#             "article_id": meta.get("article_id"),
+#             "article_title": meta.get("article_title"),
+#             "chapter": meta.get("chapter"),
+#             "effective_date": meta.get("effective_date"),
+#             "score": node.get("score"),
+#             "text": node.get("text")
+#         })
+#     return results
 
 # Configuration
 BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
@@ -27,16 +35,9 @@ async def start():
     cl.user_session.set("session_id", cl.user_session.get("id"))
     
     # 1. Welcome Message
-    welcome_msg = """# 🏛️ Hệ thống Tra cứu Luật Lao động (RAG v3)
-
-Xin chào! Tôi là trợ lý AI chuyên về **Bộ luật Lao động Việt Nam 2019**.
+    welcome_msg = """
+Xin chào! Tôi là trợ lý AI chuyên về **Pháp luật Lao động Việt Nam**.
 Tôi có thể giúp bạn trả lời các câu hỏi pháp lý dựa trên văn bản luật chính thức.
-
-### 💡 Gợi ý câu hỏi:
-- *Thời gian thử việc tối đa là bao lâu?*
-- *Người lao động được nghỉ bao nhiêu ngày phép năm?*
-- *Khi nào được đơn phương chấm dứt hợp đồng?*
-- *Tiền lương làm thêm giờ vào ngày nghỉ lễ tính thế nào?*
 
 *(Dữ liệu được trích xuất từ văn bản gốc, có dẫn chứng Điều/Khoản cụ thể)*
 """
@@ -52,6 +53,7 @@ async def main(message: cl.Message):
     msg = cl.Message(content="")
     await msg.send()
     
+    # final_answer = ""
     payload = {"content": message.content}
     
     # 2. Call Backend with httpx
@@ -61,7 +63,7 @@ async def main(message: cl.Message):
                 
                 if response.status_code != 200:
                     err_text = await response.aread()
-                    msg.content = f"❌ **Lỗi Server ({response.status_code}):**\n{err_text.decode()}"
+                    msg.content = f"**Lỗi Server ({response.status_code}):**\n{err_text.decode()}"
                     await msg.update()
                     return
 
@@ -86,12 +88,14 @@ async def main(message: cl.Message):
                         
                         # Handle Errors
                         if "error" in data:
-                            msg.content += f"\n\n⚠️ **Lỗi:** {data['error']}"
+                            msg.content += f"\n\n**Lỗi:** {data['error']}"
                             await msg.update()
                             continue
 
                         # A. Stream Text Token
                         if "token" in data:
+                            # token = data["token"]
+                            # final_answer += token
                             await msg.stream_token(data["token"])
                         
                         # B. Capture Metadata
@@ -109,46 +113,67 @@ async def main(message: cl.Message):
                     ref_names = []
                     
                     for idx, node in enumerate(source_nodes):
-                        # Extract metadata
+                        # Extract metadata (new schema)
                         meta = node.get("metadata", {})
                         score = node.get("score", 0)
                         
-                        # Format Title: "Điều 5, Khoản 1 (Chapter Title)"
-                        article_num = meta.get('article', '?')
-                        clause_num = meta.get('clause')
+                        # Get fields from new schema
+                        doc_name = meta.get('doc_name', 'Văn bản pháp luật')
+                        short_name = meta.get('short_name', '')
+                        article_id = meta.get('article_id', '?')
+                        article_title = meta.get('article_title', '')
+                        chapter = meta.get('chapter', '')
+                        effective_date = meta.get('effective_date', '')
                         
-                        ref_name = f"Điều {article_num}"
-                        if clause_num:
-                            ref_name += f", Khoản {clause_num}"
-                            
-                        # Format Content for the popup
-                        display_content = f"**{ref_name}**\n"
-                        if meta.get('article_title'):
-                            display_content += f"_{meta['article_title']}_\n"
-                        display_content += f"\n> {node.get('text', '')}"
+                        # Short display name: "Đ.80 BLLĐ" hoặc "Đ.5 NĐ145"
+                        display_short = short_name if short_name else doc_name[:15]
+                        ref_name = f"Đ.{article_id} {display_short}"
                         
-                        # Create Chainlit Text Element
+                        # Chỉ hiển thị nội dung gốc (đã có đầy đủ metadata)
+                        display_content = node.get('text', '')
+                        if effective_date:
+                            display_content += f"\n\n---\n*Hiệu lực: {effective_date}*"
+                        
+                        # Create Chainlit Text Element with SIDE display
                         elements.append(
                             cl.Text(
-                                name=f"Nguồn {idx+1}",
+                                name=ref_name,
                                 content=display_content,
-                                display="inline"
+                                display="side"  # Click để mở side panel
                             )
                         )
-                        ref_names.append(f"Nguồn {idx+1}")
+                        ref_names.append(ref_name)
                     
                     # Attach elements to message
                     msg.elements = elements
                     
-                    # Add footer text if it's a legal query
+                    # Add footer with clickable references
                     if intent == "LAW":
-                        ref_str = ", ".join(ref_names)
-                        await msg.stream_token(f"\n\n**🔍 Căn cứ pháp lý:** {ref_str}")
-                
+                        ref_links = " | ".join(ref_names)
+                        await msg.stream_token(f"\n\n---\n **Căn cứ pháp lý:** {ref_links}")
+                        
+                    from datetime import datetime
+                    import os
+
+                    # LOG_PATH = "logs/chat_outputs.jsonl"
+                    # os.makedirs("logs", exist_ok=True)
+
+                    # record = {
+                    #     "question": message.content,
+                    #     "model": "LLM+RAG",  # hoặc LLM-base
+                    #     "answer": final_answer.strip(),
+                    #     "intent": intent,
+                    #     "retrieved_nodes": serialize_nodes(source_nodes),
+                    #     "timestamp": datetime.utcnow().isoformat()
+                    # }
+
+                    # with open(LOG_PATH, "a", encoding="utf-8") as f:
+                    #     f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
                 await msg.update()
 
         except Exception as e:
-            msg.content = f"❌ **Lỗi kết nối:** {str(e)}"
+            msg.content = f"**Lỗi kết nối:** {str(e)}"
             await msg.update()
 
 
@@ -165,12 +190,12 @@ async def on_reset_memory(action: cl.Action):
             data = resp.json()
             
         if data.get("success"):
-            await cl.Message(content="🧹 **Đã xóa bộ nhớ hội thoại!**").send()
+            await cl.Message(content="**Đã xóa bộ nhớ hội thoại!**").send()
         else:
-            await cl.Message(content=f"❌ **Lỗi:** {data.get('message')}").send()
+            await cl.Message(content=f"**Lỗi:** {data.get('message')}").send()
             
     except Exception as e:
-        await cl.Message(content=f"❌ **Lỗi kết nối:** {str(e)}").send()
+        await cl.Message(content=f"**Lỗi kết nối:** {str(e)}").send()
 
 @cl.on_settings_update
 async def setup_agent(settings):

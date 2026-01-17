@@ -41,19 +41,27 @@ env/
 .env
 .env.local
 .env.*.local
+data/.env
+eval/.env
 
 # Chainlit
-.chainlit/.cache/
+.chainlit/
+frontend/.chainlit/
 .files/
 
-# Models cache
-models/
+# Models cache (HuggingFace)
+data/hf_cache/
 *.gguf
 *.bin
 
-# Data (except structure)
-data/*.pdf
-data/*.txt
+# Data files (keep JSON, ignore source docs)
+data/Law/*.docx
+data/ND/*.docx
+*.pdf
+
+# Generated figures (optional - comment out if want to track)
+# data/eda_figures/
+# eda_figures/
 
 # Logs
 logs/
@@ -73,3 +81,10 @@ htmlcov/
 
 # MyPy
 .mypy_cache/
+
+# Evaluation results (optional - comment out if want to track)
+# eval/results/
+
+# Temporary files
+*.tmp
+*.temp
