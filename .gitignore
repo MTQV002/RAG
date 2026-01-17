@@ -83,6 +83,10 @@ htmlcov/
 # Evaluation results (optional - comment out if want to track)
 # eval/results/
 
+# Analysis files (keep local only)
+eval/EVALUATION_REPORT.md
+eval/HARD_TEST_ANALYSIS.md
+
 # Temporary files
 *.tmp
 *.temp
