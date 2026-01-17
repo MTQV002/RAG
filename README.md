@@ -40,7 +40,7 @@ RAG/
 │   └── app.py                  # Chainlit UI
 │
 ├── eval/
-│   ├── test_case/              # 37 test cases
+│   ├── test_case/              # 35 test cases
 │   └── eval_*.py               # Scripts đánh giá
 │
 └── rag_architecture.png        # Sơ đồ kiến trúc

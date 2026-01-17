@@ -17,11 +17,11 @@ DENSE_MODEL_NAME = "AITeamVN/Vietnamese_Embedding"
 SPARSE_MODEL_NAME = "Qdrant/bm25"
 
 # ===== CHUNK SETTINGS =====
-CHUNK_SIZE = 5000 
+CHUNK_SIZE =  10000
 CHUNK_OVERLAP = 0  
 
-# ===== NEW COLLECTION NAME =====
-NEW_COLLECTION_NAME = "legal_decrees_vL"
+# ===== NEW COLLECTION NAME00000 =====
+NEW_COLLECTION_NAME = "legal_decrees_LBV"
 
 
 def load_data(json_path: str) -> List[Dict]:

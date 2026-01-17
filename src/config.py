@@ -50,7 +50,7 @@ class Settings(BaseSettings):
     MEMORY_TOKEN_LIMIT: int = 12000 
     
     # ===== Chunking Settings (for Ingestion) =====
-    CHUNK_SIZE: int = 5000
+    CHUNK_SIZE: int = 10000
     CHUNK_OVERLAP: int = 0
     
     # ===== Observability (Arize Phoenix) =====
