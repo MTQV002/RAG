@@ -54,9 +54,7 @@ data/hf_cache/
 *.gguf
 *.bin
 
-# Data files (keep JSON, ignore source docs)
-data/Law/*.docx
-data/ND/*.docx
+# Data files
 *.pdf
 
 # Generated figures (optional - comment out if want to track)
