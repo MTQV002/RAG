@@ -182,36 +182,6 @@
       "gemini_has_calculation": true,
       "rag_error": "",
       "gemini_error": ""
-    },
-    {
-      "test_id": "TC_HARD_007",
-      "category": "comparison_analysis",
-      "question": "So sánh quyền lợi khi nghỉ việc của 2 trường hợp: (A) Người lao động tự xin nghỉ việc sau 5 năm làm việc, và (B) Người lao động bị cho thôi việc do công ty cắt giảm nhân sự sau 5 năm làm việc. Giả sử cả hai đều đã đóng BHTN đủ 5 năm, lương 15 triệu/tháng. Hỏi: (1) Mỗi người được hưởng trợ cấp gì từ công ty? (2) Ai được hưởng trợ cấp thất nghiệp và bao nhiêu?",
-      "expected_articles": [
-        "Điều 34 BLLĐ",
-        "Điều 42 BLLĐ",
-        "Điều 46 BLLĐ",
-        "Điều 47 BLLĐ",
-        "Điều 49 VL"
-      ],
-      "rag_answer": "",
-      "rag_sources": [],
-      "rag_latency_ms": 4237.101427977905,
-      "rag_word_count": 0,
-      "gemini_answer": "",
-      "gemini_latency_ms": 0,
-      "gemini_word_count": 0,
-      "rag_article_hits": 0,
-      "rag_article_coverage": 0.0,
-      "gemini_article_hits": 0,
-      "gemini_article_coverage": 0.0,
-      "sub_question_count": 2,
-      "rag_sub_answered": 0,
-      "gemini_sub_answered": 0,
-      "rag_has_calculation": false,
-      "gemini_has_calculation": false,
-      "rag_error": "",
-      "gemini_error": "The model is overloaded. Please try again later."
     }
   ]
 }
