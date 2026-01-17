@@ -20,6 +20,8 @@ RAG/
 │   ├── ND/                     # Các file nghị định (.docx)
 │   ├── script/
 │   │   └── processing.py       # Script parse văn bản pháp luật
+|   |   └── ND293_process.py    # Script process phụ lục trong ND29
+|   |
 │   ├── legal_decrees.json      # Dataset sau xử lý (727 điều)
 │   └── ingest_to_qdrant.py     # Script ingest vào Qdrant
 │
